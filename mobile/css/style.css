@@ -4,6 +4,7 @@ h1,h2,h3,h4,h5,h6,i{font-style: normal;}
 a{text-decoration: none;cursor: pointer;color:inherit;}
 ul,ol{list-style: none;}
 .clearfix::after{content:'';display: block; clear:both;}
+.btn{cursor:pointer;}
 
 .page{}
 
@@ -11,11 +12,11 @@ ul,ol{list-style: none;}
 .topbar>.goBack{padding-left:.49rem;font-size:.58rem;margin-left:.26rem; background: url(../images/goBack.png) center/contain no-repeat;}
 .page>.wrapper{position:relative;}
 
-.wrapper>.left{float:left;height:6.40rem;margin-top:-0.10rem;background:#1F2226; padding-right:.01rem;padding-top:.07rem;}
+.wrapper>.left{float:left;height:6.40rem;margin-top:-0.10rem;background:#1F2226; padding-right:.01rem;padding-top:.07rem;position:relative;z-index:1;}
 .wrapper>.left>.plant_bean{border-radius:.15rem;width:2.08rem;height:.86rem;cursor: pointer; background: url(../images/plant_bean.png) center/contain no-repeat;}
 .wrapper>.left>.plant_bean:hover{background: url(../images/plant_bean_active.png) center/contain no-repeat;}
 
-.wrapper>.content{position:absolute;top:-0.14rem;width:10.83rem;z-index:-1; height:6.44rem;left:1.97rem;background:url(../images/background.jpg) center/cover no-repeat;}
+.wrapper>.content{position:absolute;top:-0.14rem;width:10.83rem;height:6.44rem;left:1.97rem;background:url(../images/background.jpg) center/cover no-repeat;}
 .content>.introduce{outline:1px solid red;}
 .content>.introduce>.rain{width:1.97rem;height:1.19rem;float:left;margin:.25rem 0 0 .35rem; background:url(../images/rain.png) center/contain no-repeat;}
 .rain>p{font-size: .25rem;line-height:.33rem;height:.33rem; margin:.13rem 0 0 .22rem; text-align:center;font-weight:bold;color:#fff;}
@@ -49,9 +50,25 @@ li>.progress_bar>.progress_bar_text{position:relative;z-index:1;font-size:.25rem
 .event>.gain>.gain_greater{background:url(../images/gain_greater.png) center/contain no-repeat;}
 
 .popover .close_button{border:1px solid blue;position:absolute;top:.05rem;right:.05rem;width:.68rem;height:.68rem;border-radius:50%;}
-.content>.popover{position:absolute;top:0;left:0;bottom:0;right:0;background:rgba(0,0,0,.5);}
+.content>.popover{display:none;position:absolute;top:0;left:0;bottom:0;right:0;background:rgba(0,0,0,.5);}
+.content>.popover.active{display:block;}
 .popover>li{display:none;position:relative;}
 .popover>li.active{display:block;}
 .popover>.no_seed{width:7.52rem;height:5.55rem;background:url(../images/no_seed.png) center/contain no-repeat;margin-left:1.94rem;margin-top:.15rem;}
 .no_seed>.pay_button{border:1px solid red;width:1.95rem;height:.58rem;position:absolute;bottom:.32rem;left:2.59rem;border-radius:.29rem;}
 
+.popover>.select_seed{width:7.52rem;height:5.31rem;background:url(../images/select_seed.png) center/contain no-repeat;margin-left:1.82rem;margin-top:.41rem;}
+.select_seed>.confirm_button{border:1px solid red;position:absolute;bottom:.49rem;left:2.62rem;width:2.02rem;height:.63rem;border-radius:.32rem;}
+.select_seed>.seed_box{padding-left:.36rem;padding-top:1.28rem;}
+.select_seed>.seed_box>li{width:1.89rem;height:2.65rem;float:left;margin-left:.19rem;position:relative;}
+.select_seed>.seed_box>.lower_seed_box{background:url('../images/lower_seed_yellow.png') center/contain no-repeat;}
+.select_seed>.seed_box>li.changeBG{pointer-events:none;}
+.select_seed>.seed_box>.lower_seed_box.changeBG{background-image:url(../images/lower_seed_grey.png)}
+.select_seed>.seed_box>.middle_seed_box{background:url('../images/middle_seed_yellow.png') center/contain no-repeat;margin-left:}
+.select_seed>.seed_box>.middle_seed_box.changeBG{background-image:url(../images/middle_seed_grey.png)}
+.select_seed>.seed_box>.greater_seed_box{background:url('../images/greater_seed_yellow.png') center/contain no-repeat;}
+.select_seed>.seed_box>.greater_seed_box.changeBG{background-image:url(../images/greater_seed_grey.png)}
+.select_seed>.seed_box>li>.box_shadow{width:1.86rem;height:2.16rem;margin-left:1px;margin-top:1px;border-radius:.22rem .20rem .18rem .18rem;}
+.select_seed>.seed_box>li.active>.box_shadow{box-shadow:0 0 0 .05rem #BEF658;}
+.select_seed>.seed_box>li>.seed_amount{display:inline-block;width:.90rem;height:.30rem;border-radius:.15rem;position:absolute;bottom:0;left:.49rem;text-align:center;color:white;font-size:.25rem;line-height:.30rem;}
+.select_seed>.seed_box>li>.seed_amount>i{display:inline-block;margin-right:.01rem;font-size:.20rem;position:relative;top:-0.02rem;}
