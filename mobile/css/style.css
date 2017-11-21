@@ -1,0 +1,31 @@
+*{padding:0; margin:0;box-sizing: border-box;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;}
+*::after,*::before{box-sizing: border-box;}
+h1,h2,h3,h4,h5,h6,i{font-style: normal;}
+a{text-decoration: none;cursor: pointer;color:inherit;}
+ul,ol{list-style: none;}
+.clearfix::after{content:'';display: block; clear:both;}
+
+.page{}
+
+.page>.topbar{height:.9rem;width:12.80rem;position: relative;z-index:99;background:url(../images/topbar.png) center/cover no-repeat;line-height:.8rem;}
+.topbar>.goBack{padding-left:.49rem;font-size:.58rem;margin-left:.26rem; background: url(../images/goBack.png) center/contain no-repeat;}
+.page>.wrapper{position:relative;}
+
+.wrapper>.left{float:left;height:6.40rem;margin-top:-0.10rem;background:#1F2226; padding-right:.01rem;padding-top:.07rem;}
+.wrapper>.left>.plant_bean{border-radius:.15rem;width:2.08rem;height:.86rem;cursor: pointer; background: url(../images/plant_bean.png) center/contain no-repeat;}
+.wrapper>.left>.plant_bean:hover{background: url(../images/plant_bean_active.png) center/contain no-repeat;}
+
+.wrapper>.content{position:absolute;top:-0.14rem;width:10.83rem;z-index:-1; height:6.44rem;left:1.97rem;background:url(../images/background.jpg) center/cover no-repeat;}
+.content>.introduce{outline:1px solid red;}
+.content>.introduce>.rain{width:1.97rem;height:1.19rem;float:left;margin:.25rem 0 0 .35rem; background:url(../images/rain.png) center/contain no-repeat;}
+.rain>p{font-size: .25rem;line-height:.33rem;height:.33rem; margin:.13rem 0 0 .22rem; text-align:center;font-weight:bold;color:#fff;}
+.content>.introduce>.title{width:4.23rem;height:1.17rem;float:left;margin:.15rem 0 0 .8rem; background:url(../images/title.png) center/contain no-repeat;}
+.content>.introduce>.rule{width:.92rem;height:1.40rem;float:right;margin:-0.25rem 1.72rem 0 0; background:url(../images/rule.png) center/contain no-repeat;}
+.introduce>.rule>.rule_button{display:inline-block;width:.92rem;height:.92rem;margin-top:.48rem;border-radius:50%;}
+    
+.conent>.event{}
+.event>.nothing{width:4.37rem; height:5.05rem;margin:-0.30rem 0 0 .65rem;background:url(../images/farmer_plant.png) center/contain no-repeat;position:relative;}
+.event>.nothing>.plant_button{border:1px solid red; width:2.13rem;height:.72rem;position:absolute;bottom:.05rem;left:.93rem;border-radius:.35rem;}
+
+.content>.popover{}
+.popover>.rule_detail{}
