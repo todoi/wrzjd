@@ -42,24 +42,74 @@
                    <div class="nothing">
                        <div class="plant_button"></div>
                    </div>
-                   <div class="watering"></div>
-                   <div class="gain"></div>
+                   <ul class="watering">
+                       <li class="farmer_water_lower">
+                           <div class="progress_bar">
+                               <div class="progress_bar_bg"></div>
+                               <span class="progress_bar_text">10000/<b>10000</b></span>
+                           </div>
+                           <div class="gain_button"></div>
+                       </li>
+                       <li class="farmer_water_middle">
+                           <div class="progress_bar">
+                               <div class="progress_bar_bg"></div>
+                               <span class="progress_bar_text">10000/<b>10000</b></span>
+                           </div>
+                           <div class="gain_button"></div>
+                       </li>
+                       <li class="farmer_water_greater active">
+                           <div class="progress_bar">
+                               <div class="progress_bar_bg"></div>
+                               <span class="progress_bar_text">10000/<b>10000</b></span>
+                           </div>
+                           <div class="gain_button"></div>
+                       </li>
+                   </ul>
+                   <ul class="gain">
+                       <li class="gain_lower active">
+                           <div class="progress_bar">
+                               <div class="progress_bar_bg"></div>
+                               <span class="progress_bar_text">10000/<b>10000</b></span>
+                           </div>
+                           <div class="gain_button"></div>
+                       </li>
+                       <li class="gain_middle">
+                           <div class="progress_bar">
+                               <div class="progress_bar_bg"></div>
+                               <span class="progress_bar_text">10000/<b>10000</b></span>
+                           </div>
+                           <div class="gain_button"></div>
+                       </li>
+                       <li class="gain_greater">
+                           <div class="progress_bar">
+                               <div class="progress_bar_bg"></div>
+                               <span class="progress_bar_text">10000/<b>10000</b></span>
+                           </div>
+                           <div class="gain_button"></div>
+                       </li>
+                   </ul>
                </div>
-               <div class="popover">
-                   <div class="no_seed"></div>
-                   <div class="select_seed"></div>
-                   <div class="select_fruit"></div>
-                   <div class="congratulate_bean"></div>
-                   <div class="congratulate_JD"></div>
-                   <div class="greater_success"></div>
-                   <div class="middle_success"></div>
-                   <div class="lower_success"></div>
-                   <div class="no_award"></div>
-                   <div class="rule_detail"></div>
-                   <div class="gain_history"></div>
-               </div>
+               <ul class="popover">
+                   <li class="no_seed active">
+
+                       <div class="close_button"></div>
+                       <div class="pay_button"></div>
+                   </li>
+                   <li class="select_seed"></li>
+                   <li class="select_fruit"></li>
+                   <li class="congratulate_bean"></li>
+                   <li class="congratulate_JD"></li>
+                   <li class="greater_success"></li>
+                   <li class="middle_success"></li>
+                   <li class="lower_success"></li>
+                   <li class="no_award"></li>
+                   <li class="rule_detail"></li>
+                   <li class="gain_history"></li>
+               </ul>
            </div>
        </div>
    </div> 
+   <script src="./vendors/jquery.min.js"></script>
+   <script src="./js/main.js"></script>
 </body>
 </html>
