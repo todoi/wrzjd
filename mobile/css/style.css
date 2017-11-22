@@ -16,8 +16,8 @@ ul,ol{list-style: none;}
 .wrapper>.left>.plant_bean{border-radius:.15rem;width:2.08rem;height:.86rem;cursor: pointer; background: url(../images/plant_bean.png) center/contain no-repeat;}
 .wrapper>.left>.plant_bean:hover{background: url(../images/plant_bean_active.png) center/contain no-repeat;}
 
-.wrapper>.content{position:absolute;top:-0.14rem;width:10.83rem;height:6.44rem;left:1.97rem;background:url(../images/background.jpg) center/cover no-repeat;}
-.content>.introduce{outline:1px solid red;}
+.wrapper>.content{position:absolute;z-index:0;top:-0.14rem;width:10.83rem;height:6.44rem;left:1.97rem;background:url(../images/background.jpg) center/cover no-repeat;}
+.content>.introduce{}
 .content>.introduce>.rain{width:1.97rem;height:1.19rem;float:left;margin:.25rem 0 0 .35rem; background:url(../images/rain.png) center/contain no-repeat;}
 .rain>p{font-size: .25rem;line-height:.33rem;height:.33rem; margin:.13rem 0 0 .22rem; text-align:center;font-weight:bold;color:#fff;}
 .content>.introduce>.title{width:4.23rem;height:1.17rem;float:left;margin:.15rem 0 0 .8rem; background:url(../images/title.png) center/contain no-repeat;}
@@ -25,22 +25,26 @@ ul,ol{list-style: none;}
 .introduce>.rule>.rule_button{display:inline-block;width:.92rem;height:.92rem;margin-top:.48rem;border-radius:50%;}
     
 .conent>.event{position:relative;}
-.event>.nothing{width:4.37rem; height:5.05rem;margin:-0.30rem 0 0 .65rem;background:url(../images/farmer_plant.png) center/contain no-repeat;position:relative;}
+.event>.nothing{display:none;width:4.37rem; height:5.05rem;margin:-0.30rem 0 0 .65rem;background:url(../images/farmer_plant.png) center/contain no-repeat;position:relative;}
+.event>.nothing.active{display:block;}
 .event>.nothing>.plant_button{border:1px solid red; width:2.13rem;height:.72rem;position:absolute;bottom:.05rem;left:.93rem;border-radius:.35rem;}
 
 li>.progress_bar{position:absolute;bottom:1.07rem;left:0.10rem;width:3.30rem;height:.26rem;text-align:center;line-height:.26rem;}
 li>.progress_bar>.progress_bar_bg{position:absolute;top:0;left:0;width:50%;height:100%;background:#FFEB19;border-radius:.14rem;}
 li>.progress_bar>.progress_bar_text{position:relative;z-index:1;font-size:.25rem;color:#2B8D35;}
 .event>.watering{display:none;position:absolute;bottom:0;left:.67rem;}
+.event>.watering.active{display:block;}
 .event>.watering>li>.progress_bar{position:absolute;bottom:1.07rem;left:0.10rem;}
 .event>.watering>li>.gain_button{border:1px solid red;position:absolute;bottom:.34rem;left:1.16rem;height:.54rem;width:1.60rem;border-radius:.27rem;}
-.event>.watering>li{outline:1px solid red;width:5.45rem;display:none;position:relative;}
+.event>.watering>li{width:5.45rem;display:none;position:relative;}
 .event>.watering>.active{display:block;}
 .event>.watering>.farmer_water_lower{height:4.31rem;background:url(../images/farmer_water_lower.png) center/contain no-repeat;}
 .event>.watering>.farmer_water_middle{height:4.61rem;background:url(../images/farmer_water_middle.png) center/contain no-repeat;}
 .event>.watering>.farmer_water_greater{height:4.12rem;background:url(../images/farmer_water_greater.png) center/contain no-repeat;}
 
+.gain .progress_bar>.progress_bar_bg{width:100%;}
 .event>.gain{display:none;position:absolute;z-index:-1;bottom:0;left:0;width:5.78rem;height:5.74rem;}
+.event>.gain.active{display:block;}
 .event>.gain>li{display:none;height:100%;width:100%;}
 .event>.gain>li.active{display:block;}
 .event>.gain>li>.progress_bar{position:absolute;bottom:1.07rem;left:0.77rem;}
@@ -52,7 +56,7 @@ li>.progress_bar>.progress_bar_text{position:relative;z-index:1;font-size:.25rem
 .popover .close_button{border:1px solid blue;position:absolute;top:.05rem;right:.05rem;width:.68rem;height:.68rem;border-radius:50%;}
 .content>.popover{display:none;position:absolute;top:0;left:0;bottom:0;right:0;background:rgba(0,0,0,.5);}
 .content>.popover.active{display:block;}
-.popover>li{display:none;position:relative;}
+.popover>li{display:none;position:relative;z-index:1;}
 .popover>li.active{display:block;}
 .popover>.no_seed{width:7.52rem;height:5.55rem;background:url(../images/no_seed.png) center/contain no-repeat;margin-left:1.94rem;margin-top:.15rem;}
 .no_seed>.pay_button{border:1px solid red;width:1.95rem;height:.58rem;position:absolute;bottom:.32rem;left:2.59rem;border-radius:.29rem;}
@@ -72,3 +76,27 @@ li>.progress_bar>.progress_bar_text{position:relative;z-index:1;font-size:.25rem
 .select_seed>.seed_box>li.active>.box_shadow{box-shadow:0 0 0 .05rem #BEF658;}
 .select_seed>.seed_box>li>.seed_amount{display:inline-block;width:.90rem;height:.30rem;border-radius:.15rem;position:absolute;bottom:0;left:.49rem;text-align:center;color:white;font-size:.25rem;line-height:.30rem;}
 .select_seed>.seed_box>li>.seed_amount>i{display:inline-block;margin-right:.01rem;font-size:.20rem;position:relative;top:-0.02rem;}
+
+.popover .congratulate_success{width:7.22rem;height:3.78rem;margin-left:1.92rem;margin-top:.75rem;}
+.congratulate_success>.close_button{top:.03rem;right:.03rem;}
+.congratulate_success>.confirm_button{border:1px solid red;position: absolute;bottom:.30rem;left:2.55rem;height:.58rem;width:1.95rem;border-radius:.29rem;}
+
+.congratulate_jindou{background:url(../images/congratulate_jindou.png) center/contain no-repeat;}
+.congratulate_JD{background:url(../images/congratulate_JD.png) center/contain no-repeat;}
+.success_greater{background:url(../images/success_greater.png) center/contain no-repeat;}
+.success_middle{background:url(../images/success_middle.png) center/contain no-repeat;}
+.success_lower{background:url(../images/success_lower.png) center/contain no-repeat;}
+
+.no_award.congratulate_success{outline:1px solid blue;background:url(../images/no_award.png) center/contain no-repeat;margin-left:2.01rem;}
+
+.no_award>.close_button{top:.03rem;right:.03rem;}
+.no_award>.confirm_button{left:1.27rem;}
+.no_award>.pay_button{border:1px solid red;position: absolute;bottom:.30rem;left:3.65rem;height:.58rem;width:1.95rem;border-radius:.29rem;}
+
+.popover>.select_award{width:7.42rem;height:4.79rem;background:url(../images/select_award.png) center/cover no-repeat;margin-left:1.83rem;margin-top:.50rem;}
+.select_award>.confirm_button{border:1px solid red;position: absolute;bottom:.50rem;left:2.50rem;height:.70rem;width:2.22rem;border-radius:.35rem;}
+.select_award>.award_box_shadow{height:1.34rem;width:3.99rem;position:absolute;top:1.36rem;left:1.60rem;}
+.select_award>.award_box_shadow>li{width:1.27rem;height:100%;border-radius:.18rem;}
+.select_award>.award_box_shadow>li.active{box-shadow:0 0 0 0.05rem #BEF658;}
+.select_award>.award_box_shadow>.JD_card_shadow{float:left;}
+.select_award>.award_box_shadow>.jindou_shadow{float:right;}
