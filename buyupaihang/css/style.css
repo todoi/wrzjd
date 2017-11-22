@@ -1,0 +1,41 @@
+@charset "utf-8";
+*{padding:0; margin:0; box-sizing: border-box; -webkit-tap-highlight-color: transparent;}
+*::after,*::before{box-sizing: border-box;}
+body{font-family: "Microsoft Yahei"; color: #fff;}
+body,html{overflow: hidden; border: 0; border: none;}
+img{vertical-align: middle;}
+a{cursor: pointer; color: inherit; text-decoration: none;}
+a:hover,a:focus{ outline: none;}
+ul,ol{list-style: none;}
+h1,h2,h3,h4,h5,h6,em,i{ font-style: normal;}
+
+.text-center{text-align: center;}
+.text-indent{text-indent: 2em;}
+.pull-left{float: left;}
+.pull-right{float: right;}
+.relative{position: relative;}
+.clearfix::after{content: '';display: block; height:0; font-size:0; clear: both; visibility: hidden; *zoom: 1;}
+.Yahei{font-family: "Microsoft Yahei";}
+
+.text-yellow{ color:#ba390c ;}
+.text-yellow1{color:#ffea34;}
+.text-green{ color:#22ac38;}
+.text-blue{ color:#3366cc;}
+.text-white1{ color:#ffc1b3;}
+.text-red{ color:#fec1c1;}
+.text-red1{ color:#660700;}
+.text-orange { color:#b94c02;font-weight: bold;}
+.text-white{ color:#fff;}
+.text-underline{ text-decoration:underline;}
+
+.font16{ font-size:0.16rem;}
+.font18{ font-size:0.18rem;}
+.font24{ font-size:0.24rem;} 
+.font60{ font-size:0.60rem;}
+.font48{ font-size:0.48rem;} 
+.font36{ font-size:0.36rem;}
+.font20{ font-size:0.20rem;}
+/*public*/
+
+.wrap{}
+.left{}
