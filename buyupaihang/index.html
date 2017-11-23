@@ -15,8 +15,7 @@
             var width = document.documentElement.clientWidth
             width = width > 1280 ? 1280 : width
             var fontSize = width / 1280 * 100
-            console.log(document.documentElement)
-            document.getElementByTagNames('html')[0].style.fontSize = fontSize  + 'px'
+            document.getElementsByTagName('html')[0].style.fontSize = fontSize  + 'px'
         }
         setFontSize()
         window.onresize = setFontSize
@@ -25,17 +24,36 @@
 <body>
     <div class="wrap">
         <!-- 左边导航 -->
-        <div class="left Yahei">
+        <div class="left Yahei pull-left">
             <div class="navBox">
                 <a href="sangong.html"><span class="icon_01"></span>挑战赢红包</a>
-                <a href="chongzhi.html"><span class="icon_01"></span>捕鱼排行榜</a>
-                <a href="chongzhi.html"><span class="icon_01"></span>充值送红包</a>
+                <a href="chongzhi.html"><span class="icon_02"></span>捕鱼排行榜</a>
+                <a href="chongzhi.html"><span class="icon_03"></span>充值送红包</a>
             </div>
         </div>
         <!-- 左边end -->
 
         <!-- 右边 -->
         <div class="right">
+            <div class="rightMain">
+                <div class="buyu_01"></div>
+                <div class="buyu_02">
+                    <div class="b_name">猎杀对象：大白鲨<span></span></div>
+                    <div class="b_timer">日期: 2017-6-19</div>
+                    <div class="paihang">
+                        <div class="paihang_title"><span>名次</span><span>昵称</span><span>鲨鱼得分</span><span>奖励</span></div>
+                        <ul class="paihang-main">
+                            <li> <span><img src="../images/icon_06.png" alt=""></span> <span>飞速爱玩捕鱼</span> <span>20780000</span> <span><img src="" alt="">+500万</span> </li>
+                            <li> <span><img src="../images/icon_07.png" alt=""></span> <span>飞速爱玩捕鱼</span> <span>20780000</span> <span><img src="" alt="">+500万</span> </li>
+                            <li> <span><img src="../images/icon_08.png" alt=""></span> <span>飞速爱玩捕鱼</span> <span>20780000</span> <span><img src="" alt="">+500万</span> </li>
+                            <li> <span>4</span> <span>飞速爱玩捕鱼</span> <span>20780000</span> <span><img src="" alt="">+500万</span> </li>
+                            <li> <span>5</span> <span>飞速爱玩捕鱼</span> <span>20780000</span> <span><img src="" alt="">+500万</span> </li>
+                        </ul>
+                        <div class="my-paihang"><img src="../images/icon_04.png" alt="" class="icon_04">我的得分：<span class="text-orange score">11880000</span> <img src="../images/icon_05.png" alt="" class="icon_5"> 我的排名：<span class="text-orange paiming">118</span></div>
+                    </div>
+                    <div class="buyu-btn"></div>
+                </div>
+            </div>
         </div>
     </div>
 </body>

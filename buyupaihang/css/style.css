@@ -30,12 +30,52 @@ h1,h2,h3,h4,h5,h6,em,i{ font-style: normal;}
 
 .font16{ font-size:0.16rem;}
 .font18{ font-size:0.18rem;}
-.font24{ font-size:0.24rem;} 
+.font20{ font-size:0.20rem;}
+.font26{ font-size:0.26rem;}
 .font60{ font-size:0.60rem;}
 .font48{ font-size:0.48rem;} 
 .font36{ font-size:0.36rem;}
-.font20{ font-size:0.20rem;}
 /*public*/
 
-.wrap{}
-.left{}
+.wrap{background: #d54134; overflow: hidden; width: 12.80rem; position: relative;}
+.left{height: 6.40rem; width: 2.08rem; background: #1d1d1f;}
+
+.navBox{ position: relative; z-index:8; padding-top: 0.1rem;}
+.navBox a{display: block; font-size: .26rem; color: #812104; font-weight: 500;width:2.08rem; height: .86rem; line-height: .80rem; margin-bottom: .04rem; background: url(../images/nav_bg.gif) center/contain no-repeat;}
+.navBox a span{outline: 1px solid white; display: inline-block; width: .27rem; height: .27rem; margin-left: .08rem; margin-right: .02rem; vertical-align: middle;}
+
+.navBox .icon_01{background: url(../images/icon_01.png) 0 0/100% 100% no-repeat;}
+.navBox .icon_02{background: url(../images/icon_02.png) 0 0/100% 100% no-repeat;}
+.navBox .icon_03{background: url(../images/icon_03.png) 0 0/100% 100% no-repeat;}
+
+.right{font-size: .20rem; color: #fefefe; width: 10.72rem; float: right; height: 6.40rem; position:relative; }
+.right .rightMain{width:100%; height:100%;}
+.rightMain .buyu_01{height: .89rem; width: 100%; background: url(../images/buyu01.jpg) center/cover no-repeat;}
+.rightMain .buyu_02{height: 5.51rem; width: 100%; background: url(../images/buyu02.jpg) center/cover no-repeat; position: relative; overflow:hidden; }
+
+.buyu_02 .b_name{margin-left: .8rem; float: left; margin-top: .12rem; position: relative;}
+.buyu_02 .b_name span{display: inline-block; height: .25rem; width: .52rem; background: url(../images/shayu.png) center/contain no-repeat; vertical-align: middle;}
+.buyu_02 .b_timer{margin-top: .12rem; margin-left: 3.20rem;}
+.buyu_02 .buyu-btn{position: absolute; width: 2.40rem; height: .70rem; left: 1.62rem; bottom: .3rem; cursor: pointer;}
+
+.paihang{margin-left: .5rem; width: 4.63rem; padding-top: .05rem;}
+.paihang_title{width: 100%; height: .38rem; line-height: .38rem; color: #793604; font-weight: 600; text-align: center;margin-top:.2rem;}
+.paihang_title span{display:inline-block; height: .38rem; text-align: center;}
+.paihang_title span:nth-child(1){width: .65rem;}
+.paihang_title span:nth-child(2){width: 1.4rem;}
+.paihang_title span:nth-child(3){width: .9rem;}
+.paihang_title span:nth-child(4){width: 1.3rem;}
+
+.paihang-main{height: 3.06rem; overflow-x:hidden; overflow-y: auto; width: 4.67rem; background: #a5a7ac; font-size: .18rem; color: #793604; border-radius: .08rem;}
+.paihang-main li{overflow:hidden; width: 4.63rem; margin-left: .02rem; margin-bottom: .03rem; margin-top: .04rem; height: .54rem; line-height: .54rem; background: url(../images/li_bg.png) center/100% 100% no-repeat;}
+.paihang-main li span{height: .52rem; display: block; float: left; font-size: .18rem; line-height: .52rem; overflow: hidden; text-align:center; }
+.paihang-main li span:nth-child(1){width: .8rem;}
+.paihang-main li span:nth-child(1) img{margin-top: .05rem; width: .45rem; height: .39rem;}
+.paihang-main li span:nth-child(2){width: 1.4rem;}
+.paihang-main li span:nth-child(3){width: .9rem;}
+.paihang-main li span:nth-child(4){width: 1.3rem; color: #b94c02; padding-left: .15rem; font-weight: 900;}
+.paihang-main li span:nth-child(4) img{width: .21rem; height: .22rem; font-weight: 600;}
+
+.my-paihang{padding-left:.1rem; width: 4.57rem; height: .3rem; line-height: .3rem; background: #d3dcd0; border-radius: .08rem; font-size: .16rem; color: #786539;}
+.my-paihang .score{width: 1rem; display: inline-block;}
+.my-paihang img{vertical-align: middle; width: .25rem; height: .17rem;}
