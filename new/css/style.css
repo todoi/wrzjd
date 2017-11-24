@@ -51,10 +51,20 @@ h1,h2,h3,h4,h5,h6,em,i{ font-style: normal;}
 .right{width: 10.72rem; float: right; height: 6.40rem; position:relative;}
 .right .rightMain{width: 100%; height: 100%;}
 .right .zhongshu{background: url(../images/zhongshu-bg.jpg) center/100% 100% no-repeat;}
-.rightMain .zhongshu-rain{width:1.50rem; height: .33rem; font-size: .25rem; line-height: .33rem;position:absolute; top: .33rem; left: .58rem; text-align: center; font-weight: bold; color: #fff;}
-.rightMain .zhongshu-rule{width: .92rem; height: .92rem; position: absolute;top: .18rem; right: 1.72rem; border-radius: 50%;}
+.rightMain .zhongshu-rain{position: relative; z-index: 99; width:1.97rem;height:1.19rem;float:left;margin:.25rem 0 0 .35rem; background:url(../images/zhongshu-rain.png) center/contain no-repeat;}
+.rightMain .zhongshu-rain p{font-size: .25rem;line-height:.33rem;height:.33rem; margin:.11rem 0 0 .22rem; text-align:center;font-weight:500;color:#fff;}
+/* .rightMain .zhongshu-rain{width:1.50rem; height: .33rem; font-size: .25rem; line-height: .33rem;position:absolute; top: .33rem; left: .58rem; text-align: center; font-weight: bold; color: #fff;} */
+.rightMain .rule-btn{width: .92rem; height: .92rem; position: absolute;top: .18rem; right: 1.72rem; border-radius: 50%;}
 
-.zhongshu-action{position: relative; }
+.zhongshu-action{position: relative; width: 100%; height: 100%;}
 .zhongshu-action li{display: none;}
 .zhongshu-action li.active{display: block;}
-.zhongshu-action .nothing{outline: 1px solid red; width: 4.37rem; height: 5.05rem;}
+.zhongshu-action .nothing{width: 4.37rem; height: 4.15rem; background: url(../images/nothing-bg.png) center/100% 100% no-repeat; position: absolute; left: .53rem; bottom: .26rem;}
+.zhongshu-action .nothing .plant{width:2.13rem;height:.72rem;position:absolute;bottom:.05rem;left:.93rem;border-radius:.35rem;}
+
+.water{width: 100%; height: 100%; position: relative;}
+.water li{display: none;}
+.water li.active{display: block;}
+.water .w-putong{position: absolute; width: 5.13rem; height: 4.31rem; left: 1.09rem; bottom: 0; background: url(../images/w-putong.png) center/ 100% 100% no-repeat;}
+.water .w-youzhi{position: absolute; width: 4.84rem; height: 4.61rem; left: 1.09rem; bottom: 0; background: url(../images/w-youzhi.png) center/ 100% 100% no-repeat;}
+.water .w-dingji{position: absolute; width: 5.06rem; height: 4.12rem; left: 1.09rem; bottom: 0; background: url(../images/w-dingji.png) center/ 100% 100% no-repeat;}
