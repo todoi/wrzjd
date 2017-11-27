@@ -143,6 +143,10 @@ h1,h2,h3,h4,h5,h6,em,i{ font-style: normal;}
 .achieveBox .confirm_btn{display: inline-block; vertical-align: middle; width:2.32rem; height: .79rem; background: url(../images/btn_confirmBig.png) center/contain no-repeat;}
 .cardBox a div.selected{box-shadow: inset 0 0 0 0.05rem #BEF658; border-radius: .22rem .20rem .18rem .18rem;}
 
-.titleBox .dia_header{margin-top: -0.2rem;}
-.award_douziBox{width: 6.89rem; height: 3.52rem;background: url(../images/award_bg.png) center/contain no-repeat;}
+.titleBox{top: .99rem; right: 2.04rem;}
+.titleBox .dia_header{margin-top: -0.18rem;}
 .dia_header>img{width: 1.41rem; height: .47rem; vertical-align: middle;}
+.titleBox .award_content{outline: 1px solid blue; text-align: center; color: #b34602; font-size: .26rem;height: 1.76rem; line-height: 1.76rem;}
+
+.award_douziBox{width: 6.89rem; height: 3.52rem;background: url(../images/award_bg.png) center/contain no-repeat;}
+.award_douziBox .award_content img{outline: 1px solid red; width: .98rem; height: .92rem; position: relative; top: -0.1rem;}
