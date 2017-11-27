@@ -44,24 +44,139 @@
                     <li class="nothing">
                         <div class="btn plant-btn"></div>
                     </li>
-                    <li class="water active">
-                        <ul>
-                            <li class="w-putong"></li>
-                            <li class="w-youzhi active"></li>
-                            <li class="w-dingji"></li>
+                    <li class="water">
+                        <ul class="style1">
+                            <li class="tree1 active"> </li>
+                            <li class="tree2"> </li>
+                            <li class="tree3"> </li>
                         </ul>
+                        <ul class="style2 active">
+                            <li class="tree1"> </li>
+                            <li class="tree2"> </li>
+                            <li class="tree3 active"> </li>
+                        </ul>
+                        <div class="bar">
+                            <div class="bar_yellow"></div>
+                            <span class="bar_text"><i class="live">5000</i>/<b>10000</b></span>
+                        </div>
+                        <span class="btn btn_getGray"></span>
                     </li>
-                    <li class="gain"></li>
+                    <li class="gain active">
+                        <ul>
+                            <li class="tree1"></li>
+                            <li class="tree2"></li>
+                            <li class="tree3 active"></li>
+                        </ul>
+                        <div class="bar">
+                            <div class="bar_yellow"></div>
+                            <span class="bar_text"><i class="live">10000</i>/<b>10000</b></span>
+                        </div>
+                        <span class="btn btn_getGray"></span>
+                    </li>
                 </ul>
-                <div class="zhongshu-history"></div>
+                <div class="zhongshu-history">
+                    <ul class="seed-number">
+                        <li class="tree1">x999</li>
+                        <li class="tree2">x999</li>
+                        <li class="tree3">x999</li>
+                    </ul>
+                    <span class="btn btn_history"></span>
+                    <span class="btn btn_chongzhi"></span>
+                </div>
             </div>
         </div>
         <div class="bg"></div>
 
         <!-- 弹窗 -->
-        <div class="diaBoxSmall">
-
+        <!-- 没有种子 -->
+        <div class="diaBox noSeedBox">
+            <div class="dia_header Yahei">
+                <h3>您当前没有种子</h3>
+                <a class="btn dia_close pop_close"></a>
+            </div>
+            <div class="dia_body">
+                <div class="seedBox">
+                    <a class="seed1">
+                        <div></div>
+                        <span class="number">x0</span>
+                    </a>
+                    <a class="seed2">
+                        <div></div>
+                        <span class="number">x0</span>
+                    </a>
+                    <a class="seed3">
+                        <div></div>
+                        <span class="number">x0</span>
+                    </a>
+                </div>
+                <p>种子品质越好收获的奖励越高; 充值金额越高种子品质越好</p>
+                <a class="btn chongzhi"></a>
+            </div>
         </div>
+
+        <!-- 请选择种子 -->
+        <div class="diaBox selectBox">
+            <div class="dia_header Yahei">
+                <h3>请选择种子播种</h3>
+                <a class="btn dia_close pop_close"></a>
+            </div>
+            <div class="dia_body">
+                <div class="seedBox">
+                    <a class="seed1 active">
+                        <div class="selected"></div>
+                        <span class="number">x100</span>
+                    </a>
+                    <a class="seed2">
+                        <div class=""></div>
+                        <span class="number">x0</span>
+                    </a>
+                    <a class="seed3 active">
+                        <div class=""></div>
+                        <span class="number">x999</span>
+                    </a>
+                </div>
+                <a class="btn confirm_btn"></a>
+            </div>
+        </div>
+
+        <!-- 选择果实 -->
+        <div class="diaBox achieveBox">
+            <div class="dia_header Yahei">
+                <h3>请选择收获的果实</h3>
+                <a class="btn dia_close pop_close"></a>
+            </div>
+            <div class="dia_body">
+                <div class="cardBox">
+                    <a class="jdcard">
+                        <div class="selected"></div>
+                        <span class="text">10元京东卡</span>
+                    </a>
+                    <span>或</span> 
+                    <a class="douzicard">
+                        <div class=""></div>
+                        <span class="text">金豆x10</span>
+                    </a>
+                </div>
+                <a class="btn confirm_btn"></a>
+            </div>
+        </div>
+
+        <!-- 恭喜您-金豆 -->
+        <div class="diaBox award_douziBox titleBox">
+            <div class="dia_header Yahei">
+                <img src="images/title_award.png" alt="">
+                <a class="btn dia_close pop_close"></a>
+            </div>
+            <div class="dia_body">
+                <div class="award_content">
+                    <img src="images/douzi.png" alt="">
+                    收获10个金豆
+                </div>
+                <p>可在<img src="images/icon_award.png" alt="">处查看并使用</p>
+                <a class="btn confirm_btn"></a>
+            </div>
+        </div>
+
     </div>
 </body>
 </html>

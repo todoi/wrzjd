@@ -51,20 +51,98 @@ h1,h2,h3,h4,h5,h6,em,i{ font-style: normal;}
 .right{width: 10.72rem; float: right; height: 6.40rem; position:relative;}
 .right .rightMain{width: 100%; height: 100%;}
 .right .zhongshu{background: url(../images/zhongshu-bg.jpg) center/100% 100% no-repeat;}
-.rightMain .zhongshu-rain{position: relative; z-index: 99; width:1.97rem;height:1.19rem;float:left;margin:.25rem 0 0 .35rem; background:url(../images/zhongshu-rain.png) center/contain no-repeat;}
+.rightMain .zhongshu-rain{position: relative; z-index: 99; width:1.97rem;height:1.19rem;float:left;margin:.21rem 0 0 .22rem; background:url(../images/zhongshu-rain.png) center/contain no-repeat;}
 .rightMain .zhongshu-rain p{font-size: .25rem;line-height:.33rem;height:.33rem; margin:.11rem 0 0 .22rem; text-align:center;font-weight:500;color:#fff;}
 /* .rightMain .zhongshu-rain{width:1.50rem; height: .33rem; font-size: .25rem; line-height: .33rem;position:absolute; top: .33rem; left: .58rem; text-align: center; font-weight: bold; color: #fff;} */
 .rightMain .rule-btn{width: .92rem; height: .92rem; position: absolute;top: .18rem; right: 1.72rem; border-radius: 50%;}
 
-.zhongshu-action{position: relative; width: 100%; height: 100%;}
-.zhongshu-action li{display: none;}
-.zhongshu-action li.active{display: block;}
+.zhongshu-action{position: absolute; width: 100%; height: 78%; bottom: 0; left: 0;}
+.zhongshu-action>li{display: none;}
+.zhongshu-action>li.active{display: block;}
 .zhongshu-action .nothing{width: 4.37rem; height: 4.15rem; background: url(../images/nothing-bg.png) center/100% 100% no-repeat; position: absolute; left: .53rem; bottom: .26rem;}
-.zhongshu-action .nothing .plant{width:2.13rem;height:.72rem;position:absolute;bottom:.05rem;left:.93rem;border-radius:.35rem;}
+.zhongshu-action .nothing .plant-btn{width:2.13rem;height:.72rem;position:absolute;bottom:.05rem;left:.93rem;border-radius:.35rem;}
 
 .water{width: 100%; height: 100%; position: relative;}
-.water li{display: none;}
-.water li.active{display: block;}
-.water .w-putong{position: absolute; width: 5.13rem; height: 4.31rem; left: 1.09rem; bottom: 0; background: url(../images/w-putong.png) center/ 100% 100% no-repeat;}
-.water .w-youzhi{position: absolute; width: 4.84rem; height: 4.61rem; left: 1.09rem; bottom: 0; background: url(../images/w-youzhi.png) center/ 100% 100% no-repeat;}
-.water .w-dingji{position: absolute; width: 5.06rem; height: 4.12rem; left: 1.09rem; bottom: 0; background: url(../images/w-dingji.png) center/ 100% 100% no-repeat;}
+.water ul{display: none;}
+.water ul.active{display: block;}
+.water ul li{display: none;}
+.water ul li.active{display: block;}
+
+.water .style1{width:5.03rem; height: 4.07rem; position: absolute; bottom: 0; left: .98rem;}
+.water .style1 .tree1{width: 100%; height: 100%; background: url(../images/tree1-style1.png) center/contain no-repeat;}
+.water .style1 .tree2{width: 100%; height: 100%; background: url(../images/tree2-style1.png) center/contain no-repeat;}
+.water .style1 .tree3{width: 100%; height: 100%; background: url(../images/tree3-style1.png) center/contain no-repeat;}
+
+.water .style2{width:5.13rem; height: 4.61rem; position: absolute; bottom: 0; left: .88rem;}
+.water .style2 .tree1{width: 100%; height: 100%; background: url(../images/tree1-style2.png) center/contain no-repeat;}
+.water .style2 .tree2{width: 100%; height: 100%; background: url(../images/tree2-style2.png) center/contain no-repeat;}
+.water .style2 .tree3{width: 100%; height: 100%; background: url(../images/tree3-style2.png) center/contain no-repeat;}
+
+.bar{position:absolute;width:3.51rem; height: .46rem; bottom:.96rem; left: .56rem; text-align:center; line-height: .46rem; background: url(../images/bar_bg.png) center/contain no-repeat;}
+/* 进度条满格是3.31rem */
+.bar .bar_yellow{position:absolute;top:0;left:.1rem; height: .26rem; width: 1.65rem; top: 50%; margin-top: -.13rem; background:#FFEB19;border-radius:.14rem;}
+.bar .bar_text{position:relative;z-index:1;font-size:.25rem;color:#2B8D35;}
+.btn_getGray{position:absolute; bottom:.29rem; left: 1.66rem; height:.65rem;width:1.72rem;border-radius:.27rem; background: url(../images/btn_getGray.png) center/cover no-repeat;}
+
+.gain{position: absolute; bottom: 0; left:.22rem;}
+.gain li{display: none; width:5.43rem; height:5.74rem;}
+.gain li.active{display: block;}
+.gain .tree1{background: url(../images/tree1-style3.png) center/cover no-repeat;}
+.gain .tree2{background: url(../images/tree2-style3.png) center/cover no-repeat;}
+.gain .tree3{background: url(../images/tree3-style3.png) center/cover no-repeat;}
+.gain .btn_getGray{background:url(../images/btn_get.png) center / cover no-repeat; left: 1.22rem;}
+.gain .bar{left:.34rem;}
+.gain .bar_yellow{width: 3.31rem;}
+
+.zhongshu-history{width:5.23rem; height: 4.97rem;position: absolute; right: .38rem; bottom: .25rem;background: url(../images/zhongshu-history.png) center / cover no-repeat; }
+.zhongshu-history .seed-number{overflow: hidden;padding:1.32rem 0.58rem 0; }
+.zhongshu-history .seed-number li{float: left; margin: 0 0.3rem;width: .75rem; height: .2rem; line-height: .18rem; font-size: .15rem; text-align: center;}
+.zhongshu-history .seed-number li:nth-child(2){margin-left: .32rem;}
+.zhongshu-history .btn_history{position: absolute; top: .96rem; right:0; width: .46rem; height: 1.48rem;}
+.zhongshu-history .btn_chongzhi{position: absolute; bottom: .1rem; left: 1.65rem; width:1.95rem; height: .76rem;}
+
+.bg{width: 100%; position:absolute; height:100%; left: 0; top: 0; z-index: 99; background:#000; opacity: .5; filter: alpha(opacity = 50);}
+.diaBox{font-size: .2rem;position:absolute;z-index:100;}
+.diaBox .dia_header{text-align: center;}
+.diaBox .dia_close{display:block; position:absolute; top:-0.18rem; right:-0.18rem; width:0.78rem; height:0.78rem; background:url(../images/dia_close.png) no-repeat 0 0;background-size: 100% 100%; -webkit-background-size: 100% 100%;}
+.diaBox h3{ font-size: 0.36rem;margin-top:.32rem; margin-bottom: .18rem;color: #a14327; line-height: 0.5rem; text-align: center; font-weight: normal; }
+.dia_body p{color: #A14206; text-align: center; font-size: .18rem;}
+
+.seedBox{text-align: center;}
+.seedBox a{display: inline-block; vertical-align: middle; text-align: center;width: 1.89rem;margin-left: .06rem; margin-right: .07rem;}
+.seedBox .number{display: inline-block;vertical-align: middle; width: .91rem; height: .3rem; line-height: .3rem; margin-top: .09rem; background: url(../images/seedNumber_GrayBg.png) center/cover no-repeat;}
+.seedBox a div{width: 1.89rem; height: 2.2rem;}
+
+.seedBox a.active .number{ background: url(../images/seedNumber_bg.png) center/cover no-repeat;}
+.seedBox .seed1 div{background: url(../images/seed1_gray.png) center/contain no-repeat}
+.seedBox .seed2 div{background: url(../images/seed2_gray.png) center/contain no-repeat}
+.seedBox .seed3 div{background: url(../images/seed3_gray.png) center/contain no-repeat}
+.seedBox .seed1.active div{background: url(../images/seed1.png) center/contain no-repeat}
+.seedBox .seed2.active div{background: url(../images/seed2.png) center/contain no-repeat}
+.seedBox .seed3.active div{background: url(../images/seed3.png) center/contain no-repeat}
+.seedBox a div.selected{box-shadow: inset 0 0 0 0.05rem #BEF658; border-radius: .22rem .20rem .18rem .18rem;}
+
+.noSeedBox{display: none;top: .38rem; width:7.2rem; height: 5.24rem;right: 1.75rem; background: url(../images/noSeed_bg.png) center/cover no-repeat;}
+.noSeedBox .seedBox{margin-bottom: .36rem;}
+.noSeedBox .chongzhi{display: inline-block; width: 2.01rem; height: .65rem; margin-left: 2.56rem;margin-top: .12rem; background: url(../images/chongzhi.png) center/cover no-repeat;}
+
+.selectBox{display: none; width: 7.2rem; height: 5.06rem; top:.62rem; right: 1.82rem; background: url(../images/select_bg.png) center/cover no-repeat;}
+.selectBox .seedBox{margin-bottom: .2rem;}
+.selectBox .dia_body{text-align: center;}
+.selectBox .confirm_btn{display: inline-block;vertical-align: middle; width: 2.12rem; height: .73rem; background: url(../images/btn_confirmMid.png) center/contain no-repeat;}
+
+.achieveBox{display: none; width: 7.2rem; height: 4.51rem; top: .74rem; right: 1.8rem;  text-align: center; background: url(../images/achieve.png) center /contain no-repeat;}
+.achieveBox .cardBox{text-align: center; margin: 0 0.61rem 0.27rem; padding: 0.06rem 0 0.19rem; border-bottom: 1px dashed #E5B89C;}
+.achieveBox .cardBox>span{ font-size: 0.36rem;color: #a14327; line-height: 0.5rem; text-align: center;}
+.achieveBox .cardBox a{display: inline-block; vertical-align: middle; text-align: center;}
+.achieveBox .jdcard{margin-right: .46rem;}
+.achieveBox .douzicard{margin-left: .46rem;}
+.achieveBox .jdcard div{height: 1.38rem; width: 1.31rem; background: url(../images/jdcard.png) center/contain no-repeat;}
+.achieveBox .douzicard div{height: 1.38rem; width: 1.31rem; background: url(../images/douzicard.png) center/contain no-repeat;}
+.achieveBox .text{display: inline-block; width: 100%; font-size: .22rem; height: .3rem; line-height: .3rem; margin-top: .06rem; color: #753309;}
+.achieveBox .confirm_btn{display: inline-block; vertical-align: middle; width:2.32rem; height: .79rem; background: url(../images/btn_confirmBig.png) center/contain no-repeat;}
+.cardBox a div.selected{box-shadow: inset 0 0 0 0.05rem #BEF658; border-radius: .22rem .20rem .18rem .18rem;}
+
+.titleBox .dia_header{margin-top: -0.2rem;}
+.award_douziBox{width: 6.89rem; height: 3.52rem;background: url(../images/award_bg.png) center/contain no-repeat;}
+.dia_header>img{width: 1.41rem; height: .47rem; vertical-align: middle;}
