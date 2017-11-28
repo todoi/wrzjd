@@ -403,7 +403,6 @@
             var $a = $(this).addClass('selected').closest('a')
             $a.siblings().find('div').removeClass('selected')
             cardIndex = $a.index()
-            console.log(cardIndex)
         })
         
         //弹出 恭喜获得果实
@@ -428,7 +427,7 @@
             var live = 0
             var width = document.documentElement.clientWidth;  
             width = width > 1280 ? 1280: width;  
-            var ratio = 1280/width
+            var ratio = width/1280
             var clock = window.setInterval(function(){
                 live +=500
                 $('.bar .live').text(live)
