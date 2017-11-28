@@ -196,8 +196,8 @@ h1,h2,h3,h4,h5,h6,em,i{ font-style: normal;}
 .historyBox .dia_header{margin-top: -0.18rem;}
 .historyBox .dia_header>img{width: 1.84rem; height: .47rem; vertical-align: middle;}
 .history_tb{width: 6.82rem; margin: 0 auto; line-height: .43rem; margin-top: .5rem; font-size: .24rem; border-collapse: collapse;}
-.history_tb th:nth-child(1){width: 23%;}
-.history_tb th:nth-child(3){width: 20%;}
+.history_tb th:nth-child(1){width: 25%;}
+.history_tb th:nth-child(3){width: 25%;}
 .history_tb td{height: .43rem;}
 .history_tb tbody{color: #753309;}
 .history_tb td span{font-size: .16rem;line-height: .2rem; display: block; color:#F03415;}
