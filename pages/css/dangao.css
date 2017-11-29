@@ -89,7 +89,7 @@ em, i{ font-style:normal;}
 .chuang_1 .btn_group1 .btn_grtJl{background: url(../images/dangao/btn_grtJl.png) center/contain no-repeat;}
 .chuang_1 .btn_group1 .btn_getMore{ background: url(../images/dangao/btn_getMore.png) center/contain no-repeat;}
 
-.bg {position: absolute; width: 100%; height: 100%; left: 0; top: 0; z-index: 99; background: #000; opacity: 0.5; filter: alpha(opacity = 50);}
+.bg {display: none;position: absolute; width: 100%; height: 100%; left: 0; top: 0; z-index: 99; background: #000; opacity: 0.5; filter: alpha(opacity = 50);}
 .diaBox{width:8.06rem; height: 5.1rem; position:absolute; top:10px; left:50%; margin-left: -4.03rem; z-index:100;  background:url(../images/open/bg.png) no-repeat 0 0;background-size: 100% 100%; -webkit-background-size: 100% 100%;}
 .diaBox .dia_header{ width:100%; height: 0.6rem; text-align: center;margin-top: -0.26rem; }
 .diaBox .dia_header img{ width:2.5rem; height: 0.6rem;}
@@ -111,7 +111,7 @@ em, i{ font-style:normal;}
 .pages .page_num{margin-right: 0.5rem;}
 .pages .page_num1{margin-right: 0.5rem;}
 
-.ruleBox{width: 6.84rem; height: 3.91rem; background: url(../images/dangao/duobaoBg.png) center/contain no-repeat;}
+.ruleBox{display: none;width: 6.84rem; height: 3.91rem; background: url(../images/dangao/duobaoBg.png) center/contain no-repeat;}
 .ruleBox .dia_header img{width:1.99rem; height:.58rem;}
 .rules p{font-size: .2rem; color:#7a1a00; padding: .2rem .5rem; line-height:.35rem;}
 
