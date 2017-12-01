@@ -1,0 +1,52 @@
+@charset "urt-8";
+*{padding: 0; margin: 0;}
+ul,ol{list-style: none;}
+a{cursor: pointer;color: inherit; text-decoration: none;}
+a:hover, a:focus{outline: none;}
+img{vertical-align: middle;}
+h1,h2,h3,h4,h5,h6,i{font-style:normal;}
+.clearfix::after{content: ''; display:block; clear: both;}
+.clearfix{*zoom: 1;}
+.Yahei{font-family: "Microsoft Yahei";}
+
+.warp{font-size: .2rem; background: #d54134; position: relative; overflow: hidden; width:12.8rem;}
+.left{width:2.08rem; float: left; height: 6.4rem; background:#1d1d1f;}
+
+.navBox{padding-top: .1rem;}
+.navBox a.active{background: url(../images/open/nav_bgOn.gif) center/contain no-repeat;}
+.navBox a{margin-bottom:.04rem; display: inline-block; line-height:.8rem; font-size: .26rem; color:#812104; width: 2.08rem; height: .86rem; background: url(../images/open/nav_bg.gif) 0 0 no-repeat; background-size:100% 100%;}
+.navBox span{display: inline-block; margin:0 0.02rem 0 0.08rem; width: .27rem; height: .27rem; vertical-align:middle;} 
+.navBox span.nav_icon{background: url(../images/icon_zhua.png) center/contain no-repeat;}
+.navBox span.icon_02{background: url(../images/icon_02.png) center/contain no-repeat;}
+
+.right{position: relative; float: left; width: 10.72rem; height: 6.4rem; }
+.rightMain{width: 100%; height: 6.4rem;}
+
+.hongbao_01{position: relative; width: 100%; height:.63rem; background: url(../images/hongbao/hongbao_01.jpg) center/contain no-repeat;}
+.hongbao_01 .sangong_rol{}
+.hongbao_01 .sangong_rol1{}
+.hongbao_01 .sangong_rol1 li{float: left; color: #EBEAE9; height: .44rem; line-height: .44rem; margin-left: .1rem;}
+.hongbao_01 .sangong_rol1 span{color: #e1b746;}
+
+.hongbao_02{overflow: hidden; position: relative; width: 100%; height:4.08rem; background: url(../images/hongbao/hongbao_02.jpg) center/contain no-repeat;}
+.hongbao_02 .btn_zhuazi{display: inline-block; position: absolute; top: -2.4rem; left:50%; margin-left: -0.57rem; width: 1.15rem; height:4.3rem; background: url(../images/hongbao/btn_zhua.png) center/contain no-repeat;}
+.hongbao_02 .hongbao_list{overflow: hidden;position: absolute; top: 2.05rem; left: .66rem; width: 9.4rem; height: 1.4rem; padding-top: .42rem;}
+.hongbao_list ul{ height: 1.4rem; }
+.hongbao_list li{float: left; width: 1.5rem; height: 1.4rem; text-align: center;}
+.hongbao_list li img{width: 1rem; height: 1.4rem; vertical-align: middle;}
+
+.hongbao_03{position: relative; color:#fff; width: 100%; height: 1.69rem; background: url(../images/hongbao/hongbao_03.jpg) center/contain no-repeat;}
+.hongbao_03 .btn_jilu{position: absolute; top: .3rem; left: 1.6rem; width: .82rem; height: .9rem; transform: skew(-30deg, 0deg);}
+.hongbao_03 .btn_rule{position: absolute; top: .3rem; left: 4.5rem; width: .82rem; height: .9rem; transform: rotateX(-20deg);}
+.hongbao_03 .btn_zhua{position: absolute; bottom:-.08rem; right: 2rem; width: 2.15rem; height: 2.15rem; border-radius: 50%; transform: rotateX(60deg)}
+.hongbao_03 .number{position: absolute; bottom: .75rem; left: 3.9rem; font-size: .36rem;}
+.hongbao_03 p{position: absolute; bottom: .1rem; left: .25rem; font-size:.26rem;}
+
+.bg{position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #000; opacity: .5; z-index: 99;}
+
+.diaBoxSmall{z-index: 100; width: 7.48rem; height: 3.72rem; position: absolute; top: 1.36rem; right: 2.68rem; background: url(../images/open/bg_small.png) center/contain no-repeat;}
+.dia_header{text-align: center; margin-top: -0.30rem;}
+.dia_header img{width: 2.5rem; height: .6rem;}
+.dia_header .pop_close{position: absolute; top: -0.18rem; right:-0.18rem; width: .56rem; height: .56rem; background: url(../images/open/dia_close.png) center/contain no-repeat;}
+
+.ruleBox .dia_body p{width: 6.24rem; margin: 0 auto; margin-top: .6rem; line-height: .4rem; font-size: .24rem; color: #b34602;}
