@@ -1,0 +1,70 @@
+.duobao_01{position: relative;height:5.78rem;;background: url(../images/duobao/duobao_01.jpg) center/contain no-repeat;}
+.duobao_02{position: relative;height:.62rem;;background: url(../images/duobao/duobao_02.gif) center/contain no-repeat;}
+
+.btn_rule{position: absolute; width:.6rem; height: 1.7rem;right: 0; top: .85rem;}
+.btn_jiangli{position: absolute; width:.6rem; height: 1.7rem;right: 0; top: 2.82rem;}
+.btn_tou{z-index: 1;box-sizing: border-box;position: absolute; width:2.17rem; height: .95rem; line-height: .90rem; font-weight: 600; right: 1.62rem; bottom: .45rem; font-size: .26rem; padding-left:1.4rem; background: url(../images/duobao/btn_tou.png) center/contain no-repeat;}
+.tips{position: absolute; bottom: .18rem; right: 1.5rem; text-align: center; color: #fff2d7; width: 2.26rem; height: .26rem; line-height: .26rem; font-size: .16rem; }
+.shaizi_bg{width: 1.11rem; height:1.16rem; position:absolute; top:3.36rem; right:2.1rem; background: url(../images/duobao/shaizi_bg.gif) center/contain no-repeat;}
+.shaizi_bg i{display: inline-block; vertical-align: middle; width: 1rem; height: 1rem; margin-top:.09rem; margin-left: .08rem; background: url(../images/duobao/1.png) center/contain no-repeat;}
+
+.jiangliList{position: absolute; width:8.8rem; height:5.6rem; margin-left: .64rem;}
+.jiangbg_00{position: absolute;width:.88rem; height:1.28rem; background: url(../images/duobao/jiangli_00.png) center/contain no-repeat;}
+.jiangbg_01{position: absolute;width: .68rem; height:.69rem; background: url(../images/duobao/jiangli_01.png) center/contain no-repeat;}
+.jiangbg_02{position: absolute;width: .69rem; height: .8rem; background: url(../images/duobao/jiangli_02.png) center/contain no-repeat;}
+.jiangbg_03{position: absolute;width:.7rem; height:.71rem; background: url(../images/duobao/jiangli_03.png) center/contain no-repeat;}
+.jiangbg_04{position: absolute;width: 1.42rem; height: 1.23rem; background: url(../images/duobao/jiangli_04.png) center/contain no-repeat;}
+.jiangbg_05{position: absolute;width: 1.76rem; height: 1.97rem; background: url(../images/duobao/jiangli_05.png) center/contain no-repeat;}
+.jiangbg_06{position: absolute;width: 1.4rem; height: 1.4rem;background: url(../images/duobao/jiangli_06.png) center/contain no-repeat;}
+.jiangbg_07{position: absolute;width: 1.5rem; height: 1.25rem;background: url(../images/duobao/jiangli_07.png) center/contain no-repeat;}
+
+.jiangliList li.active{z-index: 1;}
+.jiangliList li span{display: none;width: .65rem; height:.81rem; position: absolute; background: url(../images/duobao/icon_biao.png) center/contain no-repeat;}
+.jiangliList li.active span{display: block;}
+
+.jiangbg_00 span{bottom:.8rem; left: .1rem;}
+.jiangbg_01 span{bottom:.35rem; left: .03rem;}
+.jiangbg_02 span{bottom:.35rem; left: .03rem;}
+.jiangbg_03 span{bottom:.35rem; left: .03rem;}
+.jiangbg_04 span{bottom: .6rem; left:.4rem;}
+.jiangbg_05 span{bottom: 1.5rem; left: .6rem;}
+.jiangbg_06 span{bottom: .75rem; left: .45rem;}
+.jiangbg_07 span{bottom: .6rem; left: .5rem;}
+
+.jiangli_1{bottom: .25rem; right: 2.7rem; }
+.jiangli_2{bottom: .15rem; right: 3.65rem;}
+.jiangli_3{bottom: .16rem; right: 4.42rem;}
+.jiangli_4{bottom: .12rem; right: 5.25rem;}
+.jiangli_5{bottom: .16rem; right:6rem;}
+.jiangli_6{bottom: .19rem; right:6.7rem;}
+.jiangli_7{bottom: .32rem; right:7.4rem;}
+.jiangli_8{bottom: .93rem; left:.28rem;}
+.jiangli_9{bottom: 1.6rem; left:.28rem;}
+.jiangli_10{bottom: 2.3rem; left:0;}
+.jiangli_11{bottom: 3.4rem; left:.68rem;}
+.jiangli_12{bottom: 4rem; left:1.13rem;}
+.jiangli_13{bottom: 4.2rem; left: 1.83rem;}
+.jiangli_14{bottom: 4.25rem; left: 2.6rem;}
+.jiangli_15{bottom: 4.15rem; left: 3.5rem;}
+.jiangli_16{bottom: 4.15rem; left: 4.3rem;}
+.jiangli_17{bottom: 4.3rem; left: 5.2rem;}
+.jiangli_18{bottom: 4.3rem; left: 6rem;}
+.jiangli_19{bottom: 3.9rem; left: 6.55rem;}
+.jiangli_20{bottom: 3.65rem; left: 7.9rem;}
+.jiangli_21{bottom: 3.05rem; left: 8.1rem;}
+.jiangli_22{bottom: 2.4rem; left: 7.8rem;}
+.jiangli_23{bottom: 2.35rem; left: 7.1rem;}
+.jiangli_24{bottom: 2.15rem; left: 6.45rem;}
+.jiangli_25{bottom: 1.6rem; left: 6rem;}
+.jiangli_26{bottom: 1.5rem; left: 5.3rem;}
+.jiangli_27{bottom: 1.5rem; left: 4.5rem;}
+.jiangli_28{bottom: 1.2rem; left: 3rem;}
+.jiangli_29{bottom: 1.5rem; left: 2.4rem;}
+.jiangli_30{bottom: 1.8rem; left: 1.6rem;}
+.jiangli_31{bottom: 2.5rem; left: 2rem;}
+.jiangli_32{bottom: 2.7rem; left: 3.2rem;}
+.jiangli_33{bottom: 2.3rem; left: 4.2rem;}
+
+.sangong_rol{position: absolute; width:100%; height: .44rem; bottom: 0; left: 0; overflow: hidden; color: #ebeae9;}
+.sangong_rol1 li{float: left; height: .44rem; line-height: .44rem; margin-left: .1rem;}
+.sangong_rol1 li span{color: #E1A720;}
