@@ -1,0 +1,64 @@
+@charset "utf-8";
+body, div, a, span, img, ol, ul, li, input, p, a, h4, h3, select { padding: 0; margin: 0; }
+*{ margin:0; padding:0; -webkit-tap-highlight-color: transparent; font-family:"Microsoft Yahei";}
+body { font-family: "Microsoft Yahei"; color:#fff;}
+body, html{ overflow:hidden; border:0; border:none; }
+html{overflow:hidden;}
+img { vertical-align: middle; border: 0 none; }
+a{ cursor: pointer;color: #fff; text-decoration: none;}
+a:hover,a:focus{  outline: none; }
+i{ font-style: normal;}
+ul, li { list-style: none; }
+ol{ padding-left:25px;}
+ol li{ list-style: decimal;}
+em, i{ font-style:normal;}
+.text-center { text-align:center; }
+.text-indent{text-indent: 2em;}
+.pull-left { float: left; }
+.pull-right { float: right; }
+.relative { position: relative; }
+.clearfix:after { content: "."; display: block; height: 0; font-size: 0; clear: both; visibility: hidden; }
+.clearfix { *zoom: 1; }
+.Yahei{font-family: "Microsoft Yahei";}
+.text-yellow{ color:#ba390c ;}
+.text-yellow1{color:#ffea34;}
+.text-green{ color:#22ac38;}
+.text-blue{ color:#3366cc;}
+.text-white1{ color:#ffc1b3;}
+.text-red{ color:#fec1c1;}
+.text-red1{ color:#660700;}
+.text-orange { color:#b94c02;font-weight: bold;}
+.text-white{ color:#fff;}
+.text-underline{ text-decoration:underline;}
+.font16{ font-size:0.16rem;}
+.font18{ font-size:0.18rem;}
+.font24{ font-size:0.24rem;} 
+
+.font60{ font-size:0.60rem;}
+.font48{ font-size:0.48rem;} 
+.font36{ font-size:0.36rem;}
+.font20{ font-size:0.20rem;}
+/*public*/ 
+.warp{font-size: .2rem;overflow: hidden; width:12.8rem; background-color:#d54134; position:relative; }
+.left{ float:left; width:2.08rem; height:6.4rem; background:#1d1d1f;}
+
+.navBox{  position: relative; z-index: 8;padding-top:0.1rem; }
+.navBox a{ display:block; font-size:0.26rem; font-weight:500; line-height:0.8rem; color: #812104; width:2.08rem; height:0.86rem;background:url(../images/nav_bg.gif) no-repeat 0 0;background-size: 100% 100%; -webkit-background-size: 100% 100%;margin-bottom: 4px; }
+.navBox a span{ display: inline-block; width:0.27rem; height: 0.27rem;margin-left:0.08rem; margin-right: 0.02rem; vertical-align: middle;  }
+
+.navBox a .icon_01{background:url(../images/icon_01.png) no-repeat 0 0; background-size: 100% 100%; -webkit-background-size: 100% 100%;}
+.navBox a .icon_02{background:url(../images/icon_02.png) no-repeat 0 0; background-size: 100% 100%; -webkit-background-size: 100% 100%;}
+.navBox a.active{background:url(../images/nav_bgOn.gif) no-repeat 0 0;background-size: 100% 100%; -webkit-background-size: 100% 100%;margin-bottom: 4px;}
+
+.right{position: relative;float: left; width:10.72rem; height: 6.4rem;}
+.right .rightMain{width:10.72rem;height: 6.4rem;}
+
+.buyu_01{width: 100%; height: .89rem; background:url(../images/buyu/buyu01.jpg) center/cover no-repeat; }
+.buyu_02{overflow: hidden;width: 100%; height: 5.51rem; background:url(../images/buyu/buyu02.jpg) center/cover no-repeat; }
+
+.b_name{float: left; margin-left: .8rem; margin-top:.12rem; font-size:.2rem;}
+.b_name span{display: inline-block; position: relative; left: -0.05rem; top: -0.03rem;width: .52rem; height: .25rem; vertical-align:middle; background: url(../images/shayu.png) center/contain no-repeat;}
+.b_timer{margin-left: .32rem; margin-top: .12rem;}
+
+.paihang{outline: 1px solid blue; width: 4.63rem; margin-left: .5rem; padding-top:.05rem;}
+.paihang_title{outline: 1px solid red; width: 100%; }
