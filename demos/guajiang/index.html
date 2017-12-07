@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,body{ height: 90%; text-align: center;}
+        #btn_fresh, .drawPercent{ margin-top: 20px; }
+        #latteryContainer{ outline: 1px solid red; width: 300px; height: 150px; margin: 0 auto; margin-top: 20px;}
+        #drawPercent{ color: #F60; }
+    </style>
+</head>
+<body>
+    <button id="btn_fresh">刷新</button> <label for="">刮开 <span class="drawPercent">0%</span> 区域。</label> 
+    <div id="latteryContainer"></div>
+    <script>
+        function Lattery(id,cover,coverType,width,height,drawPercentCallback){
+            this.containerId = id //容器的id
+            this.container = document.getElementById(this.containerId) //容器元素
+            this.cover = cover || '#ccc'  //覆盖颜色
+            this.coverType = coverType || 'color' //覆盖的类型为 color 或者 image
+            this.width = width || 300 //canvas 的宽度
+            this.height = height || 150 //canvas 的高度
+            this.back = null  //内层的canvas
+            this.backContext = null  //内层的canvas context
+            this.mask = null  // 外层的canvas
+            this.maskContext = null //外层的 canvas context
+            this.backContent = null  //内层canvas 的内容
+            this.backContentType = 'image'  //内层内容的类型 text 或者 image
+            this.drawPercentCallback = drawPercentCallback
+            this.clientRect = null  //mask 的getBoundingRect() 的值
+        }
+
+        Lattery.prototype = {
+            //创建一个 dom 节点
+            createElement: function(tagName, attributes){
+                var node = document.createElement(tagName)
+                for(var key in attributes){
+                    node.setAttribute(key, attributes[key])
+                }
+                return node
+            },
+
+            //重置 canvas 的宽高
+            resizeCanvas: function(canvas, width, height){
+                canvas.getContent('2d').clearRect(0, 0, canvas.width, canvas.height)
+                canvas.width = width
+                canvas.height = height
+            },
+
+            //取得透明的区域的百分比
+            getTransparentPercent: function(){
+                var _this = this
+                var mask = _this.mask
+                var context = _this.maskContext
+                var pixelArr = context.getImageData(0, 0, mask.width, mask.height).data()
+                var transparent = []
+                for(var i = 0, j=pixelArr.length; i<j; i+=4){
+                    var a = pixelArr[i+3] 
+                    if( a < 128){
+                        transparent.push(i)
+                    }
+                }
+                return (transparent.length / (pixelArr.length / 4) * 100 ).toFixed(2, 10) + '%'
+            },
+
+            //画一个点
+            drawPoint: function(x, y){
+                var doc = document.documentElement
+                var _this = this
+                var mask = _this.mask
+                var context = _this.maskContext
+                context.beginPath()
+                var radial = context.createRadialGradient(x, y, 0, x, y, 30)
+                radial.addColorStop(0, 'rgba(0, 0, 0, 0.6)')
+                radial.addColorStop(1, 'rgba(255,255,255,0)')
+                context.fillStyle = radial
+                context.arc(x, y, 30, 0, Math.PI*2, true)
+                context.fill()
+                //改变了 transparent 的比例
+                if(drawPercentCallback){
+                    this.drawPercentCallback.call(null, this.getTransparentPercent())
+                }
+            },
+
+            //绑定事件
+            bindEvent: function(){
+                var _this = this
+                var device = (/android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(window.navigator.userAgent.toLowerCase()))
+                var clickEventName = device ? 'touchstart' : 'mousedown';
+                var moveEventName = device ? 'touchmove' : 'mousemove';
+                var mask = _this.mask
+                var context = _this.maskContext
+                //如果是pc 端的，初始化鼠标按下为 false ，释放鼠标时重置为 false
+                if(!device){
+                    var isMouseDown = false;
+                    document.addEventListener('mouseup', function(){
+                        isMouseDown = false
+                    })
+                }
+                mask.addEventListener(clickEventName, function(event){
+                    //鼠标按下
+                    e.stopPropagation()
+                    isMouseDown = device ? false : true;
+                    var pointEvent = device ? event.touch[0] : event
+                    var clientRect = mask.getBoundingRect()
+                    var x = pointEvent.clientX - clientRect.left
+                    var y = pointEvent.clientY - clientRect.top
+                    _this.drawPoint(x,y)
+                })
+                mask.addEventListener(moveEventName, function(event){
+                    //如果是PC 端，而且鼠标是没按下过的，那么就不要去画点
+                    if(!device && !isMouseDown){
+                        return false
+                    }
+                    var pointEvent = device ? event.touch[0] : event
+                    var clientRect = mask.getBoundingRect()
+                    var x = pointEvent.clientX - clientRect.left
+                    var y = pointEvent.clientY - clientRect.top
+                    _this.drawPoint(x, y)
+                })
+            },
+
+            //创建两个canvas，并绑定事件
+            drawLattery: function(){
+                this.back = this.back || document.createElement('canvas',{style: 'position: absolute; left: 0; top: 0;'})
+                this.mask = this.mask || document.createElement('canvas',{style: 'position: absolute; left: 0; top: 0;'})
+                if(!this.container.innerHTML.replace(/[\w\W]| /,'')){
+                   this.container.appendChild(this.back) 
+                   this.container.appendChild(this.mask) 
+                   this.bindEvent()
+                }
+                this.backContext = this.back.getContext('2d')
+                this.maskContext = this.mask.getContext('2d')
+
+                if (this.backContentType === 'iamge'){
+                    var image = new Image()
+                    var _this = this //_this 是lattery 实例对象
+                    image.onload = function(){ //this 是function 中的image
+                        _this.width = this.width
+                        _this.hegiht = this.height
+                        _this.resizeCanvas(_this.back, this.width, this.height)
+                        _this.drawback()
+                        _this.backContext.drawImage(this, 0, 0)
+                        _this.drawMask()
+                    }
+                    image.src = this.backContent
+                }else if(this.backContentType === 'text'){
+                    this.resizeCanvas(this.back, this.width, this.height)
+                    this.backContext.save()
+                    this.backContext.fillStyle = '#fff'
+                    this.fillRect(0, 0, this.width, this.height)
+                    this.restore()
+                    this.backContext.save()
+                    var fontSize = 30
+                    this.backContext.font = 'Bold' + fontSize + 'px Arial'
+                    this.backContext.textAlign = 'center'
+                    this.backContext.fillStyle = '#f60'
+                    this.backContext.fillText(this.backContent, this.width/2, this.height/2 + fontSize/2)
+                    this.backContext.restore()
+                    this.drawMask()
+                }
+            },
+
+            drawMask: function(){
+                this.resizeCanvas(this.mask, this.width, this.height)
+                if (this.coverType === 'image'){
+                    var image = new Image(), _this = this
+                    image.onload = function(){
+                        _this.maskContext.drawImage(this, 0, 0)
+                        _this.maskContext.globalCompositeOperation = 'destination-out'
+                    }
+                    image.src = cover
+                }else if(this.coverType === 'color'){
+                    this.maskContext.fillStyle = this.cover
+                    this.maskContext.fillRect(0,0,this.width, this.height)
+                    this.maskContext.globalCompositeOperation = 'destination-out'
+                }
+            },
+
+            init: function(backContent, backContentType){
+                this.backContent = backContent
+                this.backContentType = backContentType || 'image'
+                this.drawLattery()
+            }
+        }
+
+        window.onload = function(){
+            var lattery = new Lattery('container', "#ccc", 'color', 300, 150, drawPercent)
+            lattery.init('http://www.baidu.com/img/bdlogo.gif', 'image')
+
+            var btn_refresh = document.getElementById('btn_refresh')
+            btn_refresh.onclick = function(){
+                drawPercent.innerHTML = '0%'
+                lattery.init(getRandomStr(6), 'text')
+            }
+
+            function drawPercent(percent){
+                drawPercent.innerHTML =  percent
+            }
+        }
+
+        function getRandomStr(len){
+            var text = ""
+            var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            for(var i=0; i<len; i++){
+                text += possible.charAt(Math.floor(Math.random()*possible.length))
+            }
+            return text
+        }
+    </script>
+</body>
+</html>

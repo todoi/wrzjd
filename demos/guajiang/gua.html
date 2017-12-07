@@ -7,7 +7,7 @@
     <title>Document</title>
     <style>
         html,body{
-            height:80%;
+            height:120%;
         }
         #lotteryContainer {
             position:relative;
@@ -96,27 +96,31 @@
                     document.addEventListener('mouseup', function(e) {
                         isMouseDown = false;
                     }, false);
-                } else {
-                    document.addEventListener("touchmove", function(e) {
-                        if (isMouseDown) {
-                            e.preventDefault();
-                        }
-                    }, false);
-                    document.addEventListener('touchend', function(e) {
-                        isMouseDown = false;
-                    }, false);
-                }
+                } 
+                // else {
+                //     document.addEventListener("touchmove", function(e) {
+                //         if (isMouseDown) {
+                //             e.preventDefault();
+                //         }
+                //     }, false);
+                //     document.addEventListener('touchend', function(e) {
+                //         isMouseDown = false;
+                //     }, false);
+                // }
                 this.mask.addEventListener(clickEvtName, function (e) {
                     isMouseDown = true;
-                    var docEle = document.documentElement;
-                    if (!_this.clientRect) {
-                        _this.clientRect = {
-                            left: 0,
-                            top:0
-                        };
-                    }
-                    var x = (device ? e.touches[0].clientX : e.clientX) - _this.clientRect.left + docEle.scrollLeft - docEle.clientLeft;
-                    var y = (device ? e.touches[0].clientY : e.clientY) - _this.clientRect.top + docEle.scrollTop - docEle.clientTop;
+                    // var docEle = document.documentElement;
+                    // if (!_this.clientRect) {
+                    //     _this.clientRect = {
+                    //         left: 0,
+                    //         top:0
+                    //     };
+                    // }
+                    // var x = (device ? e.touches[0].clientX : e.clientX) - _this.clientRect.left + docEle.scrollLeft - docEle.clientLeft;
+                    // var y = (device ? e.touches[0].clientY : e.clientY) - _this.clientRect.top + docEle.scrollTop - docEle.clientTop;
+                    var clientRect = _this.mask.getBoundingClientRect()
+                    var x = (device ? e.touches[0].clientX : e.clientX) - clientRect.left;
+                    var y = (device ? e.touches[0].clientY : e.clientY) - clientRect.top ;
                     _this.drawPoint(x, y);
                 }, false);
 
@@ -124,15 +128,18 @@
                     if (!device && !isMouseDown) {
                         return false;
                     }
-                    var docEle = document.documentElement;
-                    if (!_this.clientRect) {
-                        _this.clientRect = {
-                            left: 0,
-                            top:0
-                        };
-                    }
-                    var x = (device ? e.touches[0].clientX : e.clientX) - _this.clientRect.left + docEle.scrollLeft - docEle.clientLeft;
-                    var y = (device ? e.touches[0].clientY : e.clientY) - _this.clientRect.top + docEle.scrollTop - docEle.clientTop;
+                    // var docEle = document.documentElement;
+                    // if (!_this.clientRect) {
+                    //     _this.clientRect = {
+                    //         left: 0,
+                    //         top:0
+                    //     };
+                    // }
+                    // var x = (device ? e.touches[0].clientX : e.clientX) - _this.clientRect.left + docEle.scrollLeft - docEle.clientLeft;
+                    // var y = (device ? e.touches[0].clientY : e.clientY) - _this.clientRect.top + docEle.scrollTop - docEle.clientTop;
+                    var clientRect = _this.mask.getBoundingClientRect()
+                    var x = (device ? e.touches[0].clientX : e.clientX) - clientRect.left ;
+                    var y = (device ? e.touches[0].clientY : e.clientY) - clientRect.top ;
                     _this.drawPoint(x, y);
                 }, false);
             },
@@ -169,8 +176,8 @@
                     }
                     image.src = this.lottery;
                 } else if (this.lotteryType == 'text') {
-                    this.width = this.width;
-                    this.height = this.height;
+                    // this.width = this.width;
+                    // this.height = this.height;
                     this.resizeCanvas(this.background, this.width, this.height);
                     this.backCtx.save();
                     this.backCtx.fillStyle = '#FFF';
