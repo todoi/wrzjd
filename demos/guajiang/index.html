@@ -8,13 +8,13 @@
     <style>
         html,body{ height: 90%; text-align: center;}
         #btn_fresh, .drawPercent{ margin-top: 20px; }
-        #latteryContainer{ outline: 1px solid red; width: 300px; height: 150px; margin: 0 auto; margin-top: 20px;}
+        #container{ outline: 1px solid red; width: 300px; height: 150px; margin: 0 auto; margin-top: 20px; position: relative;}
         #drawPercent{ color: #F60; }
     </style>
 </head>
 <body>
     <button id="btn_fresh">刷新</button> <label for="">刮开 <span class="drawPercent">0%</span> 区域。</label> 
-    <div id="latteryContainer"></div>
+    <div id="container"></div>
     <script>
         function Lattery(id,cover,coverType,width,height,drawPercentCallback){
             this.containerId = id //容器的id
@@ -45,7 +45,7 @@
 
             //重置 canvas 的宽高
             resizeCanvas: function(canvas, width, height){
-                canvas.getContent('2d').clearRect(0, 0, canvas.width, canvas.height)
+                canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height)
                 canvas.width = width
                 canvas.height = height
             },
@@ -125,8 +125,8 @@
 
             //创建两个canvas，并绑定事件
             drawLattery: function(){
-                this.back = this.back || document.createElement('canvas',{style: 'position: absolute; left: 0; top: 0;'})
-                this.mask = this.mask || document.createElement('canvas',{style: 'position: absolute; left: 0; top: 0;'})
+                this.back = this.back || this.createElement('canvas',{style: 'position: absolute; left: 0; top: 0;'})
+                this.mask = this.mask || this.createElement('canvas',{style: 'position: absolute; left: 0; top: 0;'})
                 if(!this.container.innerHTML.replace(/[\w\W]| /,'')){
                    this.container.appendChild(this.back) 
                    this.container.appendChild(this.mask) 
@@ -135,14 +135,13 @@
                 this.backContext = this.back.getContext('2d')
                 this.maskContext = this.mask.getContext('2d')
 
-                if (this.backContentType === 'iamge'){
+                if (this.backContentType === 'image'){
                     var image = new Image()
                     var _this = this //_this 是lattery 实例对象
                     image.onload = function(){ //this 是function 中的image
                         _this.width = this.width
                         _this.hegiht = this.height
                         _this.resizeCanvas(_this.back, this.width, this.height)
-                        _this.drawback()
                         _this.backContext.drawImage(this, 0, 0)
                         _this.drawMask()
                     }
@@ -191,8 +190,8 @@
             var lattery = new Lattery('container', "#ccc", 'color', 300, 150, drawPercent)
             lattery.init('http://www.baidu.com/img/bdlogo.gif', 'image')
 
-            var btn_refresh = document.getElementById('btn_refresh')
-            btn_refresh.onclick = function(){
+            var btn_fresh = document.getElementById('btn_fresh')
+            btn_fresh.onclick = function(){
                 drawPercent.innerHTML = '0%'
                 lattery.init(getRandomStr(6), 'text')
             }
