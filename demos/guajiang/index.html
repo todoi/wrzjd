@@ -140,7 +140,7 @@
                     var _this = this //_this 是lattery 实例对象
                     image.onload = function(){ //this 是function 中的image
                         _this.width = this.width
-                        _this.hegiht = this.height
+                        _this.height = this.height
                         _this.resizeCanvas(_this.back, this.width, this.height)
                         _this.backContext.drawImage(this, 0, 0)
                         _this.drawMask()
