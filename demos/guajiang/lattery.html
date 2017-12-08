@@ -37,23 +37,9 @@
 
                 options = $.extend(default, options)
 
-                return this.each(function(){
+                this.each(function(){
                 })
-
-                function createElement(tagName, attributes){
-                    var element = $('canvas')
-                    for(var key in attributes){
-                        element.setAttribute(key, attributes[key])
-                    }
-                    return element
-                }
-
-                function resizeCanvas(canvas, width, height){
-                    var context = canvas.getContext('2d')
-                    context.clearRect(0, 0, canvas.width, canvas.height)
-                    canvas.width = width
-                    canvas.height = height
-                }
+                return this
 
                 function getTransparentPercent(){
                     var maskContext = options.mask.getContext('2d')
