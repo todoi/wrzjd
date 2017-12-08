@@ -30,7 +30,7 @@
             this.backContent = null  //内层canvas 的内容
             this.backContentType = 'image'  //内层内容的类型 text 或者 image
             this.drawPercentCallback = drawPercentCallback
-            this.clientRect = null  //mask 的getBoundingRect() 的值
+            this.clientRect = null  //mask 的getBoundingClientRect() 的值
         }
 
         Lattery.prototype = {
@@ -52,10 +52,9 @@
 
             //取得透明的区域的百分比
             getTransparentPercent: function(){
-                var _this = this
-                var mask = _this.mask
-                var context = _this.maskContext
-                var pixelArr = context.getImageData(0, 0, mask.width, mask.height).data()
+                var mask = this.mask
+                var context = this.maskContext
+                var pixelArr = context.getImageData(0, 0, mask.width, mask.height).data
                 var transparent = []
                 for(var i = 0, j=pixelArr.length; i<j; i+=4){
                     var a = pixelArr[i+3] 
@@ -69,9 +68,8 @@
             //画一个点
             drawPoint: function(x, y){
                 var doc = document.documentElement
-                var _this = this
-                var mask = _this.mask
-                var context = _this.maskContext
+                var mask = this.mask
+                var context = this.maskContext
                 context.beginPath()
                 var radial = context.createRadialGradient(x, y, 0, x, y, 30)
                 radial.addColorStop(0, 'rgba(0, 0, 0, 0.6)')
@@ -80,7 +78,7 @@
                 context.arc(x, y, 30, 0, Math.PI*2, true)
                 context.fill()
                 //改变了 transparent 的比例
-                if(drawPercentCallback){
+                if(this.drawPercentCallback){
                     this.drawPercentCallback.call(null, this.getTransparentPercent())
                 }
             },
@@ -102,10 +100,10 @@
                 }
                 mask.addEventListener(clickEventName, function(event){
                     //鼠标按下
-                    e.stopPropagation()
+                    event.stopPropagation()
                     isMouseDown = device ? false : true;
-                    var pointEvent = device ? event.touch[0] : event
-                    var clientRect = mask.getBoundingRect()
+                    var pointEvent = device ? event.touches[0] : event
+                    var clientRect = this.getBoundingClientRect()
                     var x = pointEvent.clientX - clientRect.left
                     var y = pointEvent.clientY - clientRect.top
                     _this.drawPoint(x,y)
@@ -115,8 +113,8 @@
                     if(!device && !isMouseDown){
                         return false
                     }
-                    var pointEvent = device ? event.touch[0] : event
-                    var clientRect = mask.getBoundingRect()
+                    var pointEvent = device ? event.touches[0] : event
+                    var clientRect = this.getBoundingClientRect()
                     var x = pointEvent.clientX - clientRect.left
                     var y = pointEvent.clientY - clientRect.top
                     _this.drawPoint(x, y)
@@ -150,11 +148,11 @@
                     this.resizeCanvas(this.back, this.width, this.height)
                     this.backContext.save()
                     this.backContext.fillStyle = '#fff'
-                    this.fillRect(0, 0, this.width, this.height)
-                    this.restore()
+                    this.backContext.fillRect(0, 0, this.width, this.height)
+                    this.backContext.restore()
                     this.backContext.save()
-                    var fontSize = 30
-                    this.backContext.font = 'Bold' + fontSize + 'px Arial'
+                    var fontSize = 60
+                    this.backContext.font = 'Bold ' + fontSize + 'px Arial'
                     this.backContext.textAlign = 'center'
                     this.backContext.fillStyle = '#f60'
                     this.backContext.fillText(this.backContent, this.width/2, this.height/2 + fontSize/2)
@@ -187,17 +185,18 @@
         }
 
         window.onload = function(){
+            var percentText = document.getElementsByClassName('drawPercent')[0]
             var lattery = new Lattery('container', "#ccc", 'color', 300, 150, drawPercent)
             lattery.init('http://www.baidu.com/img/bdlogo.gif', 'image')
 
             var btn_fresh = document.getElementById('btn_fresh')
             btn_fresh.onclick = function(){
-                drawPercent.innerHTML = '0%'
+                percentText.innerHTML = '0%'
                 lattery.init(getRandomStr(6), 'text')
             }
 
             function drawPercent(percent){
-                drawPercent.innerHTML =  percent
+                percentText.innerHTML =  percent
             }
         }
 

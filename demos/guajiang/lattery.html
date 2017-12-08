@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,body{text-align: center;}
+        #btn_fresh, .drawPercent{margin-top: 20px;}
+        #container{ outline: 1px solid red; width: 300px; height: 150px; margin: 0 auto; margin-top: 20px; position: relative;}
+        #drawPercent{ color: #F60; }
+    </style>
+</head>
+<body>
+    <button id="btn_fresh">刷新</button> <label for="">刮开 <span class="drawPercent">0%</span> 区域</label>
+    <div id="latteryContainer"></div>
+
+    <script src="../vendors/jquery.min.js"></script>
+    <script>
+        $.fn.extend({
+            lattery: function(options){
+                var default = {
+                    id: 'latteryContainer',
+                    cover: '#ccc',
+                    coverType: 'color',
+                    width: 300,
+                    height: 150,
+                    background: null,
+                    backgroundContext: null,
+                    mask: null,
+                    maskContext: null,
+                    Content: null,
+                    ContentType: 'image',
+                    drawPercentCallback: null
+                }
+
+                options = $.extend(default, options)
+
+                return this.each(function(){
+                })
+
+                function createElement(tagName, attributes){
+                    var element = $('canvas')
+                    for(var key in attributes){
+                        element.setAttribute(key, attributes[key])
+                    }
+                    return element
+                }
+
+                function resizeCanvas(canvas, width, height){
+                    var context = canvas.getContext('2d')
+                    context.clearRect(0, 0, canvas.width, canvas.height)
+                    canvas.width = width
+                    canvas.height = height
+                }
+
+                function getTransparentPercent(){
+                    var maskContext = options.mask.getContext('2d')
+                    var pixelArr = maskContext.getImageData(0, 0, options.mask.width, options.mask.height).data
+                    var len = pixelArr.length
+                    var transparent = []
+                    for(var i=0; i<len; i+=4){
+                        if(pixelArr[i+3] < 128){
+                            transparent.push(i)
+                        }
+                    }
+                    var percentText = (transparent.length / (pixelArr.length / 4)).toFixed(2,10) * 100 + "%"
+                    return percentText
+                }
+
+                function drawPoint(x, y){
+                    var container = 
+                }
+
+            }
+        })
+    </script>
+</body>
+</html>
