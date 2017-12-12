@@ -1,0 +1,56 @@
+.top .div3 .icon_jiantou{background: url(../images/icon_jiantouB.gif) center/contain no-repeat;}
+.top .div3{width: 2.08rem;}
+.top .div2{margin-right: .2rem;}
+.btn_share{float: right;margin-top: 0.2rem;}
+.btn_share a{display: inline-block;font-size: 0.2rem;color: #fff; width: 0.8rem;height: 0.4rem;background: #53b0ff;text-align: center;line-height: 0.4rem;border-radius: 5px;-webkit-border-radius: 5px;}
+
+.form_Jianfang p{text-align: left;}
+.paihang.paihang_jianfang{}
+.paihang.paihang_jianfang .paihang_title{height: .72rem;}
+.paihang.paihang_jianfang .paihang_title li{height: .72rem; line-height: .72rem;}
+
+.paihang.paihang_jianfang li{width:103%;}
+.paihang.paihang_jianfang li span{width:auto;vertical-align: top;}
+.paihang.paihang_jianfang li>span>span{display: block; width: 100%;}
+.paihang.paihang_jianfang li>span:nth-child(1){width:1.55rem;}
+.paihang.paihang_jianfang li>span:nth-child(2){width:1.07rem; padding:0 0.05rem;}
+.paihang.paihang_jianfang li>span:nth-child(3){width:.98rem;}
+.paihang.paihang_jianfang li>span:nth-child(4){width:1.38rem;}
+.paihang.paihang_jianfang li>span:nth-child(5){width:2rem;}
+.paihang.paihang_jianfang .paihang_title li>span:nth-child(3){line-height: .26rem;font-size: .2rem;padding-top: .1rem;}
+.paihang.paihang_jianfang .paihang_title li>span:nth-child(5){line-height: .26rem;font-size: .2rem;padding-top: .1rem;}
+
+.paihang.paihang_jianfang .paihang_main{}
+.paihang.paihang_jianfang .paihang_main li{height: 2rem; line-height:2rem;}
+.paihang.paihang_jianfang .paihang_main li>span{font-size: .24rem; height: 2rem; line-height: 2rem;}
+.paihang.paihang_jianfang .paihang_main li>span:nth-child(2){position: relative;}
+.paihang.paihang_jianfang .paihang_main li>span:nth-child(2) i{position:absolute; top: 50%;left: 0; transform: translateY(-50%);width:100%;line-height: .3rem; text-align:left;}
+.paihang.paihang_jianfang .paihang_main li>span:nth-child(4){font-size: .2rem; text-align: center;padding-top: .8rem; height: .6rem;line-height:.3rem;}
+.paihang.paihang_jianfang .paihang_main li>span:nth-child(4)>span{font-size: .2rem; height: .3rem; line-height: .3rem;}
+.paihang.paihang_jianfang .paihang_main li>span:nth-child(5){width: 1.72rem; position: relative;}
+.paihang.paihang_jianfang .score_list{position: absolute; top: 50%; left: .08rem; transform: translateY(-50%);}
+.paihang.paihang_jianfang .score_list>span{text-align: left; font-size: .24rem; line-height: .26rem; height: .26rem; white-space: nowrap;}
+.paihang.paihang_jianfang .minus{color:#FF5A52;}
+.paihang.paihang_jianfang .plus{color:#54B0FD;}
+
+.link_jilu{height:.48rem;line-height: .4rem; color: #54B0FD; font-size: .28rem; background: white; margin-bottom: .27rem; padding: 0.16rem 0.2rem;}
+.link_jilu .icon_jilu{width: .35rem; height: .43rem; margin-right:.2rem; vertical-align: top;}
+.link_jilu .icon_next{width: .28rem; height: .48rem; float: right;}
+
+.form_daijianfang{text-align: center;}
+.form_daijianfang p{margin-top: 0;display: inline-block;text-align: left;}
+.form_daijianfang .txt{width: auto;}
+.form_daijianfang .txtInput{width: 3.55rem;}
+.form_daijianfang .btn_blue{width: 1.4rem; height: .7rem; line-height: .7rem; vertical-align: middle; margin-left: .27rem;}
+
+li input[type=checkbox]{ visibility: hidden; } 
+#checkbox_container{ width: 1.2rem; height: .42rem; display: inline-block; line-height: .42rem; border-radius: .21rem; background: #CDCDCD;; color: white;
+     position: relative; box-shadow: inset 1px 1px 2px 0 rgba(0,0,0,.5); margin-top: .09rem;}
+#checkbox_container::before{ display:block; content: '禁止'; position: absolute; top: 0; right:.24rem; height: .42rem; line-height: .40rem; font-size: .20rem; }
+li label{ position: absolute; top: 0; left: 0; width: 100%; height: 100%;}
+#status{display: block; width: .38rem; height: .38rem; background: white;  z-index: 2; border-radius: 50%; position:absolute; top: .02rem; left: .02rem; cursor: pointer; 
+    -webkit-transition: all .5s ease; -moz-transition: all .5s ease; -o-transition: all .5s ease; -ms-transition: all .5s ease; transition: all .5s ease; }
+.checkbox:checked ~ #status{ left: .80rem; } 
+#allow{ display: none; color: white;} 
+.checkbox:checked ~ #allow{ display: block; position: absolute; width: 100%; height: 100%; background: #54B0FD; border-radius: .22rem; top:0; left: 0; }
+#allow::before{ content: '允许'; display:block; position: absolute; top: 0; left:.24rem; height: .42rem; line-height: .40rem; font-size: .20rem; }

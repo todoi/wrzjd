@@ -1,0 +1,258 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>红包斗地主</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<meta content="email=no" name="format-detection" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<script type="text/javascript">
+  //初始化REM   
+  
+        var setFontSize = function(){  
+            var width = document.documentElement.clientWidth;  
+            width = width > 1138 ? 1138: width;  
+            var fontSize = width/1138 * 100;  
+            document.getElementsByTagName("html")[0].style.fontSize = fontSize + "px";
+        }  
+        setFontSize();
+        window.onresize = setFontSize;
+</script>
+</head>
+
+<body>
+<div class="warp"> 
+  <!-- 左边导航-->
+    <div class="left left_shop Yahei">
+        <div class="navMy"><a href="shopHongbao.html">余额<span class="text-yellow">9999.99</span>元</a></div>
+        <div class="navBox">
+            <a class="nav_zhuan  active"  href="zhuan.html"></a>
+            <a class="nav_paihang"  href="paihang.html"></a>
+        </div>
+    </div>
+    <!--左边end--> 
+    <!--右边-->
+    <div class="right">
+        <div class="shopHongbao">
+             <div class="zhuan_01">
+                  <a class="btn_jilu"></a>
+                  <a class="btn_rule"></a>
+                  <div class="rollCon">
+                    <ul class="liveList clearfix">
+                         <li><span>佐助打怪兽</span><span>于2013-11-8</span><span>购买588元翻倍</span><span>幸运返利<i>赠20元</i></span></li>
+                         <li><span class="span1">佐助打怪兽</span><span class="span2">于2013-11-8</span><span class="span3">购买588元翻倍</span><span>幸运返利100%</span></li>
+                         <li><span class="span1">佐助打怪兽</span><span class="span2">于2013-11-8</span><span class="span3">购买588元翻倍</span><span>幸运返利100%</span></li>
+                    </ul>
+                  </div>         
+             </div>
+            <div class="zhuan_02">
+                <div class="tips_bg">每次消耗1枚金牌<br>还剩 <span>999</span> 枚金牌</div>
+                <input type="button" class="btn_chou"  id="btn_chou" onClick="StartGame()"></a>
+                <div class="jiang">
+                     <ul id="random_box">
+                          <li id="random_1" class="random_current" ></li>
+                         <li id="random_2" class="random_current"></li>
+                         <li id="random_3" class="random_current"></li>
+                         <li id="random_4" class="random_current"></li>
+                         <li id="random_5" class="random_current"></li>
+                         <li id="random_6" class="random_current"></li>
+                         <li id="random_7" class="random_current"></li>
+                         <li id="random_8"  class="random_current"></li>
+                         <li id="random_9"  class="random_current"></li>
+                         <li id="random_10"  class="random_current"></li>
+                         <li id="random_11"  class="random_current"></li>
+                         <li id="random_12"  class="random_current"></li>
+                         <li id="random_13"  class="random_current"></li>
+                         <li id="random_14"  class="random_current"></li>
+                         <li id="random_15"  class="random_current"></li>
+                         <li id="random_16"  class="random_current"></li>
+                         <li id="random_17"  class="random_current"></li>
+                         <li id="random_18"  class="random_current"></li>
+                         <li id="random_19"  class="random_current"></li>
+                     </ul>
+                 </div>
+
+            </di2>
+        </div>
+    </div>
+    <!--右边end--> 
+    <!--弹框-->
+    <div class="bg"></div>
+    <!--金牌不够-->
+    <div class="diaBox diaMin"  >
+        <div class="dia_header Yahei">金牌不够怎么办？<a class="dia_close pop_close"></a></div>
+        <div class="dia_body">
+        	 <p class="infoTip text-center">游戏10分钟送1枚，单局赢1000分有几率获得，赢得越多<br>获得几率越大，单局赢100万100%获得！</p>
+        </div>
+        <div class="dia_footer"><a class="btn_dia btn_hecheng">立即游戏</a></div>
+    </div>
+     <!--获得黄瓜-->
+    <div class="diaBox" id="winningBox" >
+        <div class="dia_header Yahei">恭喜您获得黄瓜*1<a class="dia_close pop_close"></a></div>
+        <div class="dia_body">
+            <p class="infoTip text-center">可在狼羊大战游戏中代替积分消耗！ </p>
+        </div>
+        <div class="dia_footer"><a class="btn_dia btn_hecheng">继续抽奖</a></div>
+    </div>
+    <!--获得金杯-->
+    <div class="diaBox" id="winningBox" >
+        <div class="dia_header Yahei">恭喜您获得金杯*1*1<a class="dia_close pop_close"></a></div>
+        <div class="dia_body">
+            <p class="infoTip text-center">由于您在金杯奖励排行榜之外，系统额外赠送您2个金杯，您的排名提升100名！ </p>
+        </div>
+        <div class="dia_footer"><a class="btn_green" style="margin-right: 0.3rem">查看排名</a> <a class="btn_red">继续抽奖</a></div>
+    </div>
+   
+   <!--中奖记录 -->
+    <div class="diaBox box_jilu fanbeiPop" id="recordBox"   >
+        <div class="dia_header Yahei"> <a class="dia_close"></a>我的中奖记录 </div>
+        <div class="dia_body" id="myPrizeContent"> 
+             <table cellpadding="0" cellspacing="0" class="jilu_tb">
+         <tr>
+                    <th class="thL" width="50%">奖品</th>
+                    <th width="50%">获得时间</th>
+                </tr>
+                <tr>
+                    <td>2352万积分</td>
+                    <td>2014-01-01 12:20</td>
+                </tr> 
+                <tr>
+                    <td>2352万积分</td>
+                    <td>2014-01-01 12:20</td>
+                </tr> 
+      </table>
+                <div class="pages" id="recordPage">
+                    <a class="active">上一页</a><a>下一页</a>
+                </div>  
+        </div>
+    </div>
+    
+    <!-- 活动说明-->
+     <div class="diaBox" id="rule" >
+        <div class="dia_header Yahei">活动说明 <a class="dia_close detail_close"></a></div>
+          <div class="shuodongRule">
+                <p> 1、单局赢1000积分有几率获得1枚金牌，赢得越多获得几率越大，单局赢100万积分以上即可100%获得1枚金牌；<br>
+2、游戏10分钟送1枚金牌，每个账号每天最多可获得12枚；<br>
+3、每个账号每天首次登陆游戏赠送1枚；<br>
+4、100%中奖，积分和狼羊大战道具类奖品，直接添加至账号中，红包奖品直接添加至账号的红包余额中，获奖者可在红包商城中查看；
+5、抽到金杯可参与金杯排行榜竞争；每天奖励5000万；<br>
+  6、红包吹牛、奖品斗地主、新决战、新二人雀神、新三公、狼羊大战、奖品抓只、新十三水、通比牛牛参与此活动。</p>
+          </div>
+     </div>
+</div>
+
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script> 
+<script type="text/javascript" src="js/openPop.js"></script> 
+<script type="text/javascript" src="js/rollOdao.js"></script>
+<script type="text/javascript">
+    $(function () {
+        var n = $('.rollCon ul li').length;
+        var s = $('.rollCon ul li').width();
+        $('.rollCon').rollOdao({ dir: "left", width: s * n });
+
+        /*关闭弹框*/
+        $(".pop_close").on('click', function () {
+            $(this).parents('.diaBox').closePop();
+        });
+
+        /*领取红包*/
+        $(".shopList li a").on('click', function () {
+            $('#hongbaoBox').add('.bg').show();
+        });
+
+        /*关闭红包弹框*/
+        $(".hb_close").on('click', function () {
+            $(this).parents('.diaBox').add('.bg').hide();
+        });
+        /*打开奖品详情*/
+        $(".btn_detail").on('click', function () {
+            $('#detailBox').show();
+        });
+        /*关闭奖品详情弹框*/
+        $(".detail_close").on('click', function () {
+            $(this).parents('.diaBox').hide();
+        });
+        $('#shuodongRule').on('click', function () {
+            $('#rule').show();
+        })
+    });
+
+    var index = 1,   //当前亮区位置
+        prevIndex = 14,   //前一位置
+        Speed = 300,   //初始速度
+        Time,   //定义对象
+        arr_length = 19; //GetSide(5,5),   //初始化数组
+        EndIndex = 1,   //决定在哪一格变慢
+        cycle = 0,   //转动圈数 
+        EndCycle = 3,   //计算圈数
+        flag = false,   //结束转动标志
+        random_num = 1,  //中奖数
+        quick = 0;   //加速
+
+    function StartGame() {
+        $('#btn_chou').attr('disabled', true)
+        $("#random_box li").removeClass("random_current"); //取消选中
+        //random_num = parseInt($("#txtnum").val());//
+        random_num = Math.floor(Math.random() * 18 + 2); //产出随机中奖数2--12之间
+        index = 1; //再来一次,从1开始
+        cycle = 0;
+        flag = false;
+        //EndIndex=Math.floor(Math.random()*12);
+        if (random_num > 8) {
+            EndIndex = random_num - 8; //前5格开始变慢
+        } else {
+            EndIndex = random_num + 19 - 8; //前5格开始变慢
+        }
+        //EndCycle=Math.floor(Math.random()*3);
+        Time = setInterval(Star, Speed);
+    }
+
+    function Star(num) {
+        //跑马灯变速
+        if (flag == false) {
+            //走五格开始加速
+            if (quick == 5) {
+                clearInterval(Time);
+                Speed = 50;
+                Time = setInterval(Star, Speed);
+            }
+            //跑N圈减速
+            if (cycle == EndCycle + 1 && index - 1 == EndIndex) {
+                clearInterval(Time);
+                Speed = 300;
+                flag = true;   //触发结束
+                Time = setInterval(Star, Speed);
+            }
+        }
+
+        if (index > arr_length) {
+            index = 1;
+            cycle++;
+        }
+
+        //结束转动并选中号码
+        if (flag == true && index == parseInt(random_num)) {
+            quick = 0;
+            clearInterval(Time);
+            $('#btn_chou').removeAttr('disabled')
+        }
+
+        if (index > 1){
+            prevIndex = index - 1;
+        }else {
+            prevIndex = arr_length;
+        }
+
+        $("#random_" + index).addClass('random_current'); //设置当前选中样式
+        $("#random_" + prevIndex).removeClass('random_current'); //取消上次选择样式 
+
+        index++;
+        quick++;
+    }
+  
+</script>
+</body>
+</html>

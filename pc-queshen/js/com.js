@@ -1,15 +1,12 @@
-function getRatio() {
-    var width = document.documentElement.clientWidth;
-    width = width > 1920 ? 1920 : width;
-    return width / 1920;
-}
-var ratio = getRatio()
-
+//_g 输入id 返回elementNode
 function _g(a) {
     return "string" == typeof a ? document.getElementById(a) : a
 }
 
-function addEvent(a, b, c) {
+//a 是elementNode
+//b 是event
+//c 是handle
+function addEvent(a, b, c) { 
     addEvent = a.addEventListener ? function(a, b, c) {
         a.addEventListener(b, c, !1)
     } : function(a, b, c) {
@@ -17,129 +14,158 @@ function addEvent(a, b, c) {
     }, addEvent(a, b, c)
 }
 
+//判断a 是否有class b, 如果没有就添加，如果有就不添加，最后都是返回 a的className 字符串
 function addClass(a, b) {
     var c = a.className;
     return new RegExp("(^|\\s)" + b + "(\\s|$)", "i").test(c) || (a.className = c + (c.length > 0 ? " " : "") + b), a.className
 }
 
+//删除a 上的class b，最后都是返回 a的className 字符串
 function removeClass(a, b) {
     var c = new RegExp("(^|\\s)" + b + "(\\s|$)", "i");
     return a.className = a.className.replace(c, " ").replace(/^\s+|\s+$/g, ""), a.className
 }
 
 function WfireSilder() {
+    //更新index 
     function k() {
         iNow++, iNow > d.length - 1 && (iNow = 0), l()
     }
 
+    //重置小圆点的className，为激活圆点加 "hove" class ,开始移动
     function l() {
         for (g = 0; g < c.length; g++) c[g].className = "";
         c[iNow].className = "hove", startMove(c[iNow], {
             opacity: 100
         });
+        //变换图片宽高数组的顺序
         var a = iNow;
         for (m(), g = 0; a > g; g++) i.unshift(i.pop());
         n()
     }
 
+    //copy 图片的宽高位置到 i 数组
     function m() {
         for (g = 0; g < d.length; g++) i[g] = j[g]
     }
 
+    //每张图移动
     function n() {
         for (g = 0; g < d.length; g++) {
-            var a = d[g].getElementsByTagName("img")[0];
-            startMove(a, {
-                opacity: 75
-            }), startMove(d[g], i[g], function() {
-                o()
-            }), d[g].className = ""
+            var a = d[g].getElementsByTagName("img")[0]; 
+            startMove(a, { opacity: 75 }), startMove(d[g], i[g], function() { o() }), d[g].className = ""
         }
         d[iNow].className = "hove"
     }
 
+    //
     function o() {
-        for (g = 0; g < d.length; g++)
-            if (Math.floor(480*ratio)+"px" == d[g].style.width) {
+        for (g = 0; g < d.length; g++){
+            if (480+"px" == d[g].style.width) {
                 var a = d[g].getElementsByTagName("img")[0];
                 startMove(a, {
                     opacity: 100
                 })
             }
+        }
     }
-    var a = document.getElementById("part4-list"),
-        b = document.getElementById("btns-arr"),
-        c = b.getElementsByTagName("li"),
-        d = a.getElementsByTagName("li"),
-        e = a.getElementsByTagName("a"),
-        f = getClass(b, "small")[0],
-        g = iNow = 0,
+
+    var a = document.getElementById("part4-list"), //a 为part4-list
+        b = document.getElementById("btns-arr"), //b btns-arr 小圆点容器
+        c = b.getElementsByTagName("li"), // c 为小圆点集合 (3个li)
+        d = a.getElementsByTagName("li"), // 图片容器 (3个li)
+        e = a.getElementsByTagName("a"), // prev button 和 next button
+        f = getClass(b, "small")[0], // 是圆点li 的 ul 的上一级 div
+        g = iNow = 0, //iNow 为 index now
         h = null,
         i = [],
-        j = [{
-            width: Math.floor(480*ratio),
-            height: Math.floor(260*ratio),
+        j = [{ //最大图片的宽高和位子
+            width: 480,
+            height:260,
             top: 0,
-            left: Math.floor(186*ratio),
+            left: 186,
             zIndex: 10
-        }, {
-            width: Math.floor(320*ratio),
-            height: Math.floor(174*ratio),
-            top: Math.floor(56*ratio),
+        }, { //次大图片的宽高和位子
+            width: 320,
+            height: 174,
+            top: 56,
             left: 0,
             zIndex: 8
-        }, {
-            width: Math.floor(320*ratio),
-            height: Math.floor(174*ratio),
-            top: Math.floor(56*ratio),
-            left: Math.floor(530*ratio),
+        }, { //次大图片的宽高和位子
+            width: 320,
+            height: 174,
+            top: 56,
+            left: 530,
             zIndex: 6
         }];
+
     for (g = 0; g < c.length; g++) c[g].index = g, myAddEvent(c[g], "click", function() {
         iNow = this.index, l()
     });
-    for (g = 0; g < d.length; g++) d[g].index = g, d[g].style.width = j[g].width + "px", d[g].style.height = j[g].height + "px", d[g].style.top = j[g].top + "px", d[g].style.left = j[g].left + "px", d[g].style.zIndex = j[g].zIndex, i[g] = j[g], myAddEvent(d[g], "mouseover", function() {
-        var a = this.getElementsByTagName("div")[0];
-        startMove(a, {
-            opacity: 0
-        })
-    }), myAddEvent(d[g], "mouseout", function() {
-        if ((Math.floor(670*ratio)+"px") == this.style.width);
-        else {
+
+    for (g = 0; g < d.length; g++){ 
+        d[g].index = g;
+        d[g].style.width = j[g].width + "px";
+        d[g].style.height = j[g].height + "px";
+        d[g].style.top = j[g].top + "px";
+        d[g].style.left = j[g].left + "px";
+        d[g].style.zIndex = j[g].zIndex, i[g] = j[g];
+        myAddEvent(d[g], "mouseover", function() {
             var a = this.getElementsByTagName("div")[0];
             startMove(a, {
-                opacity: 75
+                opacity: 0
             })
-        }
-    }), myAddEvent(d[g], "click", function() {
-        var a = this.index;
-        for (iNow = this.index, m(), g = 0; a > g; g++) i.unshift(i.pop());
-        n()
-    });
+        });
+        myAddEvent(d[g], "mouseout", function() {
+            if (670+"px" == this.style.width);
+            else {
+                var a = this.getElementsByTagName("div")[0];
+                startMove(a, {
+                    opacity: 75
+                })
+            }
+        });
+        myAddEvent(d[g], "click", function() {
+            var a = this.index;
+            for (iNow = this.index, m(), g = 0; a > g; g++) i.unshift(i.pop());
+            n()
+        })
+    };
+
     myAddEvent(e[0], "click", function() {
         i.unshift(i.pop()), n(), k()
-    }), myAddEvent(e[1], "click", function() {
+    });
+
+    myAddEvent(e[1], "click", function() {
         i.push(i.shift()), n(), iNow--, 0 > iNow && (iNow = d.length - 1), l()
-    }), f.onmouseover = a.onmouseover = function() {
+    });
+    
+    f.onmouseover = a.onmouseover = function() {
         clearInterval(h)
-    }, f.onmouseout = a.onmouseout = function() {
+    };
+
+    f.onmouseout = a.onmouseout = function() {
         clearInterval(h), h = setInterval(k, 5e3)
-    }, h = setInterval(k, 5e3), o()
+    };
+
+    h = setInterval(k, 5e3), o()
 }
 
+// 在 a 区域中寻找 class 为b的元素, 返回这个数组
 function getClass(a, b) {
-    var c = document.getElementsByTagName("*"),
-        d = [],
-        e = 0;
+    var c = a.getElementsByTagName("*"),
+        d = [];
     for (e = 0; e < c.length; e++) c[e].className == b && d.push(c[e]);
     return d
 }
 
+//为a 元素添加b 事件 处理器为c
 function myAddEvent(a, b, c) {
     a.attachEvent ? a.attachEvent("on" + b, function() {
         c.call(a)
     }) : a.addEventListener(b, c, !1)
 }
+
 function startMove(a, b, c) {
     var timer = null;
     a.timer && clearInterval(a.timer), a.timer = setInterval(function() {
@@ -150,15 +176,23 @@ function startMove(a, b, c) {
 function getStyle(a, b) {
     return a.currentStyle ? a.currentStyle[b] : getComputedStyle(a, !1)[b]
 }
+
 function doMove(a, b, c) {
     var g, d = 0,
         e = "",
-        f = !0;
-    for (e in b) d = "opacity" == e ? parseInt(100 * parseFloat(getStyle(a, "opacity"))) : parseInt(getStyle(a, e)), isNaN(d) && (d = 0), g = navigator.userAgent.indexOf("MSIE 8.0") > 0 ? (b[e] - d) / 3 : (b[e] - d) / 5, g = g > 0 ? Math.ceil(g) : Math.floor(g), parseInt(b[e]) != d && (f = !1), "opacity" == e ? (a.style.filter = "alpha(opacity:" + (d + g) + ")", a.style.opacity = (d + g) / 100) : a.style[e] = "zIndex" == e ? d + g : d + g + "px";
+        f = !0; //true
+    for (e in b) {
+        d = "opacity" == e ? parseInt(100 * parseFloat(getStyle(a, "opacity"))) : parseInt(getStyle(a, e));
+        isNaN(d) && (d = 0);
+        g = navigator.userAgent.indexOf("MSIE 8.0") > 0 ? (b[e] - d) / 3 : (b[e] - d) / 5;
+        g = g > 0 ? Math.ceil(g) : Math.floor(g);
+        parseInt(b[e]) != d && (f = !1);
+        "opacity" == e ? (a.style.filter = "alpha(opacity:" + (d + g) + ")", a.style.opacity = (d + g) / 100) : a.style[e] = "zIndex" == e ? d + g : d + g + "px";
+    }
     f && (clearInterval(a.timer), a.timer = null, c && c())
 }
 
-function vtab() {
+// function vtab() {
     // var e, a = _g("mapNav"),
     //     b = a.getElementsByTagName("li"),
     //     c = b.length,
@@ -170,17 +204,18 @@ function vtab() {
     //         _g("big-pic").src = c, d = a
     //     }
     // }(e))
-}
+// }
 
-function TGDialogS(a) {
-    need("biz.dialog-min", function(b) {
-        b.show({
-            id: a,
-            bgcolor: "#000",
-            opacity: 50
-        })
-    })
-}
+// function TGDialogS(a) {
+//     need("biz.dialog-min", function(b) {
+//         b.show({
+//             id: a,
+//             bgcolor: "#000",
+//             opacity: 50
+//         })
+//     })
+// }
+
 window.onload = function() {
     var a, b;
     WfireSilder();
