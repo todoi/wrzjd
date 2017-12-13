@@ -6,7 +6,7 @@ function _g(a) {
 //a 是elementNode
 //b 是event
 //c 是handle
-function addEvent(a, b, c) { 
+function addEvent(a, b, c) {
     addEvent = a.addEventListener ? function(a, b, c) {
         a.addEventListener(b, c, !1)
     } : function(a, b, c) {
@@ -27,7 +27,7 @@ function removeClass(a, b) {
 }
 
 function WfireSilder() {
-    //更新index 
+    //更新index
     function k() {
         iNow++, iNow > d.length - 1 && (iNow = 0), l()
     }
@@ -52,13 +52,16 @@ function WfireSilder() {
     //每张图移动
     function n() {
         for (g = 0; g < d.length; g++) {
-            var a = d[g].getElementsByTagName("img")[0]; 
+            var a = d[g].getElementsByTagName("img")[0];
             startMove(a, { opacity: 75 }), startMove(d[g], i[g], function() { o() }), d[g].className = ""
         }
         d[iNow].className = "hove"
     }
 
-    //
+    /**
+     * [o description]
+     * @return {[type]} [description]
+     */
     function o() {
         for (g = 0; g < d.length; g++){
             if (480+"px" == d[g].style.width) {
@@ -101,10 +104,10 @@ function WfireSilder() {
 
     for (g = 0; g < c.length; g++) c[g].index = g, myAddEvent(c[g], "click", function() {
         iNow = this.index, l()
-    });
+    })
 
-    for (g = 0; g < d.length; g++){ 
-        d[g].index = g;
+    for (g = 0; g < d.length; g++) {
+        d[g].index = g
         d[g].style.width = j[g].width + "px";
         d[g].style.height = j[g].height + "px";
         d[g].style.top = j[g].top + "px";
@@ -139,7 +142,7 @@ function WfireSilder() {
     myAddEvent(e[1], "click", function() {
         i.push(i.shift()), n(), iNow--, 0 > iNow && (iNow = d.length - 1), l()
     });
-    
+
     f.onmouseover = a.onmouseover = function() {
         clearInterval(h)
     };

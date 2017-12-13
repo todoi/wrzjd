@@ -1,5 +1,4 @@
 @charset "utf-8";
-body,
 div,
 a,
 span,
@@ -76,28 +75,31 @@ i {
 }
 
 
+
+
 /*public*/
 
 
 /*大横幅*/
-body{font-size: 100%;}
 
+body {font-size: 100%; }
 .warp {
     position: relative;
     margin: 0 auto;
     font-size: 20px;
     color: #686868;
-    width:1920px;
+    width: 1920px;
     margin: 0 auto;
 }
 
 .container {
-    width:1920px;
+    width: 1920px;
 }
 
 .container .content {
     float: left;
-    width: 1000px;;
+    width: 1000px;
+    ;
 }
 
 .container .left {
@@ -123,6 +125,8 @@ body{font-size: 100%;}
     margin-top: -2px;
     vertical-align: middle;
 }
+
+
 
 
 /*大横幅*/
@@ -161,6 +165,8 @@ body{font-size: 100%;}
 }
 
 
+
+
 /*二维码*/
 
 .banner .code {
@@ -186,21 +192,32 @@ body{font-size: 100%;}
 }
 
 
+
+
 /* 导航 */
+
 .nav {
     width: 100%;
-    max-width:1920px;
+    max-width: 1920px;
     position: absolute;
     top: 570px;
     z-index: 99;
 }
-#nav.active{position: fixed;top:0;}
+
+#nav.active {
+    position: fixed;
+    top: 0;
+}
 
 .nav .content {
     padding-left: 462px;
-    text-align:left;
+    text-align: left;
 }
-#nav.active .content{padding: 0; text-align: center;}
+
+#nav.active .content {
+    padding: 0;
+    text-align: center;
+}
 
 .nav .content a {
     display: inline-block;
@@ -227,6 +244,8 @@ body{font-size: 100%;}
 }
 
 
+
+
 /*大赛介绍*/
 
 .introduce {}
@@ -244,7 +263,7 @@ body{font-size: 100%;}
     background-size: 100% 100%;
 }
 
-.introduce .right{
+.introduce .right {
     height: 325px;
     background: url(../images/introduce_bg03.jpg) 0 0 no-repeat;
     background-size: 100% 100%;
@@ -473,6 +492,8 @@ body{font-size: 100%;}
 }
 
 
+
+
 /*tab*/
 
 .event .detail,
@@ -548,12 +569,13 @@ body{font-size: 100%;}
 }
 
 
+
+
 /*detail*/
 
-.event .detail {
-}
+.event .detail {}
 
-.detail .article{
+.detail .article {
     width: 960px;
     height: 562px;
     overflow: auto;
@@ -591,12 +613,14 @@ body{font-size: 100%;}
 }
 
 .detail p {
-    text-indent:2em;
+    text-indent: 2em;
     text-align: left;
     width: 850px;
     margin: 0 auto;
     line-height: 36px;
 }
+
+
 
 
 /*photo*/
@@ -618,23 +642,122 @@ body{font-size: 100%;}
 .photo .content {
     height: 356px;
     padding-top: 60px;
-    background: url(../images/photo_bg02.jpg) 0 0  no-repeat;
-    width: 1000px;overflow: hidden;
+    background: url(../images/photo_bg02.jpg) 0 0 no-repeat;
+    width: 1000px;
+    overflow: hidden;
     background-size: 100% 100%;
 }
-#btns-arr{width:100%;height:20px;float:left;position:relative;}
-#btns-arr .small{width:100px; height:26px; position:absolute; top:20px; left:50%; display:inline;margin:0 0 0 -50px;}
-#btns-arr .small ul{margin:0;padding:0px;}
-#btns-arr .small li{width:16px;height:16px;float:left;display:inline;margin:3px 0 0 10px;padding:0px;cursor:pointer; background: url(../images/icon_photo.png) 2px 2px no-repeat;}
-#btns-arr .small li.hove{ background: url(../images/icon_photoOn.png) 0 0 no-repeat; background-size:100% 100%;}
-#part4-box{width:100%;height:280px; position:relative; overflow: hidden;}
-#part4-list{width:852px;height:446px;position:absolute;top:0;left:50%;display:inline;margin-left:-426px;}
-#part4-list ul {margin:0px;padding:0px; float:left;}
-#part4-list li{position:absolute;list-style-type:none;overflow:hidden;cursor:pointer;}
-#part4-list li img{width:100%;height:100%;vertical-align:top;}
-#part4-list li div{width:100%;height:100%;background:#000;filter:alpha(opacity=70); opacity:0.7; position:absolute; z-index:1; top:0px; left:0px;}
-#part4-list li .b_tit{width:100%;height:120px;position:absolute; z-index:1; bottom:-100%; left:0px;margin:0px;padding:0px;}
-#part4-list li .opacity{width:100%;height:120px;background:#000;filter:alpha(opacity=80); opacity:0.8; position:absolute; z-index:1; bottom:0px; left:0px;}
+
+#btns-arr {
+    width: 100%;
+    height: 20px;
+    float: left;
+    position: relative;
+}
+
+#btns-arr .small {
+    width: 100px;
+    height: 26px;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    display: inline;
+    margin: 0 0 0 -50px;
+}
+
+#btns-arr .small ul {
+    margin: 0;
+    padding: 0px;
+}
+
+#btns-arr .small li {
+    width: 16px;
+    height: 16px;
+    float: left;
+    display: inline;
+    margin: 3px 0 0 10px;
+    padding: 0px;
+    cursor: pointer;
+    background: url(../images/icon_photo.png) 2px 2px no-repeat;
+}
+
+#btns-arr .small li.hove {
+    background: url(../images/icon_photoOn.png) 0 0 no-repeat;
+    background-size: 100% 100%;
+}
+
+#part4-box {
+    width: 100%;
+    height: 280px;
+    position: relative;
+    overflow: hidden;
+}
+
+#part4-list {
+    width: 852px;
+    height: 446px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    display: inline;
+    margin-left: -426px;
+}
+
+#part4-list ul {
+    margin: 0px;
+    padding: 0px;
+    float: left;
+}
+
+#part4-list li {
+    position: absolute;
+    list-style-type: none;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+#part4-list li img {
+    width: 100%;
+    height: 100%;
+    vertical-align: top;
+}
+
+#part4-list li div {
+    width: 100%;
+    height: 100%;
+    background: #000;
+    filter: alpha(opacity=70);
+    opacity: 0.7;
+    position: absolute;
+    z-index: 1;
+    top: 0px;
+    left: 0px;
+}
+
+#part4-list li .b_tit {
+    width: 100%;
+    height: 120px;
+    position: absolute;
+    z-index: 1;
+    bottom: -100%;
+    left: 0px;
+    margin: 0px;
+    padding: 0px;
+}
+
+#part4-list li .opacity {
+    width: 100%;
+    height: 120px;
+    background: #000;
+    filter: alpha(opacity=80);
+    opacity: 0.8;
+    position: absolute;
+    z-index: 1;
+    bottom: 0px;
+    left: 0px;
+}
+
+
 
 /*huoban*/
 
@@ -643,20 +766,20 @@ body{font-size: 100%;}
 .huoban .left {
     height: 361px;
     background: url(../images/huoban_bg01.jpg) 0 0 no-repeat;
-    background-size:100% 100%;
+    background-size: 100% 100%;
 }
 
 .huoban .right {
     height: 361px;
     background: url(../images/huoban_bg03.jpg) 0 0 no-repeat;
-    background-size:100% 100%;
+    background-size: 100% 100%;
 }
 
 .huoban .content {
     height: 281px;
     position: relative;
     background: url(../images/huoban_bg02.jpg) 0 0 no-repeat;
-    background-size:100% 100%;
+    background-size: 100% 100%;
     padding-top: 80px;
 }
 
@@ -684,6 +807,8 @@ body{font-size: 100%;}
     color: #4d983f;
     font-size: 24px;
 }
+
+
 
 /* .zhidao {
     margin-top: 80px;
@@ -721,7 +846,7 @@ body{font-size: 100%;}
     height: 97px;
     text-align: center;
     background: white;
-    color:#b0b0af;
+    color: #b0b0af;
     font-size: 14px;
     white-space: nowrap;
     margin-top: 25px;
@@ -729,8 +854,31 @@ body{font-size: 100%;}
     margin-right: 52px;
 }
 
-.zhuban>div span.zhuban3{height: 90px; vertical-align: top;}
-.zhuban img{display: block; margin: 0 auto;margin-top: 11px;margin-bottom: 2px;}
-.zhuban .haixia{ width: 153px; height: 59px;}
-.zhuban .mnw{ width: 160px; height: 53px; margin-left: 27px;}
-.zhuban .xiaoyu{width:177px; height: 34px; margin-top:28px;}
+.zhuban>div span.zhuban3 {
+    height: 90px;
+    vertical-align: top;
+}
+
+.zhuban img {
+    display: block;
+    margin: 0 auto;
+    margin-top: 11px;
+    margin-bottom: 2px;
+}
+
+.zhuban .haixia {
+    width: 153px;
+    height: 59px;
+}
+
+.zhuban .mnw {
+    width: 160px;
+    height: 53px;
+    margin-left: 27px;
+}
+
+.zhuban .xiaoyu {
+    width: 177px;
+    height: 34px;
+    margin-top: 28px;
+}
