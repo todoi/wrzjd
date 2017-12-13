@@ -1,18 +1,29 @@
 //_g 输入id 返回elementNode
 function _g(a) {
-    return "string" == typeof a ? document.getElementById(a) : a
+    return "string" === typeof a ? document.getElementById(a) : a
 }
 
 //a 是elementNode
 //b 是event
 //c 是handle
 function addEvent(a, b, c) {
-    addEvent = a.addEventListener ? function(a, b, c) {
-        a.addEventListener(b, c, !1)
-    } : function(a, b, c) {
-        a.attachEvent("on" + b, c)
-    }, addEvent(a, b, c)
+    if (a.addEventListener) {
+        addEvent = function (a, b, c) {
+            a.addEventListener(b, c, !1)
+        }
+    } else {
+        addEvent = function (a, b, c){
+            a.attachEvent("on" + b, c)
+        }
+    }
+    addEvent(a, b, c)
 }
+//     addEvent = a.addEventListener ? function(a, b, c) {
+//         a.addEventListener(b, c, !1)
+//     } : function(a, b, c) {
+//         a.attachEvent("on" + b, c)
+//     }, addEvent(a, b, c)
+// }
 
 //判断a 是否有class b, 如果没有就添加，如果有就不添加，最后都是返回 a的className 字符串
 function addClass(a, b) {
@@ -53,7 +64,9 @@ function WfireSilder() {
     function n() {
         for (g = 0; g < d.length; g++) {
             var a = d[g].getElementsByTagName("img")[0];
-            startMove(a, { opacity: 75 }), startMove(d[g], i[g], function() { o() }), d[g].className = ""
+            startMove(a, { opacity: 75 })
+            startMove(d[g], i[g], function () { o() })
+            d[g].className = ""
         }
         d[iNow].className = "hove"
     }
@@ -63,8 +76,8 @@ function WfireSilder() {
      * @return {[type]} [description]
      */
     function o() {
-        for (g = 0; g < d.length; g++){
-            if (480+"px" == d[g].style.width) {
+        for (g = 0; g < d.length; g++) {
+            if (480 + "px" == d[g].style.width) {
                 var a = d[g].getElementsByTagName("img")[0];
                 startMove(a, {
                     opacity: 100
@@ -84,27 +97,43 @@ function WfireSilder() {
         i = [],
         j = [{ //最大图片的宽高和位子
             width: 480,
-            height:260,
+            height: 260,
             top: 0,
-            left: 186,
+            left: 260,
             zIndex: 10
         }, { //次大图片的宽高和位子
             width: 320,
             height: 174,
             top: 56,
-            left: 0,
+            left: 110,
             zIndex: 8
         }, { //次大图片的宽高和位子
             width: 320,
             height: 174,
             top: 56,
-            left: 530,
+            left: 570,
             zIndex: 6
-        }];
+        }, { //次大图片的宽高和位子
+            width: 240,
+            height: 130,
+            top: 80,
+            left: 20,
+            zIndex: 4
+        }, { //次大图片的宽高和位子
+            width: 240,
+            height: 130,
+            top: 80,
+            left: 740,
+            zIndex: 2
+        }]
 
-    for (g = 0; g < c.length; g++) c[g].index = g, myAddEvent(c[g], "click", function() {
-        iNow = this.index, l()
-    })
+    for (g = 0; g < c.length; g++) {
+        c[g].index = g
+        myAddEvent(c[g], "click", function() {
+            iNow = this.index;
+            l()
+        })
+    }
 
     for (g = 0; g < d.length; g++) {
         d[g].index = g
@@ -120,32 +149,33 @@ function WfireSilder() {
             })
         });
         myAddEvent(d[g], "mouseout", function() {
-            if (670+"px" == this.style.width);
+            if (670 + "px" == this.style.width);
             else {
                 var a = this.getElementsByTagName("div")[0];
                 startMove(a, {
                     opacity: 75
                 })
             }
-        });
+        })
+
         myAddEvent(d[g], "click", function() {
             var a = this.index;
             for (iNow = this.index, m(), g = 0; a > g; g++) i.unshift(i.pop());
             n()
         })
-    };
+    }
 
-    myAddEvent(e[0], "click", function() {
+    myAddEvent(e[0], "click", function() { //向左按钮
         i.unshift(i.pop()), n(), k()
-    });
+    })
 
-    myAddEvent(e[1], "click", function() {
+    myAddEvent(e[1], "click", function() { //向右按钮
         i.push(i.shift()), n(), iNow--, 0 > iNow && (iNow = d.length - 1), l()
-    });
+    })
 
-    f.onmouseover = a.onmouseover = function() {
+    f.onmouseover = a.onmouseover = function () {
         clearInterval(h)
-    };
+    }
 
     f.onmouseout = a.onmouseout = function() {
         clearInterval(h), h = setInterval(k, 5e3)
@@ -183,7 +213,7 @@ function getStyle(a, b) {
 function doMove(a, b, c) {
     var g, d = 0,
         e = "",
-        f = !0; //true
+        f = !0 //true
     for (e in b) {
         d = "opacity" == e ? parseInt(100 * parseFloat(getStyle(a, "opacity"))) : parseInt(getStyle(a, e));
         isNaN(d) && (d = 0);
@@ -196,17 +226,17 @@ function doMove(a, b, c) {
 }
 
 // function vtab() {
-    // var e, a = _g("mapNav"),
-    //     b = a.getElementsByTagName("li"),
-    //     c = b.length,
-    //     d = 0;
-    // for (e = 0; c > e; e++) addEvent(b[e], "click", function(a) {
-    //     return function() {
-    //         removeClass(b[d], "current"), addClass(b[a], "current");
-    //         var c = b[a].getAttribute("data-src");
-    //         _g("big-pic").src = c, d = a
-    //     }
-    // }(e))
+// var e, a = _g("mapNav"),
+//     b = a.getElementsByTagName("li"),
+//     c = b.length,
+//     d = 0;
+// for (e = 0; c > e; e++) addEvent(b[e], "click", function(a) {
+//     return function() {
+//         removeClass(b[d], "current"), addClass(b[a], "current");
+//         var c = b[a].getAttribute("data-src");
+//         _g("big-pic").src = c, d = a
+//     }
+// }(e))
 // }
 
 // function TGDialogS(a) {
@@ -220,11 +250,11 @@ function doMove(a, b, c) {
 // }
 
 window.onload = function() {
-    var a, b;
-    WfireSilder();
+    var a, b
+    WfireSilder()
     // vtab(), a = document.getElementById("gameJs"), b = document.getElementById("floatBox"), a.onmouseover = function() {
     //     b.style.display = "block"
     // }, a.onmouseout = function() {
     //     b.style.display = "none"
     // }
-};/*  |xGv00|896b2343e26f4b8fb998246354a18c39 */
+} /*  |xGv00|896b2343e26f4b8fb998246354a18c39 */
