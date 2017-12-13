@@ -101,30 +101,30 @@ function WfireSilder() {
             top: 0,
             left: 260,
             zIndex: 10
-        }, { //次大图片的宽高和位子
-            width: 320,
-            height: 174,
-            top: 56,
-            left: 110,
-            zIndex: 8
-        }, { //次大图片的宽高和位子
+        }, { //右边大图片的宽高和位子
             width: 320,
             height: 174,
             top: 56,
             left: 570,
             zIndex: 6
-        }, { //次大图片的宽高和位子
-            width: 240,
-            height: 130,
-            top: 80,
-            left: 20,
-            zIndex: 4
-        }, { //次大图片的宽高和位子
+        }, { //右边小图片的宽高和位子
             width: 240,
             height: 130,
             top: 80,
             left: 740,
             zIndex: 2
+        }, { //左边小图片的宽高和位子
+            width: 240,
+            height: 130,
+            top: 80,
+            left: 20,
+            zIndex: 4
+        }, { //左边大图片的宽高和位子
+            width: 320,
+            height: 174,
+            top: 56,
+            left: 110,
+            zIndex: 8
         }]
 
     for (g = 0; g < c.length; g++) {
