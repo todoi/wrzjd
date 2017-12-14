@@ -39,12 +39,12 @@ function removeClass(a, b) {
 
 function WfireSilder() {
     //更新index
-    function k() {
+    function k() { //updateIndex
         iNow++, iNow > d.length - 1 && (iNow = 0), l()
     }
 
     //重置小圆点的className，为激活圆点加 "hove" class ,开始移动
-    function l() {
+    function l() { //updateDot
         for (g = 0; g < c.length; g++) c[g].className = "";
         c[iNow].className = "hove", startMove(c[iNow], {
             opacity: 100
@@ -61,7 +61,7 @@ function WfireSilder() {
     }
 
     //每张图移动
-    function n() {
+    function n() { //updateSlide
         for (g = 0; g < d.length; g++) {
             var a = d[g].getElementsByTagName("img")[0];
             startMove(a, { opacity: 75 })
@@ -141,7 +141,8 @@ function WfireSilder() {
         d[g].style.height = j[g].height + "px";
         d[g].style.top = j[g].top + "px";
         d[g].style.left = j[g].left + "px";
-        d[g].style.zIndex = j[g].zIndex, i[g] = j[g];
+        d[g].style.zIndex = j[g].zIndex;
+        i[g] = j[g];
         myAddEvent(d[g], "mouseover", function() {
             var a = this.getElementsByTagName("div")[0];
             startMove(a, {
