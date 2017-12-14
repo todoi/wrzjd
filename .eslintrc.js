@@ -5,6 +5,10 @@ module.exports = {
         "es6": true,
         "node": true
     },
+    "globals":{
+        "jQuery": true,
+        "$": true
+    },
     "extends": "eslint:recommended",
     "parserOptions": {
         "ecmaFeatures": {
@@ -43,14 +47,8 @@ module.exports = {
       "no-sparse-arrays": 2, //数组中不允许出现空位置
       "no-unreachable": 2, //在return，throw，continue，break语句后不允许出现不可能到达的语句
       "use-isnan": 2, //要求检查NaN的时候使用isNaN()
-      "valid-jsdoc": ["error", {
-          "requireReturn": false,
-          "requireParamDescription": false,
-          "requireReturnDescription": true
-      }], //强制JSDoc注释
-      "valid-typeof": ["error", {
-          "requireStringLiterals": true
-      }], //在使用typeof表达式比较的时候强制使用有效的字符串
+      "valid-jsdoc": ["error", { "requireReturn": false, "requireParamDescription": false, "requireReturnDescription": true }], //强制JSDoc注释
+      "valid-typeof": ["error", { "requireStringLiterals": true }], //在使用typeof表达式比较的时候强制使用有效的字符串
       "block-scoped-var": 2, //将变量声明放在合适的代码块里
       "complexity": 0, //限制条件语句的复杂度
       "consistent-return": 2, //无论有没有返回值都强制要求return语句返回一个值
@@ -63,10 +61,7 @@ module.exports = {
       "guard-for-in": 0, //监视for in循环，防止出现不可预料的情况
       "no-div-regex": 2, //不能使用看起来像除法的正则表达式
       "no-else-return": 0, //如果if语句有return，else里的return不用放在else里
-      "no-labels": ["error", {
-          "allowLoop": false,
-          "allowSwitch": false
-      }], //不允许标签语句
+      "no-labels": ["error", { "allowLoop": false, "allowSwitch": false }], //不允许标签语句
       "no-eq-null": 2, //不允许对null用==或者!=
       "no-eval": 2, //不允许使用eval()
       "no-extend-native": 2, //不允许扩展原生对象
@@ -129,7 +124,7 @@ module.exports = {
       "no-multiple-empty-lines": [2, {"max": 2}], //空行最多不能超过两行
       "no-nested-ternary": 2, //不允许使用嵌套的三目运算符
       "no-new-object": 2, //禁止使用new Object()
-      "fun-call-spacing": 2, //函数调用时，函数名与()之间不能有空格
+      "fun-call-spacing": "never", //函数调用时，函数名与()之间不能有空格
       "no-ternary": 0, //不允许使用三目运算符
       "no-trailing-spaces": 2, //一行最后不允许有空格
       "no-underscore-dangle": 2, //不允许标识符以下划线开头
@@ -156,22 +151,10 @@ module.exports = {
       "max-statements": 0, //函数内最多有几个声明
       "no-bitwise": 0, //不允许使用位运算符
       "no-plusplus": 0, //不允许使用++ --运算符
-      "indent": [
-          "error",
-          4
-      ],
-      "linebreak-style": [
-          "error",
-          "unix"
-      ],
-      "quotes": [
-          "error",
-          "single"
-      ],
-      "semi": [
-          "error",
-          "never"
-      ],
+      "indent": [ "error", 4 ],
+      "linebreak-style": [ "error", "unix" ],
+      "quotes": [ "error", "single" ],
+      "semi": [ "error", "never" ],
     "block-scoped-var": 0,                  //把 var 语句看作是在块级作用域范围之内
     "curly": 1,                             //为所有控制语句指定花括号约定，警告
     "eol-last": 0,                          //强制文件最后一行为空行，关闭
@@ -187,6 +170,19 @@ module.exports = {
     "no-unused-expressions": 1,             // 禁止在语句的位置使用表达式
     "no-unused-vars": 2,                    //变量定义后未使用
     "no-use-before-define": 1,              //不允许在变量定义之前使用它们
-    "quotes": [0, "single", "avoid-escape"] //使用单引号
+    "quotes": [0, "single", "avoid-escape"], //使用单引号
+    "semi": "off",
+    "semi-spacing": "off",
+    "spaced-comment": "off",
+    "indent": "off",
+    "comma-spacing": "off",
+    "no-unused-expressions": ["error", { "allowShortCircuit": true, "allowTernary": true  }],
+    "space-before-function-paren": ["error", { "anonymous": "ignore", "named": "ignore"  }],
+    "space-before-blocks": "off",
+    "arrow-spacing": "off",
+    "block-spacing": "off",
+    "keyword-spacing": "off",
+    "key-spacing": "off",
+    "func-call-spacing": "off"
     }
 };
