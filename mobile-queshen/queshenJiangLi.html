@@ -3,7 +3,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title></title>
 <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" /> -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no,target-densitydpi=device-dpi" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no,target-densitydpi=high-dpi" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta content="black" name="apple-mobile-web-app-status-bar-style" />
 <meta content="telephone=no" name="format-detection" />
@@ -16,6 +16,8 @@
         var setFontSize = function(){
             var width = document.documentElement.clientWidth;
             width = width === 980 ? window.screen.width : width
+            alert('clientWidth: '+document.documentElement.clientWidth)
+            alert('screenWidth: '+window.screen.width)
             width = width > 1280 ? 1280: width;
             var fontSize = width/1280 * 100;
             document.getElementsByTagName("html")[0].style.fontSize = fontSize + "px";
