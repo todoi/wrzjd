@@ -51,6 +51,7 @@ html,body{width: 100%; background:#282828;}
 .heti .progress_bar span:nth-child(3){left: 50%; margin-left: -0.6rem;}
 .heti .progress_bar span:nth-child(4){right: -0.6rem;}
 .heti .progress_bar .bar{position: absolute; top: 0; left: 0; height: 100%; background:#D61718;}
+.heti .progress_bar .half{width: 50%;}
 
 /* background: #D61718;  */
 .heti .progress_bar span:before{content: ''; position: absolute; width: .16rem; height: .16rem;left: 50%; margin-left: -0.08rem;background: #000000; border-radius: 50%; top:-0.2rem;}
@@ -75,8 +76,32 @@ html,body{width: 100%; background:#282828;}
 .qiang .hongbao .qiang_02 .btn_qiang{cursor: pointer; position: absolute; left: 50%; margin-left: -1.5rem; width: 2.75rem; height:2.75rem; border-radius: 50%;}
 
 /* chai */
-.chai .progress_bar .bar{width: 50%;}
-.chai .hongbao{position: absolute;}
-.chai .hongbao .chai_01{position: relative; width: 5.19rem; height: 3.44rem; background: url(../images/chai_bg01.png) center/ cover no-repeat; }
-.chai .hongbao .chai_02{position: relative; width: 5.19rem; height: 2.78rem; background: url(../images/chai_bg02.png) center /cover no-repeat; }
-.chai .hongbao .chai_01 p:nth-child(1){ outline: 1px solid white;position: absolute; width: 100%; text-align: center; top: .5rem; transform: rotateZ(-3deg); color: #FDF86F; font-weight: bold; font-size: .36rem; text-shadow: -2px 0 #FC4304, 0 2px #FC4304, 2px 0 #FC4304, 0 -2px #FC4304;}
+.chai .hongbao{position: absolute; width: 100%; top: 1.5rem; left: 0;}
+.chai .hongbao .chai_01{position: relative; margin: 0 auto; width: 5.19rem; height: 3.44rem; background: url(../images/chai_bg01.png) center/ cover no-repeat; }
+.chai .hongbao .chai_02{position: relative; padding-top: 1.37rem; margin: 0 auto; width: 5.19rem; height: 1.41rem; background: url(../images/chai_bg02.png) center /cover no-repeat; }
+.chai .hongbao .chai_01 p:nth-child(1){position: absolute; width: 100%; text-align: center; top: .5rem; transform: rotateZ(-3deg); color: #FDF86F; font-weight: bold; font-size: .36rem; text-shadow: -2px 0 #FC4304, 0 2px #FC4304, 2px 0 #FC4304, 0 -2px #FC4304;}
+.chai .hongbao .chai_01 p:nth-child(1) span{ color: #FFFFFD; }
+.chai .hongbao .chai_01 p:nth-child(2){position: absolute; top: 1.66rem; left: .72rem; width: 3.68rem; height: 1.7rem; text-align: center;font-size: .3rem; transform: rotateZ(-3deg); color: #BEA077; font-weight: bold;}
+.chai .hongbao .chai_01 p:nth-child(2) span:nth-child(1){vertical-align: top; line-height: .3rem;}
+.chai .hongbao .chai_01 p:nth-child(2) span:nth-child(2){vertical-align: middle; font-size: 1.6rem; line-height: 1.5rem;}
+.chai .hongbao .chai_01 p:nth-child(2) span:nth-child(3){vertical-align: bottom; line-height: .3rem;}
+.chai .hongbao .chai_02 .btn_getBig{cursor: pointer; width: 4.26rem; height: .92rem; margin: 0 auto; background: url(../images/btn_getBig.png) center/contain no-repeat;}
+
+/* jixu */
+.jixu .hongbao{position: absolute; width: 100%; top:2.05rem; left: 0;}
+.jixu .hongbao .jixu_01{position: relative; width: 5.16rem; height: 2.5rem; margin: 0 auto; background: url(../images/jixu_bg01.png) center/cover no-repeat;}
+.jixu .hongbao .jixu_02{width: 5.16rem; height: 3.18rem; margin: 0 auto;  background: url(../images/jixu_bg02.png) center/cover no-repeat;}
+.jixu .hongbao .jixu_01 .avatar{position: absolute; top: -0.77rem; left: 50%; margin-left: -0.6rem; width: 1.03rem; height: 1.03rem; border:.13rem solid red; border-radius: 50%; background: url(../images/avatar.png) center/cover no-repeat;}
+.jixu .hongbao .jixu_01>span{display: inline-block; width: 100%; text-align: center; margin-top: 0.56rem; font-size: .2rem;}
+.jixu .hongbao .jixu_01>p{font-weight: bold; width: 100%; height: 1.12rem; text-align: center; margin-top:.12rem;}
+.jixu .hongbao .jixu_01>p span:nth-child(1){vertical-align: top; line-height: .3rem; font-size: .3rem;}
+.jixu .hongbao .jixu_01>p span:nth-child(2){vertical-align: middle; font-size: 1.3rem; line-height: 1.1rem;}
+.jixu .hongbao .jixu_01>p span:nth-child(3){vertical-align: bottom; line-height: .3rem; font-size: .3rem;}
+
+.jixu .hongbao .jixu_02 .btn_jixu{ width: 4.26rem; height: .91rem; margin: 0 auto; background: url(../images/btn_jixu.png) center/cover no-repeat;}
+.jixu .jixu_02 .rollCon1{ overflow: hidden; width: 4.41rem; height:.78rem; line-height: .78rem; font-size: .22rem;margin: 0 auto;}
+.jixu .jixu_02 .rollCon1:nth-child(2){margin-top: .3rem; margin-bottom: .05rem;}
+.jixu .jixu_02 .rollCon1 li{position: relative; line-height: .78rem; height: .78rem; white-space: nowrap; width: 3.46rem; padding-left: .75rem; padding-right:.2rem; background: url(../images/roll_bg.png) center/contain no-repeat;}
+.jixu .jixu_02 .rollCon1 li img{position: absolute; top: .07rem; left: .05rem; width: .64rem; height:.64rem; border-radius: 50%;}
+.jixu .jixu_02 .rollCon1 li span:nth-child(2){vertical-align: top;display: inline-block; width:1rem; text-align: center; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;}
+.jixu .jixu_02 .rollCon1 li span:nth-child(3){color:#FED618; position: absolute; right: .2rem; top: 50%; transform: translateY(-50%);}
