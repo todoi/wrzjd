@@ -1,0 +1,82 @@
+@charset "utf-8";
+body, div, a, span, img, ol, ul, li, input, p, a, h4, h3, select { padding: 0; margin: 0; }
+*{ margin:0; padding:0; -webkit-tap-highlight-color: transparent;}
+body { font-family: "Microsoft Yahei"; font-size:0.16rem; color:#f3f3f3; background: #efefef;}
+body, html{ border:0; border:none; }
+img { vertical-align: top; border: 0 none; }
+a{ cursor: pointer;color: #fff; text-decoration: none;}
+a:hover,a:focus{  outline: none; }
+i{ font-style: normal;}
+ul, li { list-style: none; }
+ol li{ list-style: decimal;}
+em, i{ font-style:normal;}
+.text-center { text-align:center; }
+.text-indent{text-indent: 2em;}
+.pull-left { float: left; }
+.pull-right { float: right; }
+.relative { position: relative; }
+.clearfix:after { content: "."; display: block; height: 0; font-size: 0; clear: both; visibility: hidden; }
+.clearfix { *zoom: 1; }
+.Yahei{font-family: "Microsoft Yahei";}
+.text-yellow{ color:#fee200 ;}
+.text-yellow1{color:#ffea34;}
+.text-green{ color:#22ac38;}
+.text-blue{ color:#3366cc;}
+.text-white1{ color:#ffc1b3;}
+.text-red{ color:#fec1c1;}
+.text-red1{ color:#660700;}
+.text-orange { color:#fb6c36;}
+.text-white{ color:#fff;}
+.text-gray{ color:#3e3e3e;}
+.text-underline{ text-decoration:underline;}
+.font16{ font-size:0.16rem;}
+.font18{ font-size:0.18rem;}
+.font24{ font-size:0.24rem;}
+
+.font60{ font-size:0.60rem;}
+.font48{ font-size:0.48rem;}
+.font36{ font-size:0.36rem;}
+.font20{ font-size:0.20rem;}
+/*public*/
+
+html,body{width: 100%; background:#282828;}
+.warp{ width:6.4rem; margin: 0 auto;  position:relative; background:#2B3143;}
+.warp .main{position: relative;}
+.warp .heti{padding-top: .5rem; height: 9.06rem; position: relative;}
+
+/* 进度条 */
+.heti .progress_bar{position: relative; width: 4.65rem; height:  .04rem; background:  #000000;  margin: 0 auto; }
+.heti .progress_bar span{position: absolute; bottom: -0.32rem; width: 1.2rem; text-align: center; color: #9FA1A4; font-size: .2rem; line-height: .22rem; height: .22rem;}
+.heti .progress_bar span:nth-child(2){left:-0.6rem;}
+.heti .progress_bar span:nth-child(3){left: 50%; margin-left: -0.6rem;}
+.heti .progress_bar span:nth-child(4){right: -0.6rem;}
+.heti .progress_bar .bar{position: absolute; top: 0; left: 0; height: 100%; background:#D61718;}
+
+/* background: #D61718;  */
+.heti .progress_bar span:before{content: ''; position: absolute; width: .16rem; height: .16rem;left: 50%; margin-left: -0.08rem;background: #000000; border-radius: 50%; top:-0.2rem;}
+.heti .progress_bar span.active{color: white;}
+.heti .progress_bar span.active:before{background: #D61718;}
+
+/* 规则按钮 */
+.main .btn_rule{position: absolute; right:0; top: 1.08rem; z-index: 2; width: 1.26rem; height: .57rem; padding-left: .18rem; line-height: .55rem;  cursor: pointer; color: #9FA1A4; font-size: .24rem;background: url(../images/btn_rule.png) center/contain no-repeat;}
+
+/* footer */
+.main .footer{position: absolute; width: 100%; height: 1.4rem; left: 0; bottom: 0;}
+.main .footer_01{width:  6.16rem; height:.4rem; margin: 0 auto; background: url(../images/footer_bg.png) center/cover no-repeat;}
+.main .footer_02{margin-top: .1rem; width: 6.16rem; padding: 0 0.12rem; font-size: .26rem; height: .4rem; line-height: .4rem; overflow: hidden; text-align: center; color:#737278;}
+.main .footer_02 .rollCon1{overflow: hidden; height: .4rem;}
+.main .footer_02 .rollCon1 li{line-height: .4rem; white-space: nowrap;}
+.main .footer_02 .rollCon1 span{color: #BA3837;}
+
+/* 首页 */
+.qiang .hongbao{position: absolute;left:.46rem; top: 1.32rem; }
+.qiang .hongbao .qiang_01{ width: 5.84rem; height: 2.73rem; background: url(../images/qiang_bg01.png) center/ cover no-repeat; }
+.qiang .hongbao .qiang_02{ width: 5.84rem; height: 3.69rem; background: url(../images/qiang_bg02.png) center /cover no-repeat; }
+.qiang .hongbao .qiang_02 .btn_qiang{cursor: pointer; position: absolute; left: 50%; margin-left: -1.5rem; width: 2.75rem; height:2.75rem; border-radius: 50%;}
+
+/* chai */
+.chai .progress_bar .bar{width: 50%;}
+.chai .hongbao{position: absolute;}
+.chai .hongbao .chai_01{position: relative; width: 5.19rem; height: 3.44rem; background: url(../images/chai_bg01.png) center/ cover no-repeat; }
+.chai .hongbao .chai_02{position: relative; width: 5.19rem; height: 2.78rem; background: url(../images/chai_bg02.png) center /cover no-repeat; }
+.chai .hongbao .chai_01 p:nth-child(1){ outline: 1px solid white;position: absolute; width: 100%; text-align: center; top: .5rem; transform: rotateZ(-3deg); color: #FDF86F; font-weight: bold; font-size: .36rem; text-shadow: -2px 0 #FC4304, 0 2px #FC4304, 2px 0 #FC4304, 0 -2px #FC4304;}
