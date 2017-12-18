@@ -13,17 +13,33 @@
 <script type="text/javascript">
   //初始化REM
 
-        var setFontSize = function(){
-            var width = document.documentElement.clientWidth;
-            width = width === 980 ? window.screen.width : width
-            width = width > 1280 ? 1280: width;
-            var fontSize = width/1280 * 100;
-            document.getElementsByTagName("html")[0].style.fontSize = fontSize + "px";
+        // var setFontSize = function(){
+            // var width = document.documentElement.clientWidth;
+            // width = width === 980 ? window.screen.width : width
+        //     width = width > 1280 ? 1280 : width;
+        //     var fontSize = width / 1280 * 100;
+        //     document.getElementsByTagName("html")[0].style.fontSize = fontSize + "px";
+        // }
+        // setFontSize();
+        // window.onresize = setFontSize;
+ (function (doc, win) {
+    var docEl = doc.documentElement
+    var resizeEvt = 'onorientationchange' in window ? 'onorientationchange' : 'resize';
+    var recalc = function () {
+        var clientWidth = docEl.clientWidth;
+        if (!clientWidth) return;
+        if(clientWidth >= 1280) {
+            docEl.style.fontSize = '100px';
+        }else{
+            docEl.style.fontSize = 100 * (clientWidth / 1280) + 'px';
         }
-        setFontSize();
-        window.onresize = setFontSize;
-</script>
-</head>
+    };
+    if (!doc.addEventListener) return;
+    win.addEventListener(resizeEvt, recalc, false);
+    doc.addEventListener('DOMContentLoaded', recalc, false);
+})(document, window);
+
+</script></head>
 
 <body>
 <div class="warp">
