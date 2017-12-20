@@ -1,0 +1,92 @@
+body,html{
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+
+.wrapper {
+  background: #555;
+  border: 1px solid red;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.snow_slice{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  transform-origin: 0% 0%;
+  animation-name: snow_falling;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  top: -100%;
+}
+
+.fall_01{
+  animation-delay: 0s;
+  animation-duration:50s;
+}
+
+.fall_02{
+  animation-delay: 25s;
+  animation-duration:50s;
+}
+
+.fall_03{
+  animation-delay: 0s;
+  animation-duration: 70s;
+  opacity: 0.5;
+}
+
+.fall_04{
+  animation-delay: 35s;
+  animation-duration: 70s;
+  opacity: 0.5;
+}
+
+.snow_drifter{
+  width: 100%;
+  height: 100%;
+  background-repeat: repeat;
+  background-image: url(../images/snow.png);
+}
+
+.drift_01{
+  background-position: 10% 20%;
+}
+
+.drift_02{
+  background-position: 40% 60%;
+}
+
+.drift_03{
+  background-position: 90% 10%;
+}
+
+.drift_04{
+  background-position: 50% 15%;
+}
+
+@keyframes snow_falling{
+  0%{
+    top: -100%;
+    opacity: 0;
+  }
+  1%{
+    top: -100%;
+    opacity: 1;
+  }
+  99.8%{
+    top: 100%;
+    opacity: 1;
+  }
+  99.9%{
+    opacity: 0;
+  }
+  100%{
+    top: -100%;
+    opacity: 0;
+  }
+}
