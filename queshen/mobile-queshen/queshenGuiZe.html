@@ -12,15 +12,18 @@
 <script type="text/javascript">
   //初始化REM
 
-        var setFontSize = function(){
-            var width = document.documentElement.clientWidth;
-            width = width === 980 ? window.screen.width : width
-            width = width > 1280 ? 1280 : width;
-            var fontSize = width / 1280 * 100;
-            document.getElementsByTagName("html")[0].style.fontSize = fontSize + "px";
-        }
-        setFontSize();
-        window.onresize = setFontSize;
+  var width
+  var fontSize
+  var setFontSize = function(){
+      width = document.documentElement.clientWidth;
+      width = width === 980 ? window.screen.width : width
+      width = width > 1280 ? 1280 : width;
+      fontSize = width / 1280 * 100;
+      document.getElementsByTagName("html")[0].style.fontSize = fontSize + "px";
+  }
+  alert('width: '+width, 'fontSize: '+fontSize)
+  setFontSize();
+  window.onresize = setFontSize;
 </script>
 </head>
 
@@ -271,7 +274,10 @@
     </div>
 
     <div class="bg"></div>
-
 </div>
+<script>
+  var fontSize1 = document.getElementsByTagName("html")[0].style.fontSize
+  alert('fontSize1: ' + fontSize1)
+</script>
 </body>
 </html>
