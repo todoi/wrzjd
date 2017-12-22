@@ -23,8 +23,12 @@
   }
   setFontSize();
   window.onresize = setFontSize;
+  var dpx = window.screen.deviceXDPI
+  var dwidth = window.screen.width
   alert('width: '+width)
+  alert('dwidth:' + dwidth)
   alert('fontSize: '+fontSize)
+  alert('dpx: '+dpx)
 </script>
 </head>
 
