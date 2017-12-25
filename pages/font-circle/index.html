@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+.container{position: relative; width: 100px; height: 100px; border: 1px solid; margin: 50px auto;}
+.font{position: absolute; width: 50px; height: 50px; font-size: 28px; line-height: 50px; overflow: hidden; text-indent: 11px; }
+.red-white-font{background: red; color: #fff; }
+.white-red-font{background: white; color: red; }
+.red-white-font1{top: 0; left: 0; }
+.red-white-font2{top: 0; right: 0; }
+.red-white-font3{top: 50px; right: 50px; }
+.red-white-font4{top: 50px; left: 50px; }
+.white-red-font1{top: 0; left: 0; }
+.white-red-font2{top: 0; right: 0; }
+.white-red-font3{top: 50px; right: 50px; }
+.white-red-font4{top: 50px; left: 50px; }
+    </style>
+</head>
+<body>
+  <div class="container">
+    <div class="red-white-font font red-white-font1">低</div>
+    <div class="red-white-font font red-white-font2">至</div>
+    <div class="white-red-font font white-red-font3">五</div>
+    <div class="white-red-font font white-red-font4">折</div>
+    <div class="white-red-font font white-red-font1">低</div>
+    <div class="white-red-font font white-red-font2">至</div>
+    <div class="red-white-font font red-white-font3">五</div>
+    <div class="red-white-font font red-white-font4">折</div>
+  </div>
+
+  <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+  <script>
+var $whiteDi = $('.red-white-font1'),
+    $redDi = $('.white-red-font1'),
+    $whiteZhi = $('.red-white-font2'),
+    $redZhi = $('.white-red-font2'),
+    $whiteWu = $('.red-white-font3'),
+    $redWu = $('.white-red-font3'),
+    $whiteZhe = $('.red-white-font4'),
+    $redZhe = $('.white-red-font4'),
+    length = 50,
+    timer
+
+moveTop()
+
+function moveTop(){
+  var e = 0
+  $whiteZhe.css('height', 0+'px')
+  timer = window.setInterval(function(){
+    if(e<length){
+      e++
+      $redDi.css('height', length - e + 'px')
+      $whiteWu.css('height', length - e + 'px')
+    }else{
+      window.clearInterval(timer)
+      $redDi.css({'width': 0, 'height': length+'px'})
+      moveRight()
+    }
+  }, 30)
+}
+
+function moveRight(){
+  var e = 0
+  timer = window.setInterval(function(){
+    if(e<length){
+      e++
+      $redDi.css('width', e + 'px')
+      $redDi.css('text-indent', 11+'px')
+      $redZhi.css('width', length-e+'px')
+      $redZhi.css('text-indent', -e+11+'px')
+    }else{
+      window.clearInterval(timer)
+      $redZhi.css({
+        'width': length + 'px',
+        'text-indent': 0+'px',
+        'height': 0
+      })
+      $redZhi.css('text-indent', 11+'px')
+      moveBottom()
+    }
+  }, 30)
+}
+
+function moveBottom(){
+  var e = 0
+  timer = window.setInterval(function(){
+    if(e<length){
+      e++
+      $redZhi.css('height', e + 'px')
+      $whiteZhe.css('height', e + 'px')
+    }else{
+      window.clearInterval(timer)
+      $whiteWu.css('height', length+'px')
+      $whiteWu.css('width', 0+'px')
+      moveLeft()
+    }
+  }, 30)
+}
+
+function moveLeft(){
+  var e = 0
+  timer = window.setInterval(function(){
+    if(e<length){
+      e++
+      $whiteZhe.css('width', length - e+'px')
+      $whiteWu.css('width', e+'px')
+      $whiteWu.css('text-indent',-length+11+e+'px')
+    }else{
+      window.clearInterval(timer)
+      $whiteZhe.css( 'width', length + 'px' )
+      moveTop()
+    }
+  }, 30)
+}
+  </script>
+</body>
+</html>
