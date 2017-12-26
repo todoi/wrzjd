@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <style>
+#nav{height:36px; margin:10px auto; border-bottom:1px solid #36c}
+#nav ul{list-style:none; padding-left:120px}
+#nav ul li{float:left; height:34px; line-height:34px; margin-left:6px;
+padding:0px 12px; border-left:1px solid #d3d3d3; border-right:1px solid #d3d3d3;
+border-top:1px solid #d3d3d3; background:#f7f7f7; cursor:pointer}
+#nav ul li.cur{height:35px; background:#36c; color:#fff}
+.image-grid{zoom:1}
+.image-grid li{width: 82px; height:100px; margin: 20px 0 0 35px; float:left;
+text-align: center; line-height:18px;color: #686f74;overflow:hidden;}
+.image-grid li img,.image-grid li strong{display:block;}
+  </style>
+</head>
+<body>
+  <div id="nav">
+    <ul>
+      <li id="all" class="cur">所有功能模块</li>
+      <li id="app">应用程序</li>
+      <li id="sys">系统管理</li>
+    </ul>
+  </div>
+  <ul id="list" class="image-grid">
+    <li id="id-1" class="app">
+      <img src="https://tse4-mm.cn.bing.net/th?id=OIP.GJxISvb0eWdkxnfqAVyPiQEsEq&w=188&h=187&c=7&o=5&pid=1.7" width="80" height="60" alt="" />
+      <strong>生日祝福</strong>
+    </li>
+    <li id="id-2" class="app">
+      <img src="https://tse2-mm.cn.bing.net/th?id=OIP.LpfiCj1DxW43KjwsaUmfGgD6D6&w=176&h=176&c=7&o=5&pid=1.7" width="80" height="60" alt="" />
+      <strong>节日祝福</strong>
+    </li>
+    <li id="id-3" class="sys">
+      <img src="https://tse2-mm.cn.bing.net/th?id=OIP.G8IHZc40SI0uU1jkW4do8wHaEo&w=300&h=187&c=7&o=5&pid=1.7" width="80" height="60" alt="" />
+      <strong>积分管理</strong>
+    </li>
+  </ul>
+  <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="./jquery.quicksand.js"></script>
+  <script>
+var $data=$("#list").clone();
+$("#nav ul li").click(function(){
+  $(this).addClass("cur");
+  $(this).siblings().removeClass("cur");
+});
+
+$("#nav ul li").click(function(){
+  $(this).addClass("cur");
+  $(this).siblings().removeClass("cur");
+  var id = $(this).attr("id");
+  if(id=="all"){
+    var $source=$data.find("li");
+  }else{
+    var $source=$data.find("li[class="+id+"]");
+  }
+  $("#list").quicksand($source,{
+    duration: 1000,
+    attribute: 'id',
+    easing: 'swing'
+  });
+});
+  </script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+legend {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+label {
+  display: block;
+  font-weight: bold;
+  color: #666;
+}
+select {
+  display: block;
+  width: 300px;
+}
+select.replaced {
+  display: none;
+}
+ul.selectReplacement {
+  background: url(/web/20090922234758im_/http://v2.easy-designs.net/articles/replaceSelect/files/top.jpg) top left no-repeat;
+  margin: 0;
+  padding: 0;
+  height: 1.65em;
+  width: 300px;
+}
+ul.selectReplacement li {
+  background: #cf5a5a;
+  color: #000;
+  cursor: pointer;
+  display: none;
+  font-size: 11px;
+  line-height: 1.7em;
+  list-style: none;
+  margin: 0;
+  padding: 1px 12px;
+  width: 276px;
+}
+ul.selectOpen li {
+  display: block;
+}
+ul.selectReplacement li.selected {
+  background: url(/web/20090922234758im_/http://v2.easy-designs.net/articles/replaceSelect/files/bottom.gif) bottom left no-repeat;
+  color: #000;
+  background: red;
+  display: block;
+}
+ul.selectOpen li.selected {
+  background: #9e0000;
+  display: block;
+}
+ul.selectOpen li:hover,
+ul.selectOpen li.hover,
+   ul.selectOpen li.selected:hover {
+     background: #9e0000;
+     color: #fff;
+   }
+body {
+  margin-top:0 !important;
+  padding-top:0 !important;
+  /*min-width:800px !important;*/
+}
+.wb-autocomplete-suggestions {
+    text-align: left; cursor: default; border: 1px solid #ccc; border-top: 0; background: #fff; box-shadow: -1px 1px 3px rgba(0,0,0,.1);
+    position: absolute; display: none; z-index: 2147483647; max-height: 254px; overflow: hidden; overflow-y: auto; box-sizing: border-box;
+}
+.wb-autocomplete-suggestion { position: relative; padding: 0 .6em; line-height: 23px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 1.02em; color: #333; }
+.wb-autocomplete-suggestion b { font-weight: bold; }
+.wb-autocomplete-suggestion.selected { background: #f0f0f0; }
