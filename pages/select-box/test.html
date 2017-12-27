@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>JS Bin</title>
+    <style>
+    legend {
+        font-size: 1.2em;
+        font-weight: bold;
+    }
+
+    label {
+        display: block;
+        font-weight: bold;
+        color: #666;
+    }
+
+    ul.selectReplacement {
+        margin: 0;
+        padding: 0;
+        font-size: 14px;
+        height: 1.7em;
+        width: 300px;
+        border: 1px solid blue;
+    }
+
+    ul.selectReplacement li {
+        background: #cf5a5a;
+        color: #000;
+        cursor: pointer;
+        display: none;
+        font-size: 14px;
+        line-height: 1.7em;
+        list-style: none;
+        margin: 0;
+        padding: 1px 12px;
+        width: 276px;
+    }
+
+    ul.selectOpen li {
+        display: block;
+    }
+
+    ul.selectReplacement li.selected {
+        color: #000;
+        background: red;
+        display: block;
+    }
+
+    ul.selectOpen li.selected {
+        background: #9e0000;
+        display: block;
+    }
+
+    ul.selectOpen li:hover,
+    ul.selectOpen li.hover,
+    ul.selectOpen li.selected:hover {
+        background: #9e0000;
+        color: #fff;
+    }
+
+    .wb-autocomplete-suggestions {
+        text-align: left;
+        cursor: default;
+        border: 1px solid #ccc;
+        border-top: 0;
+        background: #fff;
+        box-shadow: -1px 1px 3px rgba(0, 0, 0, .1);
+        position: absolute;
+        display: none;
+        z-index: 2147483647;
+        max-height: 254px;
+        overflow: hidden;
+        overflow-y: auto;
+        box-sizing: border-box;
+    }
+
+    .wb-autocomplete-suggestion {
+        position: relative;
+        padding: 0 .6em;
+        line-height: 23px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 1.02em;
+        color: #333;
+    }
+
+    .wb-autocomplete-suggestion b {
+        font-weight: bold;
+    }
+
+    .wb-autocomplete-suggestion.selected {
+        background: #f0f0f0;
+    }
+    </style>
+</head>
+
+<body>
+    <h1>Select Replacement Test</h1>
+    <form action="#" method="post">
+        <fieldset>
+            <legend>Sample Form</legend>
+            <ul id="something" name="something" class="selectReplacement">
+                <li value="1">This is option 1</li>
+                <li value="2">This is option 2</li>
+                <li value="3">This is option 3</li>
+                <li value="4">This is option 4</li>
+                <li value="5" class="selected">This is option 5</li>
+                <li value="6">This is option 6</li>
+                <li value="7">This is option 7</li>
+                <li value="8">This is option 8</li>
+            </ul>
+        </fieldset>
+    </form>
+    <script src="jquery-1.8.3.min.js"></script>
+    <script>
+
+    function openSelect(){
+        console.log(this)
+        $(this).parent().addClass('selectOpen')
+    }
+
+    function selectReplacement(ulSelector) { //obj为select元素
+        var $list = $(ulSelector).find('li');
+        for (var i = 0; i < $list.length; i++) {
+            var li = $list[i]
+            li.onclick = function() { //添加事件选中
+                selectMe(this);
+            }
+            $(li).hasClass('selected') && $(li).on('click', openSelect)
+        }
+        //ie 兼容hove 伪类
+        $list.on('mouseover', function(){
+            $(this).addClass('hover')
+        })
+        $list.on('mouseout', function(){
+            $(this).removeClass('hover')
+        })
+    }
+
+    selectReplacement('.selectReplacement')
+function selectMe(obj) { //参数是Li
+  var lis = obj.parentNode.getElementsByTagName('li');  //get ul child list
+  for (var i=0; i<lis.length; i++) {
+    if (lis[i] != obj) { // not the selected list item
+      lis[i].className='';
+      lis[i].onclick = function() {
+        selectMe(this);
+      }
+   } else {
+      obj.className='selected';
+      obj.parentNode.className =
+        obj.parentNode.className.replace(new RegExp(" selectOpen\\b"), '');
+      obj.onclick = function() {
+        obj.parentNode.className += ' selectOpen';
+        this.onclick = function() {
+          selectMe(this);
+        }
+      }
+    }
+  }
+}
+
+   //  // function selectMe(element) { //参数是Li
+   //  //     $(element).addClass('selected')
+   //  //     .siblings().off('click',openSelect).removeClass('selected')
+   //  //     .parent().removeClass('selectOpen')
+
+   //  //     $(element).on('click',function(){
+   //  //         var self = this
+   //  //         openSelect.call(this)
+   //  //         this.onclick = function(){
+   //  //             selectMe(self)
+   //  //         }
+   //  //     })
+   // }
+
+    </script>
+</body>
+
+</html>

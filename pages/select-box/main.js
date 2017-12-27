@@ -1,12 +1,14 @@
 window.onload = function() {
   (document.all && !window.print) ? null : setForm();
 }
-function setForm() {
+
+function setForm() { //替换html 中所有的 select 选项
   var s = document.getElementsByTagName('select');
   for (var i=0; i<s.length; i++) {
     selectReplacement(s[i]);
   }
 }
+
 function selectReplacement(obj) { //obj为select元素
   // append a class to the select
   obj.className += ' replaced';
@@ -55,8 +57,9 @@ function selectReplacement(obj) { //obj为select元素
   // add the input and the ul
   obj.parentNode.appendChild(ul);
 }
-function selectMe(obj) {
-  var lis = obj.parentNode.getElementsByTagName('li');
+
+function selectMe(obj) { //参数是Li
+  var lis = obj.parentNode.getElementsByTagName('li');  //get ul child list
   for (var i=0; i<lis.length; i++) {
     if (lis[i] != obj) { // not the selected list item
       lis[i].className='';
