@@ -158,7 +158,7 @@ em, i{ font-style:normal;}
 .paihang_02 .date:focus{outline:0;}
 .paihang_02 .date option{font-size: .2rem;}
 
-.paihang_box ul li{border-bottom: 2px solid; border-top: 0; -o-border-image:url(../images/queshen/border_bg.png) 2;-webkit-border-image:url(../images/queshen/border_bg.png) 2; border-image:url(../images/queshen/border_bg.png) 2;}
+.paihang_box ul li{border-bottom: .02rem solid; border-top: 0; -o-border-image:url(../images/queshen/border_bg.png) 2;-webkit-border-image:url(../images/queshen/border_bg.png) 2; border-image:url(../images/queshen/border_bg.png) 2;}
 .paihang_box ul li span{display: inline-block;font-size:.2rem; color: #8F4D13; text-align: center; height: .66rem; line-height: .66rem; vertical-align: middle; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
 .paihang_box ul li span:nth-child(1){width:15%; }
 .paihang_box ul li span:nth-child(2){width:23%; }
