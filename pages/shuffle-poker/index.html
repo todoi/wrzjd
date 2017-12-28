@@ -1,68 +1,305 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>JS Bin</title>
-  <style>
-#nav{height:36px; margin:10px auto; border-bottom:1px solid #36c}
-#nav ul{list-style:none; padding-left:120px}
-#nav ul li{float:left; height:34px; line-height:34px; margin-left:6px;
-padding:0px 12px; border-left:1px solid #d3d3d3; border-right:1px solid #d3d3d3;
-border-top:1px solid #d3d3d3; background:#f7f7f7; cursor:pointer}
-#nav ul li.cur{height:35px; background:#36c; color:#fff}
-.image-grid{zoom:1}
-.image-grid li{width: 82px; height:100px; margin: 20px 0 0 35px; float:left;
-text-align: center; line-height:18px;color: #686f74;overflow:hidden;}
-.image-grid li img,.image-grid li strong{display:block;}
-  </style>
 </head>
-<body>
-  <div id="nav">
-    <ul>
-      <li id="all" class="cur">所有功能模块</li>
-      <li id="app">应用程序</li>
-      <li id="sys">系统管理</li>
-    </ul>
-  </div>
-  <ul id="list" class="image-grid">
-    <li id="id-1" class="app">
-      <img src="https://tse4-mm.cn.bing.net/th?id=OIP.GJxISvb0eWdkxnfqAVyPiQEsEq&w=188&h=187&c=7&o=5&pid=1.7" width="80" height="60" alt="" />
-      <strong>生日祝福</strong>
-    </li>
-    <li id="id-2" class="app">
-      <img src="https://tse2-mm.cn.bing.net/th?id=OIP.LpfiCj1DxW43KjwsaUmfGgD6D6&w=176&h=176&c=7&o=5&pid=1.7" width="80" height="60" alt="" />
-      <strong>节日祝福</strong>
-    </li>
-    <li id="id-3" class="sys">
-      <img src="https://tse2-mm.cn.bing.net/th?id=OIP.G8IHZc40SI0uU1jkW4do8wHaEo&w=300&h=187&c=7&o=5&pid=1.7" width="80" height="60" alt="" />
-      <strong>积分管理</strong>
-    </li>
-  </ul>
-  <script src="./jquery-1.8.3.min.js"></script>
-  <script src="./jquery.quicksand.js"></script>
-  <script>
-var $data=$("#list").clone();
-$("#nav ul li").click(function(){
-  $(this).addClass("cur");
-  $(this).siblings().removeClass("cur");
-});
 
-$("#nav ul li").click(function(){
-  $(this).addClass("cur");
-  $(this).siblings().removeClass("cur");
-  var id = $(this).attr("id");
-  if(id=="all"){
-    var $source=$data.find("li");
-  }else{
-    var $source=$data.find("li[class="+id+"]");
+<body>
+  <style>
+  .deck {
+    position: relative;
+    border: 1px solid;
+    overflow: hidden;
+    width: 480px;
+    height: 660px;
+    margin: 0 auto;
   }
-  $("#list").quicksand($source,{
-    duration: 1000,
-    attribute: 'id',
-    easing: 'swing'
-  });
-});
+
+  .card {
+    position: absolute;
+    width: 151px;
+    height: 210px;
+  }
+
+  .rank1 {
+    top: 5px;
+    left: 5px;
+    z-index: 1;
+  }
+
+  .rank2 {
+    top: 5px;
+    left: 166px;
+    z-index: 1;
+  }
+
+  .rank3 {
+    top: 5px;
+    left: 324px;
+    z-index: 1;
+  }
+
+  .rank4 {
+    top: 225px;
+    left: 5px;
+    z-index: 1;
+  }
+
+  .rank5 {
+    top: 225px;
+    left: 166px;
+    z-index: 1;
+  }
+
+  .rank6 {
+    top: 225px;
+    left: 324px;
+    z-index: 1;
+  }
+
+  .rank7 {
+    top: 445px;
+    left: 5px;
+    z-index: 1;
+  }
+
+  .rank8 {
+    top: 445px;
+    left: 166px;
+    z-index: 1;
+  }
+
+  .rank9 {
+    top: 445px;
+    left: 324px;
+    z-index: 1;
+  }
+
+  .card>.back {
+    width: 100%;
+    height: 100%;
+    background: url("images/back.png") no-repeat 0 0;
+    background-size: 100% 100%;
+    -webkit-background-size: 100% 100%;
+  }
+
+  .rank1>.face {
+    width: 100%;
+    height: 100%;
+    background: url("images/face_1.jpg") no-repeat 0 0;
+    background-size: 100% 100%;
+    -webkit-background-size: 100% 100%;
+  }
+
+  .rank2>.face {
+    width: 100%;
+    height: 100%;
+    background: url("images/face_2.jpg") no-repeat 0 0;
+    background-size: 100% 100%;
+    -webkit-background-size: 100% 100%;
+  }
+
+  .rank3>.face {
+    width: 100%;
+    height: 100%;
+    background: url("images/face_3.jpg") no-repeat 0 0;
+    background-size: 100% 100%;
+    -webkit-background-size: 100% 100%;
+  }
+
+  .rank4>.face {
+    width: 100%;
+    height: 100%;
+    background: url("images/face_4.jpg") no-repeat 0 0;
+    background-size: 100% 100%;
+    -webkit-background-size: 100% 100%;
+  }
+
+  .rank5>.face {
+    width: 100%;
+    height: 100%;
+    background: url("images/face_5.jpg") no-repeat 0 0;
+    background-size: 100% 100%;
+    -webkit-background-size: 100% 100%;
+  }
+
+  .rank6>.face {
+    width: 100%;
+    height: 100%;
+    background: url("images/face_6.jpg") no-repeat 0 0;
+    background-size: 100% 100%;
+    -webkit-background-size: 100% 100%;
+  }
+
+  .rank7>.face {
+    width: 100%;
+    height: 100%;
+    background: url("images/face_7.jpg") no-repeat 0 0;
+    background-size: 100% 100%;
+    -webkit-background-size: 100% 100%;
+  }
+
+  .rank8>.face {
+    width: 100%;
+    height: 100%;
+    background: url("images/face_8.jpg") no-repeat 0 0;
+    background-size: 100% 100%;
+    -webkit-background-size: 100% 100%;
+  }
+
+  .rank9>.face {
+    width: 100%;
+    height: 100%;
+    background: url("images/face_9.jpg") no-repeat 0 0;
+    background-size: 100% 100%;
+    -webkit-background-size: 100% 100%;
+  }
+
+  .btn_container {
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  #btn_shuffle {
+    display: inline-block;
+    height: 30px;
+    width: 100px;
+  }
+  </style>
+  <div class="deck">
+    <div class="card rank1">
+      <div class="face"></div>
+    </div>
+    <div class="card rank2">
+      <div class="face"></div>
+    </div>
+    <div class="card rank3">
+      <div class="face"></div>
+    </div>
+    <div class="card rank4">
+      <div class="face"></div>
+    </div>
+    <div class="card rank5">
+      <div class="face"></div>
+    </div>
+    <div class="card rank6">
+      <div class="face"></div>
+    </div>
+    <div class="card rank7">
+      <div class="face"></div>
+    </div>
+    <div class="card rank8">
+      <div class="face"></div>
+    </div>
+    <div class="card rank9">
+      <div class="face"></div>
+    </div>
+  </div>
+  <div class="btn_container">
+    <button id="btn_shuffle">洗牌</button>
+  </div>
+  <script src="./jquery-1.8.3.min.js"></script>
+  <script>
+  $('#btn_shuffle').on('click', function() {
+    $('#btn_shuffle').attr('disabled', true)
+    $('.card div').removeClass('face').addClass('back')
+    window.setTimeout(function() {
+      sort()
+    }, 500)
+
+    window.setTimeout(function() {
+      for (var j = 0; j < 20; j++) {
+        shuffle()
+      }
+      sort()
+    }, 1000)
+
+    window.setTimeout(function() {
+      poker()
+      $('#btn_shuffle').attr('disabled', false)
+      $('.card').on('click', flip)
+    }, 1500)
+  })
+
+  //翻牌
+  function flip(){
+    $(this).find('.back').removeClass('back').addClass('face')
+    $('.card').off('click', flip)
+    var $cardList = $('.card').find('.back')
+    var delay = 1200
+    for (var i = 0; i < $cardList.length; i++){
+      !function(j){
+        window.setTimeout(function(){
+          $($cardList[j]).removeClass('back').addClass('face')
+        }, delay)
+        delay += 80
+      }(i)
+    }
+  }
+
+  //重新发牌
+  function poker() {
+    var position = {
+        rank1: { "top": 5, "left": 5 },
+        rank2: { top: 5, left: 166 },
+        rank3: { top: 5, left: 324 },
+        rank4: { top: 225, left: 5 },
+        rank5: { top: 225, left: 166 },
+        rank6: { top: 225, left: 324 },
+        rank7: { top: 445, left: 5 },
+        rank8: { top: 445, left: 166 },
+        rank9: { top: 445, left: 324 }
+      },
+      timeout = 100
+    for (var i = 1; i < 10; i++) {
+      var className = 'rank' + i
+      $('.' + className).animate({
+        top: position[className].top,
+        left: position[className].left
+      }, timeout)
+      timeout += 10
+    }
+  }
+
+  //洗牌
+  function shuffle() {
+    var $cardList = $('.card'),
+      zIndexList = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    for (var j = 0; j < $cardList.length; j++) {
+      var index = window.Math.floor(zIndexList.length * window.Math.random())
+      var zIndex = zIndexList.splice(index, 1)
+      var left = window.Math.random() < 0.5 ? 166 + window.Math.floor(60 * window.Math.random()) : 166 - window.Math.floor(60 * window.Math.random())
+      var top = window.Math.random() < 0.5 ? 166 + window.Math.floor(60 * window.Math.random()) : 166 - window.Math.floor(60 * window.Math.random())
+      var card = $cardList[j]
+      $(card).animate({
+        left: left,
+        top: top,
+        'z-index': zIndex
+      }, 30)
+    }
+  }
+  // 洗牌结束后整理牌
+  function sort() {
+    var $cardList = $('.card'),
+      timeout = 100,
+      top = 175,
+      left = 175
+
+    for (var i = 0; i < $cardList.length; i++) {
+      $($cardList[i]).animate({
+        top: top,
+        left: left,
+        opacity: 1
+      }, timeout, 'swing')
+      timeout += 50
+      top -= 1
+      left -= 1
+    }
+  }
   </script>
 </body>
+
 </html>
