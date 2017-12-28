@@ -203,8 +203,10 @@
   </div>
   <script src="./jquery-1.8.3.min.js"></script>
   <script>
-  $('#btn_shuffle').on('click', function() {
-    $('#btn_shuffle').attr('disabled', true)
+  $('#btn_shuffle').on('click', startShuffle)
+
+  function startShuffle(){
+    $('#btn_shuffle').off('click', startShuffle)
     $('.card div').removeClass('face').addClass('back')
     window.setTimeout(function() {
       sort()
@@ -219,21 +221,23 @@
 
     window.setTimeout(function() {
       poker()
-      $('#btn_shuffle').attr('disabled', false)
       $('.card').on('click', flip)
     }, 1500)
-  })
+  }
 
   //翻牌
   function flip(){
     $(this).find('.back').removeClass('back').addClass('face')
     $('.card').off('click', flip)
     var $cardList = $('.card').find('.back')
-    var delay = 1200
+    var delay = 1500
     for (var i = 0; i < $cardList.length; i++){
       !function(j){
         window.setTimeout(function(){
           $($cardList[j]).removeClass('back').addClass('face')
+          if(j === 7){
+            $('#btn_shuffle').on('click', startShuffle)
+          }
         }, delay)
         delay += 80
       }(i)
