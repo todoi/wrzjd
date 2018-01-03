@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+*{margin:0;}
+#container1{
+    height: 500px;
+    width: 500px;
+    border: 1px solid green;
+    overflow: hidden;
+}
+
+#container2{
+    width: 100%;
+    height: 99%;
+    border: 1px solid blue;
+    overflow: auto;
+    padding-right: 0px; /* exact value is given in JavaScript code */
+}
+
+html, body{
+    height: 99%;
+    border: 1px solid red;
+    overflow:hidden;
+}
+    </style>
+</head>
+<body>
+<div id="container1">
+    <div id="container2">
+    hello<br/>I<br/>am<br/>here<br/>
+    hello<br/>I<br/>am<br/>here<br/>
+    hello<br/>I<br/>am<br/>here<br/>
+    hello<br/>I<br/>am<br/>here<br/>
+    hello<br/>I<br/>am<br/>here<br/>
+    hello<br/>I<br/>am<br/>here<br/>
+    hello<br/>I<br/>am<br/>here<br/>
+    hello<br/>I<br/>am<br/>here<br/>
+    hello<br/>I<br/>am<br/>here<br/>
+    hello<br/>I<br/>am<br/>here<br/>
+    hello<br/>I<br/>am<br/>here<br/>
+    hello<br/>I<br/>am<br/>here<br/>
+    hello<br/>I<br/>am<br/>here<br/>
+    hello<br/>I<br/>am<br/>here<br/>
+    hello<br/>I<br/>am<br/>here<br/>
+    hello<br/>I<br/>am<br/>here<br/>
+    hello<br/>I<br/>am<br/>here<br/>
+    hello<br/>I<br/>am<br/>here<br/>
+    hello<br/>I<br/>am<br/>here<br/>
+    hello<br/>I<br/>am<br/>here<br/>
+    hello<br/>I<br/>am<br/>here<br/>
+    hello<br/>I<br/>am<br/>here<br/>
+    hello<br/>I<br/>am<br/>here<br/>
+    hello<br/>I<br/>am<br/>here<br/>
+    hello<br/>I<br/>am<br/>here<br/>
+    hello<br/>I<br/>am<br/>here<br/>
+    hello<br/>I<br/>am<br/>here<br/>
+    hello<br/>I<br/>am<br/>here<br/>
+    hello<br/>I<br/>am<br/>here<br/>
+    hello<br/>I<br/>am<br/>here<br/>
+    hello<br/>I<br/>am<br/>here<br/>
+    good<br/>bye.
+    </div>
+<div>
+    <script>
+var parent = document.getElementById('container1');
+var child = document.getElementById('container2');
+child.style.paddingRight = child.offsetWidth - child.clientWidth + "px";
+    </script>
+</body>
+</html>
