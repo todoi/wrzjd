@@ -9,7 +9,7 @@
   <meta content="telephone=no" name="format-detection" />
   <meta content="email=no" name="format-detection" />
   <title>破冰赢手机</title>
-  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <link rel="stylesheet" type="text/css" href="css/iceBreakingstyle.css" />
   <script type="text/javascript">
   //初始化REM
 
@@ -225,25 +225,6 @@
       </div>
     </div>
 
-    <!-- 恭喜对话框 -->
-    <div class="diaBox gongxi" style="display: none">
-      <div class="diaBox_inner">
-        <div class="dia_header Yahei"><a class="close pop_close"></a><img src="images/icebreaking/gongxi_title.png"></div>
-        <div class="dia_body">
-          <p class="rule tishi">获得 <span>价值100元的 </span></p>
-          <div class="card_socks" id="card_gift">
-            <div class="icon_bg"></div>
-            <p class="number">x100</p>
-            <p class="gift_name">圣诞袜</p>
-          </div>
-          <div class="btnAgain">
-            <p>可在双旦大作战游戏中代替积分消耗</p>
-            <a class="btn_liangjiang"></a>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <!--奖品物品-->
     <div class="diaBox prizeBox goodsBox" style="display: none;">
       <div class="diaBox_inner">
@@ -286,18 +267,32 @@
       </div>
     </div>
 
+    <!-- 恭喜对话框
+    <div class="diaBox gongxi" style="display: none">
+      <div class="diaBox_inner">
+        <div class="dia_header Yahei"><a class="close pop_close"></a><img src="images/icebreaking/gongxi_title.png"></div>
+        <div class="dia_body">
+          <p class="rule tishi">获得 <span>价值100元的 </span></p>
+          <div class="card_socks" id="card_gift">
+            <div class="icon_bg"></div>
+            <p class="number">x100</p>
+            <p class="gift_name">圣诞袜</p>
+          </div>
+          <div class="btnAgain">
+            <p>可在双旦大作战游戏中代替积分消耗</p>
+            <a class="btn_liangjiang"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    -->
   </div>
 
   <script src="js/jquery-1.8.3.min.js"></script>
   <script>
-
-  main()
-
-  function main(){
-    scale()
-    var ratio = getRatio()
-    $('#btn_hammer').on('click', startShuffle)
-  }
+  scale()
+  var ratio = getRatio()
+  $('#btn_hammer').on('click', startShuffle)
 
   function scale(){
     var widthMax = $('.ice_container li>i').width() * 1
@@ -324,6 +319,7 @@
   function startShuffle(){
     $('#btn_hammer').off('click', startShuffle)
     $('.hammer').hide()
+    $('.ice_container li').css("background-image","url(../images/icebreaking/ice_bg.png")
     //将牌集合到一处
     window.setTimeout(function() {
       sort()
@@ -349,30 +345,32 @@
   //翻牌
   function flip(){
     $('.ice_container li').off('click', flip)
+    $(this).css("background-image","url(../images/icebreaking/ice_breaking.gif?version=" + Math.floor(Math.random() * 100000000) + ")")
 
-    var prizeName = ['coin1', 'hongbao', 'bag1', 'iPad', 'coin2', 'card', 'bag2', 'iPhone']
-    var htmlObject = getHTML()
-    //key 是从后台传过来的
-    var key = "coin1"
-    var html = htmlObject[key]
+    window.setTimeout(function(){
+      var prizeName = ['coin1', 'hongbao', 'bag1', 'iPad', 'coin2', 'card', 'bag2', 'iPhone']
+      var htmlObject = getHTML()
+      //key 是从后台传过来的
+      var key = "coin1"
+      var html = htmlObject[key]
+      var $cardList = $(this).siblings()
 
-    prizeName.splice(prizeName.indexOf(key), 1)
-    $(this).html(html)
-    var $cardList = $(this).siblings()
-    var delay = 500
-    for (var i = 0; i < $cardList.length; i++){
-      var object = spliceArray(prizeName)
-      prizeName = object.array
-      html = htmlObject[object.item]
-      !function(j,nhtml){
-        window.setTimeout(function(){
-          $($cardList[j]).html(nhtml)
-          if(j === 6){
-            $('#btn_hammer').on('click', startShuffle)
-          }
-        }, delay)
-      }(i,html)
-    }
+      prizeName.splice(prizeName.indexOf(key), 1)
+      $(this).html(html)
+      for (var i = 0; i < $cardList.length; i++){
+        var object = spliceArray(prizeName)
+        prizeName = object.array
+        html = htmlObject[object.item]
+        !function(j,nhtml){
+          window.setTimeout(function(){
+            $($cardList[j]).html(nhtml)
+            if(j === 6){
+              $('#btn_hammer').on('click', startShuffle)
+            }
+          }, 500)
+        }(i,html)
+      }
+    }.bind(this), 600)
   }
 
   //发牌
@@ -403,8 +401,6 @@
     var $cardList = $('.ice_container li'),
       zIndexList = [1, 2, 3, 4, 5, 6, 7, 8 ]
     for (var j = 0; j < $cardList.length; j++) {
-      // var index = window.Math.floor(zIndexList.length * window.Math.random())
-      // var zIndex = zIndexList.splice(index, 1)
       var zIndex = spliceArray(zIndexList).index
       var left = window.Math.random() < 0.5 ? 166 + window.Math.floor(60 * window.Math.random()) : 166 - window.Math.floor(60 * window.Math.random())
       var top = window.Math.random() < 0.5 ? 166 + window.Math.floor(60 * window.Math.random()) : 166 - window.Math.floor(60 * window.Math.random())
