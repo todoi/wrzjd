@@ -332,7 +332,7 @@
     console.log(a++)
     $('#btn_hammer').unbind()
     $('.hammer').hide()
-    $('.ice_container .ice_bg').attr('src','./images/icebreaking/ice_bg.png')
+    $('.ice_container .ice_bg').removeClass('gif').attr('src','./images/icebreaking/ice_bg.png')
     //将牌集合到一处
     window.setTimeout(function() {
       sort()
@@ -350,7 +350,10 @@
     //发牌
     window.setTimeout(function() {
       poker()
-      window.setTimeout(function(){$('.ice_container li').html('<i class="smash"></i><img class="ice_bg" src="./images/icebreaking/ice_bg.png">').click(flip)}, 500)
+      window.setTimeout(function(){
+        $('.ice_container li').click(flip)
+        $('.ice_container i').addClass('smash')
+      }, 500)
       window.setTimeout(function(){$('.hammer').show()}, 500)
     }, 1500)
   }
@@ -361,9 +364,11 @@
     var url = './images/icebreaking/ice_breaking.gif?version=' + Math.floor(Math.random() * 100000000),
       self = this
     $('.ice_container li').unbind()
-    $(this).html('').append(getGif(url, 'ice_bg', function(){showPrize.call(this,self)}))
+    $('.ice_container .smash').removeClass('smash')
+    $(this).append(getGif(url, 'ice_bg gif', function(){showPrize.call(this,self)}))
 
     function showPrize(self){
+      $(self).find('.ice_bg').not('.gif').remove()
       this.onload = null
       window.setTimeout(function(){
         var prizeName = ['coin1', 'hongbao', 'bag1', 'iPad', 'coin2', 'card', 'bag2', 'iPhone']
@@ -381,7 +386,7 @@
           html = htmlObject[object.item]
           !function(j,nhtml){
             window.setTimeout(function(){
-              $($cardList[j]).append(nhtml).find('.smash').remove()
+              $($cardList[j]).append(nhtml)
               if(j === 6){
                 $('#btn_hammer').click(startShuffle)
               }
