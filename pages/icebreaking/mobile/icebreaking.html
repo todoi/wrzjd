@@ -298,15 +298,12 @@
 
   <script src="./js/jquery-1.8.3.min.js"></script>
   <script>
-  $(function(){
-    main()
-  })
+  var ratio = getRatio()
 
-  function main(){
+  $(function(){
     scale()
-    var ratio = getRatio()
     $('#btn_hammer').on('click', startShuffle)
-  }
+  })
 
   function scale(){
     var widthMax = $('.ice_container li>i').width() * 1
