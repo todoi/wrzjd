@@ -302,7 +302,7 @@
 
   $(function(){
     scale()
-    $('#btn_hammer').on('click', startShuffle)
+    $('#btn_hammer').click(startShuffle)
   })
 
   function scale(){
@@ -327,8 +327,10 @@
     return width / 1280 * 100;
   }
 
+  var a = 1
   function startShuffle(){
-    $('#btn_hammer').off('click', startShuffle)
+    console.log(a++)
+    $('#btn_hammer').unbind()
     $('.hammer').hide()
     $('.ice_container .ice_bg').attr('src','./images/icebreaking/ice_bg.png')
     //将牌集合到一处
@@ -339,7 +341,7 @@
     // 洗牌次数
     window.setTimeout(function() {
       for (var j = 0; j < 10; j++) {
-        $('.ice_container .item_inner').remove()
+        if (j === 5) $('.ice_container .item_inner').remove()
         shuffle()
       }
       sort()
@@ -348,21 +350,21 @@
     //发牌
     window.setTimeout(function() {
       poker()
-      window.setTimeout(function(){$('.ice_container li').append('<i class="smash"></i>').on('click', flip)}, 500)
+      window.setTimeout(function(){$('.ice_container li').html('<i class="smash"></i><img class="ice_bg" src="./images/icebreaking/ice_bg.png">').click(flip)}, 500)
       window.setTimeout(function(){$('.hammer').show()}, 500)
     }, 1500)
   }
 
+    var b = 1
   //翻牌
   function flip(){
-    var url = './images/icebreaking/ice_breaking.gif?version=' + Math.floor(Math.random() * 100000000) + ')',
+    var url = './images/icebreaking/ice_breaking.gif?version=' + Math.floor(Math.random() * 100000000),
       self = this
-    $('.ice_container li').off('click', flip)
-    $(this).html('').append(getGif(url, 'ice_bg', function(){showPrize(self)}))
+    $('.ice_container li').unbind()
+    $(this).html('').append(getGif(url, 'ice_bg', function(){showPrize.call(this,self)}))
 
     function showPrize(self){
-      console.log(1)
-      console.log(self)
+      this.onload = null
       window.setTimeout(function(){
         var prizeName = ['coin1', 'hongbao', 'bag1', 'iPad', 'coin2', 'card', 'bag2', 'iPhone']
         var htmlObject = getHTML()
@@ -381,7 +383,7 @@
             window.setTimeout(function(){
               $($cardList[j]).append(nhtml).find('.smash').remove()
               if(j === 6){
-                $('#btn_hammer').on('click', startShuffle)
+                $('#btn_hammer').click(startShuffle)
               }
             }, 500)
           }(i,html)
