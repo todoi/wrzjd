@@ -319,7 +319,7 @@
   function startShuffle(){
     $('#btn_hammer').off('click', startShuffle)
     $('.hammer').hide()
-    $('.ice_container li').css("background-image","url(../images/icebreaking/ice_bg.png")
+    $('.ice_container li').css("background-image","url(./images/icebreaking/ice_bg.png")
     //将牌集合到一处
     window.setTimeout(function() {
       sort()
@@ -345,7 +345,7 @@
   //翻牌
   function flip(){
     $('.ice_container li').off('click', flip)
-    $(this).css("background-image","url(../images/icebreaking/ice_breaking.gif?version=" + Math.floor(Math.random() * 100000000) + ")")
+    $(this).css("background-image","url(./images/icebreaking/ice_breaking.gif?version=" + Math.floor(Math.random() * 100000000) + ")")
 
     window.setTimeout(function(){
       var prizeName = ['coin1', 'hongbao', 'bag1', 'iPad', 'coin2', 'card', 'bag2', 'iPhone']
