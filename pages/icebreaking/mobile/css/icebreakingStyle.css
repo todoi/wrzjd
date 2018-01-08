@@ -84,15 +84,30 @@ em, i{ font-style:normal;}
 .ice_container ul .item7{top:2.91rem; left:0;}
 .ice_container ul .item8{top:1.45rem; left:0;}
 
-.ice_container ul li img{position: absolute; left:50%;}
-.ice_container ul .coin1 img{width:.83rem; height:.65rem; margin-left: -0.41rem; top:.19rem;}
-.ice_container ul .coin2 img{width:.83rem; height:.65rem; margin-left: -0.41rem; top:.19rem;}
-.ice_container ul .iPhone img{width:.71rem; height:.86rem; margin-left: -0.35rem; top:.07rem;}
-.ice_container ul .bag1 img{width:.91rem; height:.71rem; margin-left: -0.45rem; top: .13rem;}
-.ice_container ul .bag2 img{width:.91rem; height:.71rem; margin-left: -0.45rem; top: .13rem;}
-.ice_container ul .card img{width:1.03rem; height:.7rem; margin-left: -0.51rem; top: .22rem;}
-.ice_container ul .iPad img{width:.72rem; height:.85rem; margin-left: -0.36rem; top:.07rem;}
-.ice_container ul .hongbao img{width:.83rem; height:.74rem; margin-left:-0.41rem; top:.11rem;}
+.ice_container ul .item_inner span{position: absolute; left:50%;}
+.ice_container ul .coin1>.icon_prize{width:.83rem; height:.65rem; margin-left: -0.41rem; top:.19rem; background:url("../images/icebreaking/icon_coin.png") no-repeat 0 0; background-size: 100% 100%; -webkit-background-size: 100% 100%;}
+.ice_container ul .coin1>.icon_prizeOn{width:.83rem; height:.65rem; margin-left: -0.41rem; top:.19rem; background:url("../images/icebreaking/icon_coinOn.png") no-repeat 0 0; background-size: 100% 100%; -webkit-background-size: 100% 100%;}
+
+.ice_container ul .coin2>.icon_prize{width:.83rem; height:.65rem; margin-left: -0.41rem; top:.19rem; background:url("../images/icebreaking/icon_coin.png") no-repeat 0 0; background-size: 100% 100%; -webkit-background-size: 100% 100%;}
+.ice_container ul .coin2>.icon_prizeOn{width:.83rem; height:.65rem; margin-left: -0.41rem; top:.19rem; background:url("../images/icebreaking/icon_coinOn.png") no-repeat 0 0; background-size: 100% 100%; -webkit-background-size: 100% 100%;}
+
+.ice_container ul .iPhone>.icon_prize{width:.71rem; height:.86rem; margin-left: -0.35rem; top:.07rem; background:url("../images/icebreaking/icon_iPhone.png") no-repeat 0 0; background-size: 100% 100%; -webkit-background-size: 100% 100%;}
+.ice_container ul .iPhone>.icon_prizeOn{width:.71rem; height:.86rem; margin-left: -0.35rem; top:.07rem; background:url("../images/icebreaking/icon_iPhoneOn.png") no-repeat 0 0; background-size: 100% 100%; -webkit-background-size: 100% 100%;}
+
+.ice_container ul .bag1>.icon_prize{width:.92rem; height:.72rem; margin-left: -0.46rem; top: .13rem; background:url("../images/icebreaking/icon_bag.png") no-repeat 0 0; background-size: 100% 100%; -webkit-background-size: 100% 100%;}
+.ice_container ul .bag1>.icon_prizeOn{width:.92rem; height:.72rem; margin-left: -0.46rem; top: .13rem; background:url("../images/icebreaking/icon_bagOn.png") no-repeat 0 0; background-size: 100% 100%; -webkit-background-size: 100% 100%;}
+
+.ice_container ul .bag2>.icon_prize{width:.92rem; height:.72rem; margin-left: -0.46rem; top: .13rem; background:url("../images/icebreaking/icon_bag.png") no-repeat 0 0; background-size: 100% 100%; -webkit-background-size: 100% 100%;}
+.ice_container ul .bag2>.icon_prizeOn{width:.92rem; height:.72rem; margin-left: -0.46rem; top: .13rem; background:url("../images/icebreaking/icon_bagOn.png") no-repeat 0 0; background-size: 100% 100%; -webkit-background-size: 100% 100%;}
+
+.ice_container ul .card>.icon_prize{width:1.03rem; height:.7rem; margin-left: -0.51rem; top: .22rem; background:url("../images/icebreaking/icon_card.png") no-repeat 0 0; background-size: 100% 100%; -webkit-background-size: 100% 100%;}
+.ice_container ul .card>.icon_prizeOn{width:1.03rem; height:.7rem; margin-left: -0.51rem; top: .22rem; background:url("../images/icebreaking/icon_cardOn.png") no-repeat 0 0; background-size: 100% 100%; -webkit-background-size: 100% 100%;}
+
+.ice_container ul .iPad>.icon_prize{width:.72rem; height:.85rem; margin-left: -0.36rem; top:.07rem; background:url("../images/icebreaking/icon_iPad.png") no-repeat 0 0; background-size: 100% 100%; -webkit-background-size: 100% 100%;}
+.ice_container ul .iPad>.icon_prizeOn{width:.72rem; height:.85rem; margin-left: -0.36rem; top:.07rem; background:url("../images/icebreaking/icon_iPadOn.png") no-repeat 0 0; background-size: 100% 100%; -webkit-background-size: 100% 100%;}
+
+.ice_container ul .hongbao>.icon_prize{width:.83rem; height:.74rem; margin-left:-0.41rem; top:.11rem; background:url("../images/icebreaking/icon_hongbao.png") no-repeat 0 0; background-size: 100% 100%; -webkit-background-size: 100% 100%;}
+.ice_container ul .hongbao>.icon_prizeOn{width:.83rem; height:.74rem; margin-left:-0.41rem; top:.11rem; background:url("../images/icebreaking/icon_hongbaoOn.png") no-repeat 0 0; background-size: 100% 100%; -webkit-background-size: 100% 100%;}
 
 .ice_container ul .txt{position: absolute; top: .81rem; left: 0; -webkit-transform: scale(0.5); transform: scale(0.5); -webkit-transform-origin: 0 0; transform-origin: 0 0; width: 200%; text-align: center; color: #1C487A; font-size: .4rem; line-height: .44rem; font-weight: bold; }
 .ice_container ul .iPad .txt{top:.88rem;}

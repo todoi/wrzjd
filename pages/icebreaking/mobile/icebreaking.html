@@ -48,7 +48,7 @@
               <img src="./images/icebreaking/ice_bg.png" class="ice_bg">
               <i class=""></i>
               <div class="item_inner coin1">
-                <img src="./images/icebreaking/icon_coin.png"/>
+                <span class="icon_prize"></span>
                 <div class="txt">
                   <p>1000~10万</p>
                   <p>积分</p>
@@ -59,7 +59,7 @@
               <img src="./images/icebreaking/ice_bg.png" class="ice_bg">
               <i class=""></i>
               <div class="item_inner hongbao">
-                <img src="./images/icebreaking/icon_hongbao.png"/>
+                <span class="icon_prize"></span>
                 <div class="txt">
                   <p>1~100元</p>
                   <p>红包</p>
@@ -70,7 +70,7 @@
               <img src="./images/icebreaking/ice_bg.png" class="ice_bg">
               <i class=""></i>
               <div class="item_inner bag1">
-                <img src="./images/icebreaking/icon_bag.png"/>
+                <span class="icon_prize"></span>
                 <div class="txt">
                   <p>x 1</p>
                   <p>游戏福袋</p>
@@ -81,7 +81,7 @@
               <img src="./images/icebreaking/ice_bg.png" class="ice_bg">
               <i class=""></i>
               <div class="item_inner iPad">
-                <img src="./images/icebreaking/icon_iPad.png"/>
+                <span class="icon_prize"></span>
                 <div class="txt">
                   <p>iPad mini4</p>
                   <p>128G</p>
@@ -92,7 +92,7 @@
               <img src="./images/icebreaking/ice_bg.png" class="ice_bg">
               <i class=""></i>
               <div class="item_inner coin2">
-                <img src="./images/icebreaking/icon_coin.png"/>
+                <span class="icon_prize"></span>
                 <div class="txt">
                   <p>1万~100万</p>
                   <p>积分</p>
@@ -103,7 +103,7 @@
               <img src="./images/icebreaking/ice_bg.png" class="ice_bg">
               <i class=""></i>
               <div class="item_inner card">
-                <img src="./images/icebreaking/icon_card.png"/>
+                <span class="icon_prize"></span>
                 <div class="txt">
                   <p>500元京东卡</p>
                 </div>
@@ -113,7 +113,7 @@
               <img src="./images/icebreaking/ice_bg.png" class="ice_bg">
               <i class=""></i>
               <div class="item_inner bag2">
-                <img src="./images/icebreaking/icon_bag.png"/>
+                <span class="icon_prize"></span>
                 <div class="txt">
                   <p>x 1</p>
                   <p>游戏福袋</p>
@@ -124,7 +124,7 @@
               <img src="./images/icebreaking/ice_bg.png" class="ice_bg">
               <i class=""></i>
               <div class="item_inner iPhone">
-                <img src="./images/icebreaking/icon_iPhone.png"/>
+                <span class="icon_prize"></span>
                 <div class="txt">
                   <p>iPhone X</p>
                   <p>256G</p>
@@ -306,10 +306,10 @@
   })
 
   function scale(){
-    var widthMax = $('.ice_container li>i').width() * 1
-    var widthMin = $('.ice_container li>i').width() * 0.9
-    var heightMax = $('.ice_container li>i').height() * 1
-    var heightMin = $('.ice_container li>i').height() * 0.9
+    var widthMax = $('.ice_container li>i').width() * 1,
+      widthMin = $('.ice_container li>i').width() * 0.9,
+      heightMax = $('.ice_container li>i').height() * 1,
+      heightMin = $('.ice_container li>i').height() * 0.9
     window.setInterval(function(){
       $('.smash').animate({
         width: widthMin,
@@ -318,7 +318,7 @@
         width: widthMax,
         height: heightMax
       }, 500)
-    }, 1000)
+    },1000)
   }
 
   function getRatio(){
@@ -327,11 +327,10 @@
     return width / 1280 * 100;
   }
 
-  var a = 1
   function startShuffle(){
-    console.log(a++)
     $('#btn_hammer').unbind()
     $('.hammer').hide()
+    $('.icon_prizeOn').removeClass('icon_prizeOn')
     $('.ice_container .ice_bg').removeClass('gif').attr('src','./images/icebreaking/ice_bg.png')
     //将牌集合到一处
     window.setTimeout(function() {
@@ -341,7 +340,7 @@
     // 洗牌次数
     window.setTimeout(function() {
       for (var j = 0; j < 10; j++) {
-        if (j === 5) $('.ice_container .item_inner').remove()
+        if (j === 3) $('.ice_container .item_inner').remove()
         shuffle()
       }
       sort()
@@ -358,7 +357,6 @@
     }, 1500)
   }
 
-    var b = 1
   //翻牌
   function flip(){
     var url = './images/icebreaking/ice_breaking.gif?version=' + Math.floor(Math.random() * 100000000),
@@ -375,11 +373,12 @@
         var htmlObject = getHTML()
         //key 是从后台传过来的
         var key = "coin1"
-        var html = htmlObject[key]
+        var $html = $(htmlObject[key]).find('.icon_prize').addClass('icon_prizeOn').end()
         var $cardList = $(self).siblings()
 
         prizeName.splice(prizeName.indexOf(key), 1)
-        $(self).append(html)
+        $(self).append($html)
+
         for (var i = 0; i < $cardList.length; i++){
           var object = spliceArray(prizeName)
           prizeName = object.array
@@ -414,7 +413,8 @@
       var className = 'item' + i
       $('.' + className).animate({
         top: position[className].top,
-        left: position[className].left
+        left: position[className].left,
+        'z-index': 1
       }, timeout)
       timeout += 10
     }
@@ -426,8 +426,8 @@
       zIndexList = [1, 2, 3, 4, 5, 6, 7, 8 ]
     for (var j = 0; j < $cardList.length; j++) {
       var zIndex = spliceArray(zIndexList).index
-      var left = window.Math.random() < 0.5 ? 166 + window.Math.floor(60 * window.Math.random()) : 166 - window.Math.floor(60 * window.Math.random())
-      var top = window.Math.random() < 0.5 ? 166 + window.Math.floor(60 * window.Math.random()) : 166 - window.Math.floor(60 * window.Math.random())
+      var left = window.Math.random() < 0.5 ? 166 + window.Math.floor(50 * window.Math.random()) : 166 - window.Math.floor(50 * window.Math.random())
+      var top = window.Math.random() < 0.5 ? 166 + window.Math.floor(50 * window.Math.random()) : 166 - window.Math.floor(50 * window.Math.random())
       var card = $cardList[j]
       $(card).animate({
         left: left/100*ratio,
@@ -473,14 +473,14 @@
 
   function getHTML(){
     return {
-      coin1: '<div class="item_inner coin1"> <img src="images/icebreaking/icon_coin.png"/> <div class="txt"> <p>1000~10万</p> <p>积分</p> </div> </div> ',
-      hongbao: '<div class="item_inner hongbao"> <img src="images/icebreaking/icon_hongbao.png"/> <div class="txt"> <p>1~100元</p> <p>红包</p> </div> </div> ',
-      bag1:'<div class="item_inner bag1"> <img src="images/icebreaking/icon_bag.png"/> <div class="txt"> <p>x 1</p> <p>游戏福袋</p> </div> </div> ',
-      iPad: '<div class="item_inner iPad"> <img src="images/icebreaking/icon_iPad.png"/> <div class="txt"> <p>iPad mini4</p> <p>128G</p> </div> </div> ',
-      coin2: '<div class="item_inner coin2"> <img src="images/icebreaking/icon_coin.png"/> <div class="txt"> <p>1万~100万</p> <p>积分</p> </div> </div> ',
-      card: '<div class="item_inner card"> <img src="images/icebreaking/icon_card.png"/> <div class="txt"> <p>500元京东卡</p> </div> </div> ',
-      bag2: '<div class="item_inner bag2"> <img src="images/icebreaking/icon_bag.png"/> <div class="txt"> <p>x 1</p> <p>游戏福袋</p> </div> </div> ',
-      iPhone: '<div class="item_inner iPhone"> <img src="images/icebreaking/icon_iPhone.png"/> <div class="txt"> <p>iPhone X</p> <p>256G</p> </div> </div> ',
+      coin1: '<div class="item_inner coin1"> <span class="icon_prize"></span> <div class="txt"> <p>1000~10万</p> <p>积分</p> </div> </div> ',
+      hongbao: '<div class="item_inner hongbao"> <span class="icon_prize"></span> <div class="txt"> <p>1~100元</p> <p>红包</p> </div> </div> ',
+      bag1:'<div class="item_inner bag1"> <span class="icon_prize"></span> <div class="txt"> <p>x 1</p> <p>游戏福袋</p> </div> </div> ',
+      iPad: '<div class="item_inner iPad"> <span class="icon_prize"></span> <div class="txt"> <p>iPad mini4</p> <p>128G</p> </div> </div> ',
+      coin2: '<div class="item_inner coin2"> <span class="icon_prize"></span> <div class="txt"> <p>1万~100万</p> <p>积分</p> </div> </div> ',
+      card: '<div class="item_inner card"> <span class="icon_prize"></span> <div class="txt"> <p>500元京东卡</p> </div> </div> ',
+      bag2: '<div class="item_inner bag2"> <span class="icon_prize"></span> <div class="txt"> <p>x 1</p> <p>游戏福袋</p> </div> </div> ',
+      iPhone: '<div class="item_inner iPhone"> <span class="icon_prize"></span> <div class="txt"> <p>iPhone X</p> <p>256G</p> </div> </div> '
     }
   }
   </script>
