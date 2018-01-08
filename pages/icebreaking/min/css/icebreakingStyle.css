@@ -70,6 +70,7 @@ em, i{ font-style:normal;}
 .ice_container ul{position: absolute; width: 100%; height: 100%; top:0; left: 0; z-index: 1;}
 .ice_container ul li{cursor: pointer; position: absolute; width:93px; height:96px;}
 .ice_container ul li>.ice_bg{position: absolute; top: 0; left: 0; width:100%; height: 100%;}
+.ice_container ul li>.ice_bgOn{position: absolute; top: -8px; left: -11px; width:115px; height: 112px;}
 .ice_container ul li>.gif{position: absolute; top: 0; left: 0; width:100%; height: 100%;}
 .ice_container ul li>.item_inner{position: absolute; width:100%; height: 100%; top:0; left:0;}
 .ice_container ul li>.item_inner{position: absolute; width:100%; height: 100%; top:0; left:0;}
@@ -94,11 +95,11 @@ em, i{ font-style:normal;}
 .ice_container ul .iPhone>.icon_prize{width:53px; height:63px; margin-left: -26px; top:3px;background:url("../images/icebreaking/icon_iPhone.png") no-repeat 0 0; background-size: 100% 100%; -webkit-background-size: 100% 100%;}
 .ice_container ul .iPhone>.icon_prizeOn{width:53px; height:63px; margin-left: -26px; top:3px;background:url("../images/icebreaking/icon_iPhoneOn.png") no-repeat 0 0; background-size: 100% 100%; -webkit-background-size: 100% 100%;}
 
-.ice_container ul .bag1>.icon_prize{width:67px; height:53px; margin-left: -33px; top: 8px; background:url("../images/icebreaking/icon_bag.png") no-repeat 0 0; background-size: 100% 100%; -webkit-background-size: 100% 100%;}
-.ice_container ul .bag1>.icon_prizeOn{width:67px; height:53px; margin-left: -33px; top: 8px; background:url("../images/icebreaking/icon_bagOn.png") no-repeat 0 0; background-size: 100% 100%; -webkit-background-size: 100% 100%;}
+.ice_container ul .bag1>.icon_prize{width:66px; height:51px; margin-left: -33px; top: 8px; background:url("../images/icebreaking/icon_bag.png") no-repeat 0 0; background-size: 100% 100%; -webkit-background-size: 100% 100%;}
+.ice_container ul .bag1>.icon_prizeOn{width:66px; height:51px; margin-left: -33px; top: 8px; background:url("../images/icebreaking/icon_bagOn.png") no-repeat 0 0; background-size: 100% 100%; -webkit-background-size: 100% 100%;}
 
-.ice_container ul .bag2>.icon_prize{width:67px; height:53px; margin-left: -33px; top: 8px; background:url("../images/icebreaking/icon_bag.png") no-repeat 0 0; background-size: 100% 100%; -webkit-background-size: 100% 100%;}
-.ice_container ul .bag2>.icon_prizeOn{width:67px; height:53px; margin-left: -33px; top: 8px; background:url("../images/icebreaking/icon_bagOn.png") no-repeat 0 0; background-size: 100% 100%; -webkit-background-size: 100% 100%;}
+.ice_container ul .bag2>.icon_prize{width:66px; height:51px; margin-left: -33px; top: 8px; background:url("../images/icebreaking/icon_bag.png") no-repeat 0 0; background-size: 100% 100%; -webkit-background-size: 100% 100%;}
+.ice_container ul .bag2>.icon_prizeOn{width:66px; height:51px; margin-left: -33px; top: 8px; background:url("../images/icebreaking/icon_bagOn.png") no-repeat 0 0; background-size: 100% 100%; -webkit-background-size: 100% 100%;}
 
 .ice_container ul .card>.icon_prize{width:75px; height:52px; margin-left: -37px; top: 14px; background:url("../images/icebreaking/icon_card.png") no-repeat 0 0; background-size: 100% 100%; -webkit-background-size: 100% 100%;}
 .ice_container ul .card>.icon_prizeOn{width:75px; height:52px; margin-left: -37px; top: 14px; background:url("../images/icebreaking/icon_cardOn.png") no-repeat 0 0; background-size: 100% 100%; -webkit-background-size: 100% 100%;}

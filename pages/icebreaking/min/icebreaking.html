@@ -344,7 +344,7 @@
     $('#btn_hammer').unbind()
     $('.hammer').hide()
     $('.icon_prizeOn').removeClass('icon_prizeOn')
-    $('.ice_container .ice_bg').attr('src','./images/icebreaking/ice_bg.png')
+    $('.ice_container .ice_bg').removeClass('ice_bgOn').attr('src','./images/icebreaking/ice_bg.png')
     //将牌集合到一处
     window.setTimeout(function() {
       sort()
@@ -390,7 +390,7 @@
         var $cardList = $(self).siblings()
 
         prizeName.splice(prizeName.indexOf(key), 1)
-        $(self).find('.gif').removeClass('gif').attr('src', './images/icebreaking/ice_bgOn.png').end().append($html)
+        $(self).find('.gif').removeClass('gif').addClass('ice_bgOn').attr('src', './images/icebreaking/ice_bgOn.png').end().append($html)
         for (var i = 0; i < $cardList.length; i++){
           var object = spliceArray(prizeName)
           prizeName = object.array
