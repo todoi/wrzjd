@@ -275,7 +275,7 @@
       </div>
     </div>
 
-    <!-- 恭喜对话框
+    <!-- 恭喜对话框 -->
     <div class="diaBox gongxi" style="display: none">
       <div class="diaBox_inner">
         <div class="dia_header Yahei"><a class="close pop_close"></a><img src="images/icebreaking/gongxi_title.png"></div>
@@ -293,7 +293,7 @@
         </div>
       </div>
     </div>
-    -->
+
   </div>
 
   <script src="./js/jquery-1.8.3.min.js"></script>
@@ -301,6 +301,7 @@
   var ratio = getRatio()
 
   $(function(){
+    disorder()
     scale()
     $('#btn_hammer').click(startShuffle)
   })
@@ -330,8 +331,6 @@
   function startShuffle(){
     $('#btn_hammer').unbind()
     $('.hammer').hide()
-    $('.icon_prizeOn').removeClass('icon_prizeOn')
-    $('.ice_container .ice_bg').removeClass('ice_bgOn').attr('src','./images/icebreaking/ice_bg.png')
     //将牌集合到一处
     window.setTimeout(function() {
       sort()
@@ -340,6 +339,8 @@
     // 洗牌次数
     window.setTimeout(function() {
       for (var j = 0; j < 10; j++) {
+        $('.icon_prizeOn').removeClass('icon_prizeOn')
+        $('.ice_container .ice_bg').removeClass('ice_bgOn').attr('src','./images/icebreaking/ice_bg.png')
         if (j === 3) $('.ice_container .item_inner').remove()
         shuffle()
       }
@@ -481,6 +482,22 @@
       card: '<div class="item_inner card"> <span class="icon_prize"></span> <div class="txt"> <p>500元京东卡</p> </div> </div> ',
       bag2: '<div class="item_inner bag2"> <span class="icon_prize"></span> <div class="txt"> <p>x 1</p> <p>游戏福袋</p> </div> </div> ',
       iPhone: '<div class="item_inner iPhone"> <span class="icon_prize"></span> <div class="txt"> <p>iPhone X</p> <p>256G</p> </div> </div> '
+    }
+  }
+
+  //打乱顺序
+  function disorder(){
+    var prizeName = ['coin1', 'hongbao', 'bag1', 'iPad', 'coin2', 'card', 'bag2', 'iPhone'],
+      $cardList = $('.ice_container li'),
+      htmlObject = getHTML(),
+      prizeName
+
+    $('.item_inner').remove()
+    for (var i = 0; i < $cardList.length; i++){
+      var object = spliceArray(prizeName)
+      prizeName = object.array
+      html = htmlObject[object.item]
+      $($cardList[i]).append(html)
     }
   }
   </script>
