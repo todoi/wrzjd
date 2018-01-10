@@ -262,7 +262,7 @@
       </div>
     </div>
 
-<!--  恭喜弹窗
+ <!-- 恭喜弹窗 -->
     <div class="diaBox gongxi" style="display: none">
       <div class="diaBox_inner">
         <div class="dia_header Yahei"><a class="dia_close pop_close"></a><img src="images/icebreaking/gongxi_title.png"></div>
@@ -280,11 +280,15 @@
         </div>
       </div>
     </div>
- -->
+
   </div>
 
   <script src="js/jquery-1.8.3.min.js"></script>
+  <script src="../jquery/openPop.js"></script>
   <script>
+    $('.ice_container li').on('click', function(){
+      $('.gongxi').openPop()
+    })
   //polyfill Array.prototype.indexOf
   if (!Array.prototype.indexOf) {
     Array.prototype.indexOf = function(searchElement, fromIndex) {

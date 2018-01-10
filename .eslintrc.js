@@ -126,7 +126,7 @@ module.exports = {
       "no-new-object": 2, //禁止使用new Object()
       "fun-call-spacing": "never", //函数调用时，函数名与()之间不能有空格
       "no-ternary": 0, //不允许使用三目运算符
-      "no-trailing-spaces": 2, //一行最后不允许有空格
+      "no-trailing-spaces": false, //一行最后不允许有空格
       "no-underscore-dangle": 2, //不允许标识符以下划线开头
       "no-extra-parens": 0, //不允许出现多余的括号
       "one-var": 0, //强制变量声明放在一起
