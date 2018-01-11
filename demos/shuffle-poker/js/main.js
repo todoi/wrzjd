@@ -43,7 +43,7 @@ function getRatio(device, designWidth) {
   }else{
     var width = document.documentElement.clientWidth
     width = width > designWidth ? 1280 : designWidth
-    return width / designWidth * 100
+    return width / designWidth
   }
 }
 
@@ -54,17 +54,15 @@ function getRatio(device, designWidth) {
  * @param {[type]} duration      [动画开始到结束间隔时间]
  */
 function scale(imgSelector, sizeObj, duration) {
-  var maxWidth = $(imgSelector).width() * sizeObj.maxWidth,
-  minWidth = $(imgSelector).width() * sizeObj.minWidth,
-  maxHeight = $(imgSelector).height() * sizeObj.maxHeight,
-  minHeight = $(imgSelector).height() * sizeObj.minHeight
+  var width = $(imgSelector).width(),
+    height = $(imgSelector).height()
   window.setInterval(function() {
     $(imgSelector).animate({
-      width: minWidth,
-      height: minHeight
+      width: width * sizeObj.minWidth,
+      height: height * sizeObj.minHeight
     }, duration / 2).animate({
-      width: maxWidth,
-      height: maxHeight
+      width: width * sizeObj.maxWidth,
+      height: height * sizeObj.maxHeight
     }, duration / 2)
   }, duration)
 }
@@ -84,24 +82,35 @@ function resetPoker(){
  * [shuffleStep01] 开始洗牌第二步，将牌洗乱，最后再收集到一处
  * @return {[type]} [description]
  */
-function shuffleStep02(count){
+function shuffleStep02($cardList, count){
   // 洗牌次数
   for (var j = 0; j < count; j++) {
     if (j === 3) $('.ice_container .item_inner').remove()
-    shuffle()
+    shuffle($cardList)
   }
-  sort()
+  sort($cardList, {timeout:100, top: 90, left: 100})
 }
 
 /*
  * [shuffleStep01] 开始洗牌第三步，发牌并在发完牌之后为每张牌添加翻牌监听
  * @return {[type]} [description]
  */
-function shuffleStep03(){
+function shuffleStep03($cardList){
   //发牌
-  poker(100)
+  var cardPosition = {
+    item1: {top: 0, left: 0 },
+    item2: {top: 0, left: 113 * ratio },
+    item3: {top: 0, left: 227 * ratio },
+    item4: {top: 101 * ratio, left: 227 * ratio},
+    item5: {top: 202 * ratio, left: 227 * ratio},
+    item6: {top: 202 * ratio, left: 113 * ratio},
+    item7: {top: 202 * ratio, left: 0 * ratio},
+    item8: {top: 101 * ratio, left: 0 * ratio},
+    length: 8
+  }
+  poker(100, cardPosition)
   window.setTimeout(function() {
-    $('.ice_container li').click(flip)
+    $cardList.click(flip)
     $('.ice_container .smash').addClass('smashOn')
   }, 500)
   window.setTimeout(function() {
@@ -127,7 +136,7 @@ function showPrize(gif, that) {
   var prizeList = ['coin1', 'hongbao', 'bag1', 'iPad', 'coin2', 'card', 'bag2', 'iPhone']
   gif.onload = null
   $(that).find('.ice_bg').not('.gif').remove()
-  //延迟800ms 等待gif 动画做完，展示奖品
+  //延迟800ms 等待gif 动画做完，更换背景展示奖品
   window.setTimeout(function() {
     //key 是从后台传过来的
     var key = "coin1"
@@ -135,7 +144,10 @@ function showPrize(gif, that) {
     var $cardList = $(that).siblings()
 
     prizeList.splice(prizeList.indexOf(key), 1)
-    $(that).find('.gif').removeClass('gif').addClass('ice_bgOn').attr('src', './images/icebreaking/ice_bgOn.png').end().append($html)
+    // $(that).find('.gif').removeClass('gif').addClass('ice_bgOn').attr('src', '').end().append($html)
+    $(that).find('.gif').remove().end()
+      .append($('<img src="./images/icebreaking/ice_bgOn.png" class="ice_bg ice_bgOn"/>'))
+      .append($html)
     disorderArray(prizeList, $cardList, 500)
   }, 800)
 }
@@ -148,28 +160,29 @@ function disorderArray(prizeList, $cardList, delay){
     var html = htmlObject[object.item]
     prizeList = object.array
     ;(!delay) ? $($cardList[i]).append(html) : (function(j, nhtml) {
-        window.setTimeout(function() {
-          $($cardList[j]).append(nhtml)
-          if (j === 6) {
-            $('#btn_hammer').click(startShuffle)
-          }
-        }, delay)
-      })(i, html)
-    }
+      window.setTimeout(function() {
+        $($cardList[j]).append(nhtml)
+        if (j === 6) {
+          $('#btn_hammer').click(startShuffle)
+        }
+      }, delay)
+    })(i, html)
+  }
 }
 
 function startShuffle() {
+  var $cardList = $('.ice_container li')
   $(this).off('click')
   resetPoker()
   window.setTimeout(function() {
     //开始洗牌第一步,将牌集合到一处
-    sort()
+    sort($cardList, {timeout:100, top: 90, left: 100})
   }, 500)
   window.setTimeout(function() {
-    shuffleStep02(10)
+    shuffleStep02($cardList,10)
   }, 1000)
   window.setTimeout(function() {
-    shuffleStep03()
+    shuffleStep03($cardList)
   }, 1500)
 }
 
@@ -189,45 +202,42 @@ $(function() {
 })
 
 //发牌
-function poker(timeout) {
-  var position = {
-      item1: {top: 0, left: 0 },
-      item2: {top: 0, left: 113 },
-      item3: {top: 0, left: 227 },
-      item4: {top: 101, left: 227 },
-      item5: {top: 202, left: 227 },
-      item6: {top: 202, left: 113 },
-      item7: {top: 202, left: 0 },
-      item8: {top: 101, left: 0 }
-    },
-  for (var i = 1; i < 9; i++) {
+function poker(timeout, cardPosition) {
+  for (var i = 1; i <= cardPosition.length; i++) {
     var className = 'item' + i
     $('.' + className).animate({
-      top: position[className].top,
-      left: position[className].left,
+      top: cardPosition[className].top * ratio,
+      left: cardPosition[className].left * ratio,
       'z-index': 1
     }, timeout)
     timeout += 10
   }
 }
 
-//洗牌
-function shuffle() {
-  var $cardList = $('.ice_container li'),
-    zIndexList = [1, 2, 3, 4, 5, 6, 7, 8]
+//一次洗牌动作
+function shuffle($cardList) {
+  var zIndexList = new Array($cardList.length)
+  for (var i = 1; i <= $cardList.length ; i++){
+    zIndexList[i] = i
+  }
   for (var j = 0; j < $cardList.length; j++) {
     var zIndex = spliceArray(zIndexList).index
     var left = window.Math.random() < 0.5 ? 100 + window.Math.floor(30 * window.Math.random()) : 100 - window.Math.floor(30 * window.Math.random())
     var top = window.Math.random() < 0.5 ? 90 + window.Math.floor(30 * window.Math.random()) : 90 - window.Math.floor(30 * window.Math.random())
     var card = $cardList[j]
     $(card).animate({
-      left: left,
-      top: top,
+      left: left * ratio,
+      top: top * ratio,
       'z-index': zIndex
     }, 30)
   }
 }
 
+/**
+ * [spliceArray description] 随机删除数组中的一个元素
+ * @param  {[type]} array [description]
+ * @return {[object]} 一个对象，array删除后的数组，item删除掉的元素，index删除的位置
+ */
 function spliceArray(array) {
   var removeIndex = window.Math.floor(array.length * window.Math.random())
   var removeItem = array[removeIndex]
@@ -240,24 +250,19 @@ function spliceArray(array) {
 }
 
 // 洗牌结束后将牌集中一处
-function sort() {
-  var $cardList = $('.ice_container li'),
-    timeout = 100,
-    top = 90,
-    left = 100
-
+function sort($cardList, obj) {
+  var top = obj.top, left = obj.left, timeout = obj.timeout
   for (var i = 0; i < $cardList.length; i++) {
     $($cardList[i]).animate({
-      top: top,
-      left: left,
+      top: top * ratio,
+      left: left * ratio,
       opacity: 1
     }, timeout, 'swing')
-    timeout += 50
-    top -= 1
-    left -= 1
+    timeout += 50, top -= 1, left -= 1
   }
 }
 
+//取得GIF 图片
 function getGif(url, className, callback) {
   //ie7不支持Promise的写法
   // return new Promise(function(resolve){
