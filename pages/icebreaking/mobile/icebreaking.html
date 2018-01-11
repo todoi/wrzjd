@@ -323,21 +323,21 @@
         var $cardList = $(self).siblings()
 
         prizeName.splice(prizeName.indexOf(key), 1)
-        var $ice_bgOn = $('<img/>').attr('src', './images/icebreaking/ice_bgOn.png').addClass('ice_bg ice_bgOn')
-        $(self).find('.gif').remove().end().append($ice_bgOn).append($html)
+        var $icebgOn = $('<img/>').attr('src', './images/icebreaking/ice_bgOn.png').addClass('ice_bg ice_bgOn')
+        $(self).find('.gif').remove().end().append($icebgOn).append($html)
 
         for (var i = 0; i < $cardList.length; i++){
           var object = spliceArray(prizeName)
           prizeName = object.array
-          html = htmlObject[object.item]
-          !function(j,nhtml){
+          var html = htmlObject[object.item];
+          (function(j,nhtml){
             window.setTimeout(function(){
               $($cardList[j]).append(nhtml)
               if(j === 6){
                 $('#btn_hammer').click(startShuffle)
               }
             }, 500)
-          }(i,html)
+          })(i,html)
         }
       }, 800)
     }

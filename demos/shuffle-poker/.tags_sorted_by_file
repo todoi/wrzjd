@@ -39,6 +39,7 @@ $.fn.quicksand.options.retainExisting	js\jquery.quicksand.js	/^      retainExist
 $.fn.quicksand.options.selector	js\jquery.quicksand.js	/^      selector : '> *',$/;"	p
 $.fn.quicksand.options.useScaling	js\jquery.quicksand.js	/^      useScaling : false,           \/\/ enable it if you're using scaling effect$/;"	p
 module.exports	js\jquery.quicksand.js	/^    module.exports = function( root, jQuery ) {$/;"	f
+start	js\main.js	/^function start(){$/;"	f
 flip	mobile.html	/^  function flip(){$/;"	f
 poker	mobile.html	/^  function poker() {$/;"	f
 shuffle	mobile.html	/^  function shuffle() {$/;"	f

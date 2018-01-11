@@ -1,40 +1,19 @@
+--langdef=Go
+--langmap=Go:.go
+--regex-Go=/func([ \t]+\([^)]+\))?[ \t]+([a-zA-Z0-9_]+)/\2/d,func/
+--regex-Go=/var[ \t]+([a-zA-Z_][a-zA-Z0-9_]+)/\1/d,var/
+--regex-Go=/type[ \t]+([a-zA-Z_][a-zA-Z0-9_]+)/\1/d,type/
 !_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
 !_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
 !_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-$n.Jn	.\jquery-1.8.3.min.js	/^  function Jn(e, t) { v.each(t, function(t, n) { var r = (Vn[t] || []).concat(Vn["*"]),$/;"	f
-$n.Kn	.\jquery-1.8.3.min.js	/^  function Kn(e, t, n) { var r, i = 0,$/;"	f
-B.et	.\jquery-1.8.3.min.js	/^  function et() { return !1 }$/;"	f
-B.tt	.\jquery-1.8.3.min.js	/^  function tt() { return !0 }$/;"	f
-Gn.Gn.return.init	.\jquery-1.8.3.min.js	/^  function Yn(e, t, n, r, i) { return new Yn.prototype.init(e, t, n, r, i) }$/;"	m
-Gn.Yn.Zn	.\jquery-1.8.3.min.js	/^  function Zn(e, t) { var n, r = { height: e },$/;"	f
-Gn.Yn.Zn.n.height	.\jquery-1.8.3.min.js	/^  function Zn(e, t) { var n, r = { height: e },$/;"	p
-Gn.return	.\jquery-1.8.3.min.js	/^  function Yn(e, t, n, r, i) { return new Yn.prototype.init(e, t, n, r, i) }$/;"	c
-Gt.Fn	.\jquery-1.8.3.min.js	/^  function Fn() { try { return new e.XMLHttpRequest } catch (t) {} }$/;"	f
-Gt.In	.\jquery-1.8.3.min.js	/^  function In() { try { return new e.ActiveXObject("Microsoft.XMLHTTP") } catch (t) {} }$/;"	f
-Gt.Yt	.\jquery-1.8.3.min.js	/^  function Yt(e, t) { var n, r, i = [],$/;"	f
-Mt.Qt	.\jquery-1.8.3.min.js	/^  function Qt(e, t) { if (t in e) return t; var n = t.charAt(0).toUpperCase() + t.slice(1),$/;"	f
-Mt._t	.\jquery-1.8.3.min.js	/^  function _t(e) { Et.test(e.type) && (e.defaultChecked = e.checked) }$/;"	f
-ft.Lt	.\jquery-1.8.3.min.js	/^  function Lt(e, t) { return e.getElementsByTagName(t)[0] || e.appendChild(e.ownerDocument.createElement(t)) }$/;"	f
-ft.lt	.\jquery-1.8.3.min.js	/^  function lt(e) { var t = ct.split("|"),$/;"	f
-function.Cn	.\jquery-1.8.3.min.js	/^  function Cn(e) { return function(t, n) { typeof t != "string" && (n = t, t = "*"); var r, i, s, o = t.toLowerCase().split(y),$/;"	f
-function.Zt	.\jquery-1.8.3.min.js	/^  function Zt(e, t, n) { var r = Rt.exec(t); return r ? Math.max(0, r[1] - (n || 0)) + (r[2] || "px") : t }$/;"	f
-function.en	.\jquery-1.8.3.min.js	/^  function en(e, t, n, r) { var i = n === (r ? "border" : "content") ? 4 : t === "width" ? 1 : 0,$/;"	f
-function.flip	.\main.js	/^  function flip(){$/;"	f
-function.flip.poker	.\main.js	/^  function poker() {$/;"	f
-function.flip.poker.position.item1	.\main.js	/^        item1: { "top": 0, "left": 0 },$/;"	p
-function.fn	.\jquery-1.8.3.min.js	/^  function fn(e, t, n, r) { var i; if (v.isArray(t)) v.each(t, function(t, i) { n || sn.test(e) ? r(e, i) : fn(e + "[" + (typeof i == "object" ? t : "") + "]", i, n, r) });$/;"	f
-function.getRatio	.\main.js	/^  function getRatio(){$/;"	f
-function.startShuffle	.\main.js	/^  function startShuffle(){$/;"	f
-function.tn	.\jquery-1.8.3.min.js	/^  function tn(e, t, n) { var r = t === "width" ? e.offsetWidth : e.offsetHeight,$/;"	f
-nn.An	.\jquery-1.8.3.min.js	/^  function An(e, n, r) { var i, s, o, u, a = e.contents,$/;"	f
-nn.Ln	.\jquery-1.8.3.min.js	/^  function Ln(e, n) { var r, i, s = v.ajaxSettings.flatOptions || {}; for (r in n) n[r] !== t && ((s[r] ? e : i || (i = {}))[r] = n[r]);$/;"	f
-nn.On	.\jquery-1.8.3.min.js	/^  function On(e, t) { var n, r, i, s, o = e.dataTypes.slice(),$/;"	f
-nn.kn	.\jquery-1.8.3.min.js	/^  function kn(e, n, r, i, s, o) { s = s || n.dataTypes[0], o = o || {}, o[s] = !0; var u, a = e[s],$/;"	f
-shuffle.sort.getGif	.\main.js	/^  function getGif(url, className, callback){$/;"	f
-shuffle.sort.getGif.getHTML	.\main.js	/^  function getHTML(){$/;"	f
-shuffle.spliceArray	.\main.js	/^  function spliceArray(array){$/;"	f
-tn.nn	.\jquery-1.8.3.min.js	/^  function nn(e) { if (Wt[e]) return Wt[e]; var t = v("<" + e + ">").appendTo(i.body),$/;"	f
-ut.at	.\jquery-1.8.3.min.js	/^  function at(e, t) { do e = e[t]; while (e && e.nodeType !== 1); return e }$/;"	f
+function.flip	.\main.js	/^function flip() {$/;"	f
+function.flip.poker	.\main.js	/^function poker() {$/;"	f
+function.flip.poker.position.item1	.\main.js	/^      item1: {$/;"	p
+function.getRatio	.\main.js	/^function getRatio() {$/;"	f
+function.startShuffle	.\main.js	/^function startShuffle() {$/;"	f
+shuffle.sort.getGif	.\main.js	/^function getGif(url, className, callback) {$/;"	f
+shuffle.sort.getGif.getHTML	.\main.js	/^function getHTML() {$/;"	f
+shuffle.spliceArray	.\main.js	/^function spliceArray(array) {$/;"	f
