@@ -39,7 +39,18 @@ $.fn.quicksand.options.retainExisting	js\jquery.quicksand.js	/^      retainExist
 $.fn.quicksand.options.selector	js\jquery.quicksand.js	/^      selector : '> *',$/;"	p
 $.fn.quicksand.options.useScaling	js\jquery.quicksand.js	/^      useScaling : false,           \/\/ enable it if you're using scaling effect$/;"	p
 module.exports	js\jquery.quicksand.js	/^    module.exports = function( root, jQuery ) {$/;"	f
-start	js\main.js	/^function start(){$/;"	f
+Array	js\main.js	/^    Array.prototype.indexOf = function(searchElement, fromIndex) {$/;"	c
+Array.indexOf	js\main.js	/^    Array.prototype.indexOf = function(searchElement, fromIndex) {$/;"	m
+flip.showPrize.disorderArray	js\main.js	/^function disorderArray(prizeList, $cardList, delay){$/;"	f
+function.getHTML	js\main.js	/^function getHTML() {$/;"	f
+function.spliceArray	js\main.js	/^function spliceArray(array) {$/;"	f
+getRatio	js\main.js	/^function getRatio(device, designWidth) {$/;"	f
+getRatio.scale	js\main.js	/^function scale(imgSelector, sizeObj, duration) {$/;"	f
+getRatio.scale.resetPoker	js\main.js	/^function resetPoker(){$/;"	f
+getRatio.scale.shuffleStep02	js\main.js	/^function shuffleStep02($cardList, count){$/;"	f
+getRatio.scale.shuffleStep03	js\main.js	/^function shuffleStep03($cardList){$/;"	f
+getRatio.scale.shuffleStep03.cardPosition.item1	js\main.js	/^    item1: {top: 0, left: 0 },$/;"	p
+ployfill	js\main.js	/^function ployfill() {$/;"	f
 flip	mobile.html	/^  function flip(){$/;"	f
 poker	mobile.html	/^  function poker() {$/;"	f
 shuffle	mobile.html	/^  function shuffle() {$/;"	f
