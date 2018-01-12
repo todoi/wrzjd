@@ -1,0 +1,29 @@
+nav { width: 50px; color: #ddd; }
+
+nav span { width: 50px; color: #f90; border: 1px solid red; }
+
+nav span a { height: 50px; display: inline-block; width: 50px; }
+
+nav span:hover { color: #ddd; border: 1px solid red; background: #f90; }
+
+div { height: 50px; background: #ddd; }
+
+div { height: 50px; background: #ddd; }
+
+.container h1, .container h2, .container h3 { width: 50px; height: 50px; color: #ddd; }
+
+article > p { border: 1px solid #ccc; }
+
+article ~ article { height: 50px; }
+
+article dl > dt { color: #233; }
+
+article dl > dd { color: #666; }
+
+nav + article { color: #ddd; }
+
+article div + span { color: #ddd; }
+
+article div + a:hover { outline: none; }
+
+div { padding-left: 20px; padding-right: 30px; padding-top: 50px; padding-bottom: 100px; border: 1px solid red; border-left: 0; border-right-color: blue; }

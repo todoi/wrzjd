@@ -1,0 +1,60 @@
+$red: #ddd;
+$nav-color: #f90;
+$height: 50px;
+$border: 1px solid red;
+
+nav {
+    $width: 50px;
+    width: $width;
+    color: $red;
+    span {
+        width: $width;
+        color: $nav-color;
+        border: $border;
+        a{height: $height; display: inline-block; width: $width;}
+        &:hover {color: $red; border: $border; background: $nav-color;}
+    }
+}
+
+div{
+  height: $height;
+  background: $red;
+}
+
+
+div{
+  height: $height;
+  background: $red;
+}
+
+.container{
+  $width: 50px;
+  h1, h2, h3{width: $width; height: $height; color: $red;}
+}
+
+article{
+  > p{border: 1px solid #ccc;}
+  ~ article{height: $height;}
+  dl > {
+    dt{color: #233;}
+    dd{color: #666;}
+  }
+  nav + & {color: $red;}
+  div + {
+    span{color: $red;}
+    a{&:hover{outline: none;}}
+  }
+}
+
+div{
+  padding:{
+    left: 20px;
+    right: 30px;
+    top: 50px;
+    bottom: 100px;
+  }
+  border: 1px solid red {
+    left: 0;
+    right:{color: blue;}
+  }
+}
