@@ -5,7 +5,7 @@ var $slideContainer = $("#part-list")[0], //a 为part4-list
   $smallContainer = $('#btns-arr .small')[0], // 是圆点li 的 ul 的上一级 div
   slideLength = $slides.length,
   indexNow = 0, //iNow 为 index now
-  indexArray = [2, 1, 0, 4, 3],
+  indexArray = [2, 1, 0, 4, 3], //[3, 4, 0, 1, 2]好维护是逆时针转 图片次序是左小、左大、中间、右大、右小
   copyArr = [],
   clock = null,
   slideInfo = [
@@ -61,7 +61,7 @@ function doMove(element, styleObject, cb) {
     }
   }
   if (isEqual) {
-    //当前元素的所有值和 slideInfo 中各个属性值相等是才清除循环
+    //当前元素的所有值和 下移元素的slideInfo 中各个属性值相等是才清除循环
     clearInterval(element.timer);
     element.timer = null;
     cb && cb()
@@ -86,9 +86,12 @@ function copy() {
 
 function show() {
   for (var i = 0; i < slideLength; i++) {
-    if ($($slides[i]).width() === 480) {
-      var img = $slides.find('img')[i];
+    var itemWidth = $($slides[i]).width()
+    var img = $slides.find('img')[i];
+    if (itemWidth === 480) {
       startMove(img, {opacity: 100 })
+    }else if(itemWidth === 320){
+      startMove(img, {opacity: 90 })
     }
   }
 }
@@ -98,7 +101,7 @@ function show() {
 function updateSlide() {
   for (var i = 0; i < slideLength; i++) {
     var img = $slides.find('img')[i];
-    startMove(img, {opacity: 85 })
+    startMove(img, {opacity: 80 })
     startMove($slides[i], copyArr[i], function() {
         show()
     })
@@ -150,8 +153,10 @@ function main() {
   }
 
   $slides.on("click", function() {
-    indexNow = indexArray[$(this).index()];
-    console.log(indexNow)
+    var clickIndex = $(this).index()
+    //indexNow = indexArray[clickIndex]
+    var middleIndex = Math.floor(slideLength / 2)
+    indexNow = clickIndex < middleIndex ? clickIndex + middleIndex + 1: clickIndex - middleIndex
     updateDot()
     changeSlideInfo()
     updateSlide()
@@ -175,10 +180,10 @@ function main() {
 
   $smallContainer.onmouseout = $slideContainer.onmouseout = function() {
     clearInterval(clock)
-    clock = setInterval(updateIndex, 2e3)
+    clock = setInterval(updateIndex, 3e3)
   };
 
-  clock = setInterval(updateIndex, 2e3)
+  clock = setInterval(updateIndex, 3e3)
 }
 
 
