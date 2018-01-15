@@ -5,40 +5,42 @@ var $slideContainer = $("#part-list")[0], //a 为part4-list
   $smallContainer = $('#btns-arr .small')[0], // 是圆点li 的 ul 的上一级 div
   slideLength = $slides.length,
   indexNow = 0, //iNow 为 index now
-  indexArray = [3, 4, 0, 1, 2],
+  indexArray = [2, 1, 0, 4, 3],
   copyArr = [],
   clock = null,
-  slideInfo = [{ //左边较小图片
+  slideInfo = [
+  { //右边较小图片
     width: 240,
     height: 130,
     top: 80,
-    left: 20,
-    zIndex: 4
-  }, { //左边较大图片
-    width: 320,
-    height: 174,
-    top: 56,
-    left: 110,
-    zIndex: 8
-  }, { //中间最大图片
-    width: 480,
-    height: 260,
-    top: 0,
-    left: 260,
-    zIndex: 10
+    left: 740,
+    zIndex: 2
   }, { //右边较大图片
     width: 320,
     height: 174,
     top: 56,
     left: 570,
     zIndex: 6
-  }, { //右边较小图片
+  }, { //中间最大图片
+    width: 480,
+    height: 260,
+    top: 0,
+    left: 260,
+    zIndex: 10
+  }, { //左边较大图片
+    width: 320,
+    height: 174,
+    top: 56,
+    left: 110,
+    zIndex: 8
+  },{ //左边较小图片
     width: 240,
     height: 130,
     top: 80,
-    left: 740,
-    zIndex: 2
-  }];
+    left: 20,
+    zIndex: 4
+  }
+  ];
 
 function doMove(element, styleObject, cb) {
   var currentDifferTarget,
@@ -62,7 +64,6 @@ function doMove(element, styleObject, cb) {
     //当前元素的所有值和 slideInfo 中各个属性值相等是才清除循环
     clearInterval(element.timer);
     element.timer = null;
-    console.log(Boolean(cb))
     cb && cb()
   }
 }
@@ -86,7 +87,7 @@ function copy() {
 function show() {
   for (var i = 0; i < slideLength; i++) {
     if ($($slides[i]).width() === 480) {
-      var img = $('#part-list img')[i];
+      var img = $slides.find('img')[i];
       startMove(img, {opacity: 100 })
     }
   }
@@ -96,7 +97,7 @@ function show() {
 //每张图移动
 function updateSlide() {
   for (var i = 0; i < slideLength; i++) {
-    var img = $('#part-list img')[i]
+    var img = $slides.find('img')[i];
     startMove(img, {opacity: 85 })
     startMove($slides[i], copyArr[i], function() {
         show()
@@ -150,6 +151,7 @@ function main() {
 
   $slides.on("click", function() {
     indexNow = indexArray[$(this).index()];
+    console.log(indexNow)
     updateDot()
     changeSlideInfo()
     updateSlide()
