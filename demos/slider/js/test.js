@@ -1,43 +1,43 @@
-var $slideContainer = $("#slider-list")[0], //a 为part4-list
+var $slideContainer = $("#slider-list")[0], //a 为slider4-list
   $dots = $("#btns-arr li"), // c 为小圆点集合 (5个li)
   $slides = $("#slider-list li"), // 图片容器 (5个li)
   $btns = $("#slider-list a"), // prev button 和 next button
   $smallContainer = $('#btns-arr .small')[0], // 是圆点li 的 ul 的上一级 div
   slideLength = $slides.length,
   indexNow = 0, //iNow 为 index now
-  indexArray = [2, 1, 0, 4, 3], //图片次序
-  copyArr = [], //用于copy slideInfo 数组
-  clock = null, //定时器
-  slideInfo = [{ //左边较小图片
+  indexArray = [2, 1, 0, 4, 3], //[3, 4, 0, 1, 2]好维护是逆时针转 图片次序是左小、左大、中间、右大、右小
+  copyArr = [],
+  clock = null,
+  slideInfo = [{ //右边较小图片
     width: 240,
     height: 130,
     top: 80,
-    left: 20,
-    zIndex: 4
-  }, { //左边较大图片
-    width: 320,
-    height: 174,
-    top: 56,
-    left: 110,
-    zIndex: 8
-  }, { //中间最大图片
-    width: 480,
-    height: 260,
-    top: 0,
-    left: 260,
-    zIndex: 10
+    left: 740,
+    zIndex: 2
   }, { //右边较大图片
     width: 320,
     height: 174,
     top: 56,
     left: 570,
     zIndex: 6
-  }, { //右边较小图片
+  }, { //中间最大图片
+    width: 480,
+    height: 260,
+    top: 0,
+    left: 260,
+    zIndex: 10
+  }, { //左边较大图片
+    width: 320,
+    height: 174,
+    top: 56,
+    left: 110,
+    zIndex: 8
+  },{ //左边较小图片
     width: 240,
     height: 130,
     top: 80,
-    left: 740,
-    zIndex: 2
+    left: 20,
+    zIndex: 4
   }];
 
 function doMove(element, styleObject, cb) {
@@ -110,7 +110,7 @@ function updateSlide() {
 function changeSlideInfo() {
   copy()
   for (var i = 0; indexNow > i; i++) {
-    copyArr.push(copyArr.shift());
+    copyArr.unshift(copyArr.pop());
   }
 }
 
@@ -152,20 +152,22 @@ function main() {
 
   $slides.on("click", function() {
     var clickIndex = $(this).index()
-    indexNow = indexArray[clickIndex]
+    //indexNow = indexArray[clickIndex]
+    var middleIndex = Math.floor(slideLength / 2)
+    indexNow = clickIndex < middleIndex ? clickIndex + middleIndex + 1 : clickIndex - middleIndex
     updateDot()
     changeSlideInfo()
     updateSlide()
   })
 
   $btns.closest('.prev').on("click", function() { //向左按钮
-    copyArr.push(copyArr.shift())
+    copyArr.unshift(copyArr.pop())
     updateSlide()
     updateIndex()
   })
 
   $btns.closest('.next').on("click", function() { //向右按钮
-    copyArr.unshift(copyArr.pop())
+    copyArr.push(copyArr.shift())
     updateSlide()
     updateIndex(true)
   })
