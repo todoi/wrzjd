@@ -1,3 +1,10 @@
+@import "reset-pc";
+@mixin link-colors($normal, $hover, $visited) {
+  color: $normal;
+  &:hover { color: $hover; }
+  &:visited { color: $visited; }
+}
+
 $red: #ddd;
 $nav-color: #f90;
 $height: 50px;
@@ -47,6 +54,7 @@ article{
 }
 
 div{
+  @include text-center;
   padding:{
     left: 20px;
     right: 30px;
@@ -56,5 +64,8 @@ div{
   border: 1px solid red {
     left: 0;
     right:{color: blue;}
-  }
-}
+  } // 这种注释内容不会出现在生成的css文件中
+} /* 这种注释内容会出现在生成的css文件中 */
+
+a{@include link-colors($orange, black, $blue)}
+

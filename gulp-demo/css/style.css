@@ -1,29 +1,231 @@
-nav { width: 50px; color: #ddd; }
+@charset "UTF-8";
+body, div, a, span, img, ol, ul, li, input, p, a, h4, h3, select {
+  padding: 0;
+  margin: 0;
+}
 
-nav span { width: 50px; color: #f90; border: 1px solid red; }
+* {
+  margin: 0;
+  padding: 0;
+}
 
-nav span a { height: 50px; display: inline-block; width: 50px; }
+body {
+  font: 12px/1.5 "Microsoft Yahei", Arial, Helvetica, sans-serif, "宋体";
+  color: #fff;
+  padding: 0;
+  margin: 0;
+}
 
-nav span:hover { color: #ddd; border: 1px solid red; background: #f90; }
+body, html {
+  overflow: hidden;
+  border: 0;
+  border: none;
+}
 
-div { height: 50px; background: #ddd; }
+img {
+  vertical-align: top;
+  border: 0 none;
+}
 
-div { height: 50px; background: #ddd; }
+a {
+  cursor: pointer;
+  color: #fff;
+  text-decoration: none;
+}
 
-.container h1, .container h2, .container h3 { width: 50px; height: 50px; color: #ddd; }
+a:hover, a:focus {
+  outline: none;
+}
 
-article > p { border: 1px solid #ccc; }
+i {
+  font-style: normal;
+}
 
-article ~ article { height: 50px; }
+ul, li {
+  list-style: none;
+}
 
-article dl > dt { color: #233; }
+ol {
+  padding-left: 25px;
+}
 
-article dl > dd { color: #666; }
+ol li {
+  list-style: decimal;
+}
 
-nav + article { color: #ddd; }
+em, i {
+  font-style: normal;
+}
 
-article div + span { color: #ddd; }
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  font-size: 0;
+  clear: both;
+  visibility: hidden;
+}
 
-article div + a:hover { outline: none; }
+.text-indent {
+  text-indent: 2em;
+}
 
-div { padding-left: 20px; padding-right: 30px; padding-top: 50px; padding-bottom: 100px; border: 1px solid red; border-left: 0; border-right-color: blue; }
+.Yahei {
+  font-family: "Microsoft Yahei";
+}
+
+/*public*/
+.warp {
+  overflow: hidden;
+  width: 900px;
+  height: 450px;
+  background-color: #d54134;
+  position: relative;
+}
+
+.left {
+  float: left;
+  width: 154px;
+  height: 450px;
+  background: #1f2226;
+}
+
+.right {
+  float: right;
+  width: 746px;
+  height: 450px;
+  position: relative;
+}
+
+.navBox {
+  position: relative;
+  z-index: 8;
+}
+
+.navBox a {
+  display: block;
+  margin-top: 4px;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 61px;
+  color: #812104;
+  width: 150px;
+  height: 61px;
+  background: url(../images/nav_bg.gif) no-repeat 0 0;
+}
+
+.navBox a span {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  margin-left: 12px;
+  margin-right: 2px;
+  vertical-align: middle;
+}
+
+.navBox a {
+  font-size: 16px;
+}
+
+.navBox a.active, .navBox a:hover {
+  background: url(../images/nav_bgOn.gif) no-repeat 0 0;
+  color: #661e00;
+  font-weight: bold;
+}
+
+.navBox a .icon_ {
+  background: url(../images/icon_.png) no-repeat 50% 50%;
+  background-size: 100% 100%;
+  -webkit-background-size: 100% 100%;
+}
+
+nav {
+  width: 50px;
+  color: #ddd;
+}
+
+nav span {
+  width: 50px;
+  color: #f90;
+  border: 1px solid red;
+}
+
+nav span a {
+  height: 50px;
+  display: inline-block;
+  width: 50px;
+}
+
+nav span:hover {
+  color: #ddd;
+  border: 1px solid red;
+  background: #f90;
+}
+
+div {
+  height: 50px;
+  background: #ddd;
+}
+
+div {
+  height: 50px;
+  background: #ddd;
+}
+
+.container h1, .container h2, .container h3 {
+  width: 50px;
+  height: 50px;
+  color: #ddd;
+}
+
+article > p {
+  border: 1px solid #ccc;
+}
+
+article ~ article {
+  height: 50px;
+}
+
+article dl > dt {
+  color: #233;
+}
+
+article dl > dd {
+  color: #666;
+}
+
+nav + article {
+  color: #ddd;
+}
+
+article div + span {
+  color: #ddd;
+}
+
+article div + a:hover {
+  outline: none;
+}
+
+div {
+  text-align: center;
+  padding-left: 20px;
+  padding-right: 30px;
+  padding-top: 50px;
+  padding-bottom: 100px;
+  border: 1px solid red;
+  border-left: 0;
+  border-right-color: blue;
+}
+
+/* 这种注释内容会出现在生成的css文件中 */
+a {
+  color: #ffaa3b;
+}
+
+a:hover {
+  color: black;
+}
+
+a:visited {
+  color: #3366cc;
+}
