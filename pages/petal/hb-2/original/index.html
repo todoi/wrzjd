@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title></title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1">
+  <!--在iPhone 手机上禁止了把数字化为拨号链接-->
+  <meta content="telephone=no" name="format-detection">
+  <!--删除默认的苹果工具栏和菜单栏-->
+  <meta content="yes" name="apple-mobile-web-app-capable">
+  <!-- 网站开启对web app程序的支持，在web app应用下状态条（屏幕顶部条）的颜色，默认值为default（白色），可以定为black（黑色）和black-translucent（灰色半透明）-->
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="stylesheet" href="css/demo.css" type="text/css">
+  <link rel="stylesheet" type="text/css" href="css/sweet-alert.css">
+  <link rel="stylesheet" type="text/css" href="css/hb2.css">
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/hb.js"></script>
+</head>
+
+<body>
+  <div class="phone">
+    <ul class="couten" style="height: 949px;">
+    </ul>
+    <div class="mo" style="height: 949px; display: none;">
+      <!--向上滚动开始-->
+      <div class="xiangce">
+        <div id="colee">
+          <div id="colee1">
+            <p class="p">1517****308 抢到 oppo R9s</p>
+            <p class="p">1503****818 抢到 虎牌保险柜</p>
+            <p class="p">1347****552 抢到 vivo x9</p>
+            <p class="p">1876****125 抢到 芦荟洗衣液</p>
+            <p class="p">1479****335 抢到 海尔冰箱</p>
+            <p class="p">1520****120 抢到 驴打滚小吃</p>
+            <p class="p">1893****852 抢到 眼部按摩仪</p>
+            <p class="p">1323****638 抢到 天然燕窝</p>
+          </div>
+          <div id="colee2">
+            <p class="p">1517****308 抢到 oppo R9s</p>
+            <p class="p">1503****818 抢到 虎牌保险柜</p>
+            <p class="p">1347****552 抢到 vivo x9</p>
+            <p class="p">1876****125 抢到 芦荟洗衣液</p>
+            <p class="p">1479****335 抢到 海尔冰箱</p>
+            <p class="p">1520****120 抢到 驴打滚小吃</p>
+            <p class="p">1893****852 抢到 眼部按摩仪</p>
+            <p class="p">1323****638 抢到 天然燕窝</p>
+          </div>
+        </div>
+        <script>
+        var speed = 30;
+        var colee2 = document.getElementById("colee2");
+        var colee1 = document.getElementById("colee1");
+        var colee = document.getElementById("colee");
+        colee2.innerHTML = colee1.innerHTML; //克隆colee1为colee2
+        function Marquee1() {
+          //当滚动至colee1与colee2交界时
+          if (colee2.offsetTop - colee.scrollTop <= 0) {
+            colee.scrollTop -= colee1.offsetHeight; //colee跳到最顶端
+          } else {
+            colee.scrollTop++
+          }
+        }
+        var MyMar1 = setInterval(Marquee1, speed) //设置定时器
+        </script>
+      </div>
+      <!--向上滚动结束-->
+      <div class="sen">
+        <p style="background: url(&quot;http://img2.jitailong.net/uploads/2017/0618/e5149d7520ed6003a7a23697bf8ac581.jpg&quot;) 0% 0% / 100% 100%;"></p>
+        <span>恭喜您获得oppo R9s</span>
+        <a href="#">领 取</a>
+      </div>
+    </div>
+    <!-- <div class="backward">
+      <span></span>
+    </div>   -->
+  </div>
+  <input type="text" value="" id="tupian" style="display: block;">
+  <input type="text" value="" id="name" style="display:none;">
+</body>
+
+</html>

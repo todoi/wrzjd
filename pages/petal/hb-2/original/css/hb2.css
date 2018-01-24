@@ -1,0 +1,216 @@
+@charset "utf-8";
+/* CSS Document */
+/*手机端*/
+html{
+  font-size:20px;
+}
+.phone{
+  display:block;
+  }
+.pc{
+  display:none;
+  }
+body {
+        margin: 0;
+        padding: 0;
+        position: relative;
+        background-position: center;
+        width: 100%;
+        height: 100%;
+        overflow-y: hidden;
+        background: no-repeat top left ;
+        background-size:  100%;
+      }
+      .couten {
+        width: 100%;
+        height: 700PX;
+        background:url(../images/BJT1.PNG);
+        background-size:100% 100%;
+        overflow: hidden;
+        overflow-y: hidden;
+      }
+      .couten li {
+        position: absolute;
+        animation: all 3s linear;
+        top:-100px;
+        -webkit-tap-highlight-color:  rgba(0, 0, 0, 0);
+      }
+      .couten li a{
+
+        display: block;
+      }
+      .mo {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background:url(../images/BJT1.PNG);
+        background-size:100% 100%;
+        background-color: rgba(0, 0, 0, .2);
+        z-index: 100;
+        display: none;
+        overflow: hidden;
+      }
+      .mo .sen {
+        width: 70%;
+        height: 150px;
+        border-radius: 5px;
+        position: absolute;
+        top: -100px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin:auto;
+      }
+      @media screen and (min-width:801px){
+      .mo .sen p {
+        float: left;
+          width: 300px;
+          height: 200px;
+          position: absolute;
+          top: 0px;
+          left: 0;
+          right: 0;
+          bottom: 212px;
+          margin: auto;
+          vertical-align: top;
+        border:1px solid #fff;
+      }
+
+      .mo .sen span {
+          width: 300px;
+          height: 30px;
+          position: absolute;
+          top: -20px;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          margin: auto;
+          text-align: center;
+          color:red;
+          font-size: 24px;
+          font-weight: bold;
+        background:rgba(255,255,255, 0.5);
+          z-index: 999;
+      }
+      .xiangce{
+        width:300px;
+        height:200px;
+        background:url(../images/timg.jpg);
+        background-size:100% 100%;
+        float:right;
+      }
+      }
+      .mo .sen a {
+          width: 150px;
+          height: 50px;
+        background: #eeeeee;
+          box-shadow: rgba(174, 222, 244, 0.8) 0px 0px 2px, rgba(0, 0, 0, 0.0470588) 0px 0px 0px 1px inset;
+          position: absolute;
+          top: 105px;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          margin: auto;
+          color: #ba1119;
+        font-size:30px;
+          border-radius: 5px;
+          text-align: center;
+          line-height: 50px;
+          text-decoration: none;
+      }
+      }
+      .backward{
+        width: 100%;
+        background:#000;
+        opacity: 0.5;
+        position: absolute;
+        top: 0;
+      }
+      .backward span{
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        color: #000;
+        font-weight: bold;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        text-align: center;
+        line-height: 100px;
+        font-size: 1000%;
+      }
+/*向上滚动开始*/
+
+#colee{overflow:hidden;
+  height:130px;
+  width:300px;
+  float:right;
+  margin-top:30px;
+  margin-right:0px;
+  border-radius:20px;
+  }
+.p{width:200px;
+ height:30px;
+ line-height:30px;
+ font-size:12px;
+ margin-left:70px;
+ }
+/*向上滚动结束*/
+
+@media screen and (max-width:800px){
+.mo .sen p{
+  display: block;
+  width:100%;
+  height: 200px;
+  position: absolute;
+  top:0px;
+  margin: 0 auto;
+  border:1px solid #fff;
+}
+.mo .sen span {
+        display: block;
+          width: 226px;
+          height: 30px;
+        line-height: 30px;
+          position: absolute;
+          top: 160px;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          margin: auto;
+          text-align: center;
+          color:red;
+          font-weight: bold;
+        background:rgba(255,255,255, 0.5);
+          z-index: 999;
+      }
+.xiangce{
+        width:300px;
+        height:200px;
+        background:url(../images/timg.jpg);
+        background-size:100% 100%;
+        margin: 0 auto;
+        }
+.mo .sen a {
+          width: 150px;
+          height: 50px;
+        background: #eeeeee;
+          box-shadow: rgba(174, 222, 244, 0.8) 0px 0px 2px, rgba(0, 0, 0, 0.0470588) 0px 0px 0px 1px inset;
+          position: absolute;
+          top: 230px;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          margin: auto;
+          color: #ba1119;
+        font-size:30px;
+          border-radius: 5px;
+          text-align: center;
+          line-height: 50px;
+          text-decoration: none;
+      }
+}
