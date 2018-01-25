@@ -1,0 +1,76 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>迅雷会员活动页 红包雨效果</title>
+  <style type="text/css">
+* {margin: 0; padding: 0; }
+.header {position: relative; z-index: 100; width: 100%; background: #ddd; height: 52px; }
+#petalbox {position: fixed; top: 0; left: 0; width: 100%; z-index: 98; pointer-events: none; }
+#petalbox > div {position: absolute; }
+#petalbox > div > img {position: absolute; }
+  </style>
+</head>
+
+<body>
+  <div class="header"></div>
+  <div id="petalbox"></div>
+
+  <script src="js/jquery-1.8.3.min.js"></script>
+  <script type="text/javascript" src="js/jQueryRotate.js"></script>
+  <script>
+  $(function() {
+    var NUMBER_OF_REDBAG = 50; //红包的个数
+
+    function init() {
+      var $container = $('#petalbox'); //红包容器
+      try {
+        for (var i = 0; i < NUMBER_OF_REDBAG; i++) {
+          $container.append(createARedbag());  //添加红包
+        }
+      } catch (e) {console.log(e)}
+    }
+
+    //从low 和 high 中截取一个随机整数，大于等于low 且小于high
+    function randomInteger(low, high) {return low + Math.floor(Math.random() * (high - low)); }
+
+    //从low 和 high 中截取一个随机浮点数，大于等于low 且小于high
+    function randomFloat(low, high) {return low + Math.random() * (high - low); }
+
+    function createARedbag() {
+      var $redbagDiv = $('<div></div>')
+      var image = document.createElement('img');
+      image.src = 'images/petal' + randomInteger(1, 10) + '.png'; //取得图片
+      $redbagDiv.append(image);
+
+      //红包下落的位置
+      $redbagDiv.css({
+        'top': randomInteger(-200, -100)+'px',
+        'left': randomInteger(0, $(window).width()) + 'px'
+      })
+
+      animateRedbag($redbagDiv)
+      return $redbagDiv;
+    }
+    function animateRedbag(element){
+      var $element = $(element)
+      /* 随机下落时间 从开始到结束的时间*/
+      var fadeAndDropDuration = randomFloat(1200, 4200);
+      /* 随机旋转时间 从开始到结束的时间*/
+      var spinDuration = randomFloat(3000, 4000);
+      // 随机delay时间
+      var redbagDelay = randomFloat(0, 2000);
+      //旋转的角度 -45deg ~ 45deg
+      var rot = parseInt(Math.random() * 270 - 135) ;
+      setTimeout(function(){
+        $element.animate({opacity: 0.9, top: winHeight},fadeAndDropDuration)
+        $element.rotate({angle:0, animateTo: rot, duration: spinDuration, easing: $.easing.easeInOutElastic})
+      }, redbagDelay)
+    }
+    var winHeight = $(window).height() + 200
+    init();
+  });
+  </script>
+</body>
+
+</html>

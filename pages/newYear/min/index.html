@@ -192,7 +192,7 @@
     </div>
 
     <!-- 恭喜对话框 -->
-    <div class="diaBox gongxi" style="display: block">
+    <div class="diaBox gongxi" style="display: none">
       <div class="diaBox_inner">
         <div class="dia_header Yahei"><a class="close pop_close"></a><img src="images/newYear/gongxi_title.png"></div>
         <div class="dia_body">
@@ -206,9 +206,9 @@
       </div>
     </div>
   </div>
-  <script type="text/javascript" src="../../../../public/jquery/jquery-1.8.3.min.js"></script>
-  <script type="text/javascript" src="../../../../public/jquery/openPop.js"></script>
-  <script type="text/javascript" src="../../../../public/jquery/rollOdao.js"></script>
+  <script type="text/javascript" src="./js/jquery-1.8.3.min.js"></script>
+  <!-- <script type="text/javascript" src="../../../../public/jquery/rollOdao.js"></script> -->
+  <!-- <script type="text/javascript" src="../../../../public/jquery/openPop.js"></script> -->
 
   <script>
   //polyfill Array.prototype.indexOf
@@ -297,20 +297,20 @@
     // var dotWidthRatio = 30/912
     var dotWidth = $('.yellow_bar .yellow_dot1').width() //22
     var backBarWidth = $('.progress_bar').width() //630
-    var barObj = initBarObj()
-
-    //初始化进度条中四个进度的长度信息，数值为每个进度条的长度/整个进度条的长度
-    function initBarObj(){
-      var barObj = {
+    var barObj = {
         bar0:{width:140, preBarWidth: 0},
         bar1:{width:145},
-        bar2:{width:147},
-        bar3:{width:130}
+        bar2:{width:143},
+        bar3:{width:126},
+        length: 4
       }
-        for (var i = 1; i<=3; i++){
-        barObj['bar' + i].preBarWidthRt = barObj['bar' + (i - 1)]['preBarWidth'] + barObj['bar' + (i - 1)]['width'] + dotWidth
+    initBarObj(barObj)
+
+    //初始化进度条中四个进度的长度信息，数值为每个进度条的长度/整个进度条的长度
+    function initBarObj(obj){
+      for (var i = 0; i < obj.length - 1; i++){
+        barObj['bar' + (i+1)].preBarWidth = barObj['bar' + i ]['preBarWidth'] + barObj['bar' + i ]['width'] + dotWidth
       }
-      return barObj
     }
 
     //传入用户积分数，显示黄色进度条
@@ -322,52 +322,53 @@
       if(i>=0){
         i = i + 1
         $('.yellow_bar').width((i/length) * backBarWidth - 15)
-      }else{
-        if (userPoint<pointArr[0]){
-          i = 0
-          var pointRatio = userPoint/pointArr[i]
-          console.log(pointRatio)
-          var width = pointRatio * barObj.bar0.width
-          console.log(width)
-          if(width < 10){
-            var radiusWidth = window.Math.round(width/2)
-            $('.yellow_bar').width(0)
-            $('.yellow_bar .before').width(radiusWidth)
-            $('.yellow_bar .after').css('right', 5-radiusWidth+'px').width(radiusWidth)
-          }else{
-            $('.yellow_bar').width(width - 9)
-          }
-
-        }else if(userPoint>pointArr[0] && userPoint<pointArr[1]){
-          i = 1
-          setYellowWidth(i, userPoint)
-        }else if(userPoint>pointArr[1] && userPoint<pointArr[2]){
-          i = 2
-          setYellowWidth(i, userPoint)
-        }else if(userPoint>pointArr[2] && userPoint<pointArr[3]){
-          i = 3
-          setYellowWidth(i, userPoint)
-        }else if(userPoint>pointArr[3]){
-          i = 4
-          $('.yellow_bar').width((i/length) * backBarWidth)
-        }else{
-          i = 0
-          $('.yellow_bar').width(0)
-        }
+        activeYellowDot(i)
+        return
       }
+      if (userPoint<pointArr[0]){
+        i = 0
+        var pointRatio = userPoint/pointArr[i]
+        var width = pointRatio * barObj.bar0.width
+        //左右圆角图片各占5px
+        if(width < 10){
+          var radiusWidth = window.Math.round(width/2)
+          $('.yellow_bar').width(0)
+          $('.yellow_bar .before').width(radiusWidth)
+          $('.yellow_bar .after').css('right', 5-radiusWidth+'px').width(radiusWidth)
+        }else{
+          $('.yellow_bar').width(width - 9)
+        }
+      }else if(userPoint>pointArr[0] && userPoint<pointArr[1]){
+        i = 1
+        setYellowWidth(i, userPoint)
+      }else if(userPoint>pointArr[1] && userPoint<pointArr[2]){
+        i = 2
+        setYellowWidth(i, userPoint)
+      }else if(userPoint>pointArr[2] && userPoint<pointArr[3]){
+        i = 3
+        setYellowWidth(i, userPoint)
+      }else if(userPoint>pointArr[3]){
+        i = 4
+        $('.yellow_bar').width(backBarWidth - 15)
+      }else{
+        i = 0
+        $('.yellow_bar').width(0)
+      }
+      activeYellowDot(i)
+    }
 
+    //点亮黄色点
+    function activeYellowDot(i){
       for(var j=0; j <= i; j++){
         if (j === 0){continue}
         $('.yellow_dot'+j).addClass('active')
       }
-
     }
-
     //设置黄色进度条的长度
     function setYellowWidth(i, userPoint){
       var userSubtract = userPoint-pointArr[i-1]
       var defaultSubtract = pointArr[i] - pointArr[i-1]
-      $('.yellow_bar').width(( barObj['bar'+i]['preBarWidth'] + userSubtract/defaultSubtract*barObj['bar'+i]['width']) * backBarWidth)
+      $('.yellow_bar').width(barObj['bar'+i]['preBarWidth'] + userSubtract/defaultSubtract*barObj['bar'+i]['width']-10)
     }
 
     //让进度条上所有的点不显示
@@ -377,7 +378,7 @@
       }
     }
 
-    displayBar(100000)
+    displayBar(5110000)
 </script>
 
 </body>
