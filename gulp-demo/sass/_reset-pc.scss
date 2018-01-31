@@ -45,15 +45,15 @@ em, i{ font-style:normal;}
 
 /*public*/
 
-.warp{overflow: hidden; width:900px; height:450px;   background-color:#d54134;   position:relative; }
-.left{ float:left; width:154px; height:450px; background:#1f2226;}
-.right{ float:right; width:746px; height:450px; position: relative; }
+.warp{overflow: hidden; width:900px; height:450px; background-color:#d54134; position:relative; }
+.left{float:left; width:154px; height:450px; background:#1f2226;}
+.right{position: relative; float:right; width:746px; height:450px; }
 
-.navBox{  position: relative; z-index: 8; }
-.navBox a{ display:block; margin-top:4px;  font-size: 18px; font-weight:600; line-height:61px; color: #812104; width:150px; height:61px;background:url(../images/nav_bg.gif) no-repeat 0 0; }
+.navBox{position: relative; z-index: 8; }
+.navBox a{display:block; margin-top:4px;  font-size: 18px; font-weight:600; line-height:61px; color: #812104; width:150px; height:61px;background:url(../images/nav_bg.gif) no-repeat 0 0; }
 
-.navBox a span{ display: inline-block; width:22px; height: 22px;margin-left: 12px; margin-right: 2px; vertical-align: middle;  }
+.navBox a span{display: inline-block; width:22px; height: 22px;margin-left: 12px; margin-right: 2px; vertical-align: middle;  }
 .navBox a{font-size:16px;}
-.navBox a.active, .navBox a:hover{background:url(../images/nav_bgOn.gif) no-repeat 0 0; color: #661e00;font-weight: bold; }
+.navBox a.active, .navBox a:hover{background:url(../images/nav_bgOn.gif) no-repeat 0 0; color: #661e00; font-weight: bold; }
 
-.navBox a .icon_{background:url(../images/icon_.png) no-repeat 50% 50%;background-size: 100% 100%; -webkit-background-size: 100% 100%;}
+.navBox a .icon_{background:url(../images/icon_.png) no-repeat 50% 50%; background-size: 100% 100%; -webkit-background-size: 100% 100%;}

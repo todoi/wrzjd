@@ -20,7 +20,7 @@
   <script type="text/javascript" src="js/jQueryRotate.js"></script>
   <script>
   $(function() {
-    var NUMBER_OF_REDBAG = 50; //红包的个数
+    var NUMBER_OF_REDBAG = 80; //红包的个数
 
     function init() {
       var $container = $('#petalbox'); //红包容器
@@ -55,15 +55,15 @@
     function animateRedbag(element){
       var $element = $(element)
       /* 随机下落时间 从开始到结束的时间*/
-      var fadeAndDropDuration = randomFloat(1200, 4200);
+      var fadeAndDropDuration = randomFloat(1000, 3000);
       /* 随机旋转时间 从开始到结束的时间*/
-      var spinDuration = randomFloat(3000, 4000);
+      var spinDuration = randomFloat(2000, 3000);
       // 随机delay时间
       var redbagDelay = randomFloat(0, 2000);
       //旋转的角度 -45deg ~ 45deg
       var rot = parseInt(Math.random() * 270 - 135) ;
       setTimeout(function(){
-        $element.animate({opacity: 0.9, top: winHeight},fadeAndDropDuration)
+        $element.animate({opacity: 0.95, top: winHeight},fadeAndDropDuration)
         $element.rotate({angle:0, animateTo: rot, duration: spinDuration, easing: $.easing.easeInOutElastic})
       }, redbagDelay)
     }
