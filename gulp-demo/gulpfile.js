@@ -14,7 +14,7 @@ gulp.task('watch', function(){
 gulp.task('sass', [], ()=>{
     return gulp.src('./sass/**/*.scss')
     // nested | expanded | compact | compressed
-    .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
+    .pipe(sass({outputStyle: 'compact'}).on('error', sass.logError))
     .pipe(gulp.dest('./css'))
 })
 

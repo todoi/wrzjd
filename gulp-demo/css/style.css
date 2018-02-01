@@ -1,231 +1,96 @@
-@charset "UTF-8";
-body, div, a, span, img, ol, ul, li, input, p, a, h4, h3, select {
-  padding: 0;
-  margin: 0;
-}
+body, div, a, span, img, ol, ul, li, input, p, a, h4, h3, select { padding: 0; margin: 0; }
 
-* {
-  margin: 0;
-  padding: 0;
-}
+* { margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
 
-body {
-  font: 12px/1.5 "Microsoft Yahei", Arial, Helvetica, sans-serif, "宋体";
-  color: #fff;
-  padding: 0;
-  margin: 0;
-}
+body { font-family: "Microsoft Yahei"; color: #fff; }
 
-body, html {
-  overflow: hidden;
-  border: 0;
-  border: none;
-}
+body, html { overflow: hidden; border: 0; border: none; }
 
-img {
-  vertical-align: top;
-  border: 0 none;
-}
+html { overflow: hidden; }
 
-a {
-  cursor: pointer;
-  color: #fff;
-  text-decoration: none;
-}
+img { vertical-align: middle; border: 0 none; }
 
-a:hover, a:focus {
-  outline: none;
-}
+a { cursor: pointer; color: #fff; text-decoration: none; }
 
-i {
-  font-style: normal;
-}
+a:hover, a:focus { outline: none; }
 
-ul, li {
-  list-style: none;
-}
+i { font-style: normal; }
 
-ol {
-  padding-left: 25px;
-}
+ul, li { list-style: none; }
 
-ol li {
-  list-style: decimal;
-}
+ol { padding-left: 25px; }
 
-em, i {
-  font-style: normal;
-}
+ol li { list-style: decimal; }
 
-.clearfix:after {
-  content: ".";
-  display: block;
-  height: 0;
-  font-size: 0;
-  clear: both;
-  visibility: hidden;
-}
+em, i { font-style: normal; }
 
-.text-indent {
-  text-indent: 2em;
-}
+.text-center { text-align: center; }
 
-.Yahei {
-  font-family: "Microsoft Yahei";
-}
+.text-indent { text-indent: 2em; }
+
+.pull-left { float: left; }
+
+.pull-right { float: right; }
+
+.relative { position: relative; }
+
+.clearfix:after { content: "."; display: block; height: 0; font-size: 0; clear: both; visibility: hidden; }
+
+.clearfix { *zoom: 1; }
+
+.Yahei { font-family: "Microsoft Yahei"; }
+
+.text-yellow { color: #ba390c; }
+
+.text-yellow1 { color: #ffea34; }
+
+.text-green { color: #22ac38; }
+
+.text-blue { color: #3366cc; }
+
+.text-white1 { color: #ffc1b3; }
+
+i .text-red { color: #fec1c1; }
+
+.text-red1 { color: #660700; }
+
+.text-orange { color: #b94c02; font-weight: bold; }
+
+.text-white { color: #fff; }
+
+.text-underline { text-decoration: underline; }
+
+.font16 { font-size: 0.16rem; }
+
+.font18 { font-size: 0.18rem; }
+
+.font24 { font-size: 0.24rem; }
+
+.font60 { font-size: 0.60rem; }
+
+.font48 { font-size: 0.48rem; }
+
+.font36 { font-size: 0.36rem; }
+
+.font20 { font-size: 0.20rem; }
 
 /*public*/
-.warp {
-  overflow: hidden;
-  width: 900px;
-  height: 450px;
-  background-color: #d54134;
-  position: relative;
-}
+.warp { overflow: hidden; width: 12.8rem; background-color: #d54134; position: relative; }
 
-.left {
-  float: left;
-  width: 154px;
-  height: 450px;
-  background: #1f2226;
-}
+.left { float: left; width: 2.08rem; height: 6.4rem; background: #1d1d1f; }
 
-.right {
-  float: right;
-  width: 746px;
-  height: 450px;
-  position: relative;
-}
+.navBox { position: relative; z-index: 8; padding-top: 0.1rem; }
 
-.navBox {
-  position: relative;
-  z-index: 8;
-}
+.navBox a { display: block; font-size: 0.26rem; font-weight: 500; line-height: 0.8rem; color: #812104; width: 2.08rem; height: 0.86rem; background: url(../images/nav_bg.gif) no-repeat 0 0; background-size: 100% 100%; -webkit-background-size: 100% 100%; margin-bottom: 4px; }
 
-.navBox a {
-  display: block;
-  margin-top: 4px;
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 61px;
-  color: #812104;
-  width: 150px;
-  height: 61px;
-  background: url(../images/nav_bg.gif) no-repeat 0 0;
-}
+.navBox a span { display: inline-block; width: 0.27rem; height: 0.27rem; margin-left: 0.08rem; margin-right: 0.02rem; vertical-align: middle; }
 
-.navBox a span {
-  display: inline-block;
-  width: 22px;
-  height: 22px;
-  margin-left: 12px;
-  margin-right: 2px;
-  vertical-align: middle;
-}
+.navBox a.active { background: url(../images/nav_bgOn.gif) no-repeat 0 0; background-size: 100% 100%; -webkit-background-size: 100% 100%; margin-bottom: 4px; }
 
-.navBox a {
-  font-size: 16px;
-}
+.rollCon { overflow: hidden; }
 
-.navBox a.active, .navBox a:hover {
-  background: url(../images/nav_bgOn.gif) no-repeat 0 0;
-  color: #661e00;
-  font-weight: bold;
-}
+.liveList li { height: 0.24rem; line-height: 0.24rem; vertical-align: top; }
 
-.navBox a .icon_ {
-  background: url(../images/icon_.png) no-repeat 50% 50%;
-  background-size: 100% 100%;
-  -webkit-background-size: 100% 100%;
-}
+.liveList li span { display: inline-block; vertical-align: top; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
-nav {
-  width: 50px;
-  color: #ddd;
-}
-
-nav span {
-  width: 50px;
-  color: #f90;
-  border: 1px solid red;
-}
-
-nav span a {
-  height: 50px;
-  display: inline-block;
-  width: 50px;
-}
-
-nav span:hover {
-  color: #ddd;
-  border: 1px solid red;
-  background: #f90;
-}
-
-div {
-  height: 50px;
-  background: #ddd;
-}
-
-div {
-  height: 50px;
-  background: #ddd;
-}
-
-.container h1, .container h2, .container h3 {
-  width: 50px;
-  height: 50px;
-  color: #ddd;
-}
-
-article > p {
-  border: 1px solid #ccc;
-}
-
-article ~ article {
-  height: 50px;
-}
-
-article dl > dt {
-  color: #233;
-}
-
-article dl > dd {
-  color: #666;
-}
-
-nav + article {
-  color: #ddd;
-}
-
-article div + span {
-  color: #ddd;
-}
-
-article div + a:hover {
-  outline: none;
-}
-
-div {
-  text-align: center;
-  padding-left: 20px;
-  padding-right: 30px;
-  padding-top: 50px;
-  padding-bottom: 100px;
-  border: 1px solid red;
-  border-left: 0;
-  border-right-color: blue;
-}
-
-/* 这种注释内容会出现在生成的css文件中 */
-a {
-  color: #ffaa3b;
-}
-
-a:hover {
-  color: black;
-}
-
-a:visited {
-  color: #3366cc;
-}
+.navBox a .icon_08 { background: url(../images/icon_08.png) no-repeat 0 0; background-size: 100% 100%; -webkit-background-size: 100% 100%; }
