@@ -1,0 +1,18 @@
+/* 我的红包 */
+.box_history{position: absolute; top: 30px; left: 50%; margin-left: -230px; width: 619px;height: 377px;background: url(../images/newYear/history_bg.png) no-repeat 0 0;background-size: 100% 100%; -webkit-background-size: 100% 100%;}
+.box_history .dia_body {position: relative; height: 295px; padding-top: 30px;}
+
+.jaingpin_tb{width:537px;margin:0 auto;  line-height:36px; border-collapse:collapse;  font-size:16px; border-top-left-radius:4px;}
+.jaingpin_tb th{ background-color:#fdedd2; color:#b34602; font-size:18px; text-align:center; line-height:32px; }
+.jaingpin_tb td{ text-align:center;  font-size: 20px;  color:#804624; background: #FCFAF4;}
+.jaingpin_tb .tr td {background: #fbf6e7;}
+.jaingpin_tb tr .red {color:#F0330F;}
+.jaingpin_tb .btn_lingquSmall{ display: inline-block; width: 82px; height: 33px; text-align: center; background:url(../images/nqct/btn_lingquSmall.png) no-repeat 0 0;  }
+
+.pages{position: absolute; bottom: 26px; width: 590px; text-align: center; color:#c13e2a;}
+.pages a{ color:#444; margin:0 10px; font-size: 20px;}
+.pages a:hover{ color:#000;}
+.pages a.active{color:#c13e2a;}
+.pages span{font-size: 20px;color:#c13e2a;margin:0 16px;}
+.pages .num{margin:0 16px;}
+

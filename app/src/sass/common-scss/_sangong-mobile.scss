@@ -1,0 +1,53 @@
+//v1/activity/10/cases2017/qzMajiang/mobile/index.html
+//<div class="rollBox1">
+//  <div class="rollCon1" id="div1">
+//    <ul>
+//      <li><span class="span1"><img src="images/shopHongbao/demo.gif"></span><span class="span2"><i class="i1">杰森斯坦森</i><i class="i2">   于12:30   获得</i><i class="i3">1元红包</i></span></li>
+//      <li><span class="span1"><img src="images/shopHongbao/demo.gif"></span><span class="span2"><i class="i1">456465</i><i class="i2">   于12:30   获得</i><i class="i3">1元红包</i></span></li>
+//      <li><span class="span1"><img src="images/shopHongbao/demo.gif"></span><span class="span2"><i class="i1">杰森斯坦森</i><i class="i2">   于12:30   获得</i><i class="i3">1元红包</i></span></li>
+//      <li><span class="span1"><img src="images/shopHongbao/demo.gif"></span><span class="span2"><i class="i1">杰森斯坦森</i><i class="i2">   于12:30   获得</i><i class="i3">1元红包</i></span></li>
+//      <li><span class="span1"><img src="images/shopHongbao/demo.gif"></span><span class="span2"><i class="i1">杰森斯坦森</i><i class="i2">   于12:30   获得</i><i class="i3">1元红包</i></span></li>
+//      <li><span class="span1"><img src="images/shopHongbao/demo.gif"></span><span class="span2"><i class="i1">杰森斯坦森</i><i class="i2">   于12:30   获得</i><i class="i3">1元红包</i></span></li>
+//      <li><span class="span1"><img src="images/shopHongbao/demo.gif"></span><span class="span2"><i class="i1">hkjlkkjlk</i><i class="i2">   于12:30   获得</i><i class="i3">1元红包</i></span></li>
+//    </ul>
+//  </div>
+//</div>
+
+//v1/activity/10/cases2017/christmas/min/icebreaking.html
+// <div class="rollBox1">
+//   <div class="rollCon1">
+//     <ul>
+//       <li>豆子薛之谦18:59抽中iPhoneX 256G</li>
+//       <li>豆子薛之谦18:59抽中iPhoneX 256G</li>
+//       <li>豆子薛之谦18:59抽中iPhoneX 256G</li>
+//       <li>豆子薛之谦18:59抽中iPhoneX 256G</li>
+//       <li>豆子薛之谦18:59抽中iPhoneX 256G</li>
+//       <li>豆子薛之谦18:59抽中iPhoneX 256G</li>
+//     </ul>
+//   </div>
+// </div>
+
+$boxWidth: 3.5rem !default;
+$boxHeight: 2.68rem !default;
+$boxLeft: 0 !default;
+$boxTop: 0 !default;
+
+$conHeight: 2.68rem !default;
+$conMargin: 0 !default;
+
+$liLineHeight: .5rem !default;
+$liFontSize: 0.22rem !default;
+$liColor: red !default;
+
+.rollBox1{position: absolute; width: $boxWidth; height: $boxHeight; left: $boxLeft; top: $boxTop; overflow:hidden;}
+.rollCon1{height: $conHeight; width: 100%; overflow: hidden; margin: $conMargin; text-align: center;}
+.rollCon1 li{font-size: $liFontSize; line-height: $liLineHeight; color: $liColor; overflow: hidden; white-space: nowrap;}
+
+// .rollCon1 li span{ float: left; overflow:hidden;}
+// .rollCon1 li .span1{ width: 0.3rem; height: 0.4rem; margin-right:0.1rem; }
+// .rollCon1 li .span1 img{ width: 100%; height: 100%; border-radius:50%; -webkit-border-radius:50%; }
+// .rollCon1 li .span2{ width: 3.1rem; line-height: 0.5rem; height: 0.5rem; overflow: hidden; }
+// .rollCon1 li .span2 i{ font-style: normal; float: left; line-height: 0.5rem; height: 0.5rem; overflow: hidden; }
+// .rollCon1 li .span2 .i1{ width: 1rem }
+// .rollCon1 li .span2 .i2{ width: 1.14rem; }
+// .rollCon1 li .span2 .i3{ width:0.95rem;color: #d60808;  }

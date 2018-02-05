@@ -1,0 +1,18 @@
+$commonWidth: 5.65rem !default;
+$commonHeight: 3.39rem !default;
+$path: 'icebreaking' !default;
+
+/*弹框*/
+.bg {display:none; position: absolute; z-index: 99; width: 100%; height: 100%; left: 0; top: 0; background: #000; opacity: 0.5; filter: alpha(opacity = 50); -webkit-border-radius:8px; border-radius:8px; }
+.diaBox{display: none; position:absolute; z-index:100; width: $commonWidth; height: $commonHeight; top:10px; left:50%; margin-left: -$commonWidth/2;
+  background: url(../images/#{$path}/commonBg.png) no-repeat 0 0; background-size: 100% 100%; -webkit-background-size: 100% 100%;}
+
+.diaBox .close{display: block; position: absolute; top: -0.32rem; right: -0.26rem; width: 0.78rem; height: 0.78rem; background: url(../images/#{path}/dia_close.png) no-repeat 0 0;background-size: 100% 100%; -webkit-background-size: 100% 100%;}
+.diaBox h3{ font-size: 0.36rem; padding-bottom: 0.1rem; margin-bottom: 0.2rem; color: #a14327; line-height: 0.5rem; text-align: center; font-weight: normal; border-bottom: 1px dashed #fea125; }
+.diaBox .rule{margin:0 auto;padding: 0rem 0.5rem;font-size: 0.22rem; color: #7F3205;line-height: 0.4rem; }
+
+.dia_header .dia_close{ display: block;position: absolute;z-index: 10;top: -0.22rem;right: -0.15rem;width: 0.67rem;height: 0.67rem;background: url(../images/icebreaking/dia_close.png) no-repeat 0 0;background-size: 100% 100%; -webkit-background-size: 100% 100%;}
+.dia_header {width: 100%;height: 0.52rem;text-align: center;margin-top: -0.2rem;}
+.dia_header img {width: 1.9rem;height: 0.52rem;}
+.dia_body{padding-top: 0.5rem;}
+
