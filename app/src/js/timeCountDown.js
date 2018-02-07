@@ -17,8 +17,7 @@ gallery/simpleCountDown/1.0.1/index
 // 1天11时 -> 没有天 -> 显示为35小时
 // by yujiang at 2014-04-23
 
-KISSY.add('gallery/simpleCountDown/1.0.1/index',function(S) {
-
+jQuery.SimpleCountDown = (function() {
     //绑定
     function bind(fn, context) {
         return function() {
@@ -26,7 +25,7 @@ KISSY.add('gallery/simpleCountDown/1.0.1/index',function(S) {
         }
     }
 
-    /**
+    /*
      * 时间节点对象-单个的倒计时节点
      *
      * @this { SimpleTime }
@@ -64,11 +63,11 @@ KISSY.add('gallery/simpleCountDown/1.0.1/index',function(S) {
     SimpleTime.prototype.render = function() {
         var ms = Math.floor((this.leftTime % 1000) / 100), //毫秒取到百位数
             s = Math.floor(this.leftTime / 1000 % 60), //秒
-            m = Math.floor(this.leftTime / 60000 % 60),  //分
-            h = Math.floor(this.leftTime / 3600000 % 24),  //小时
-            d = Math.floor(this.leftTime / 86400000);  //天数
+            m = Math.floor(this.leftTime / 60000 % 60), //分
+            h = Math.floor(this.leftTime / 3600000 % 24), //小时
+            d = Math.floor(this.leftTime / 86400000); //天数
 
-        var a_s = Math.floor(this.leftTime / 1000),  //所有剩下的秒数
+        var a_s = Math.floor(this.leftTime / 1000), //所有剩下的秒数
             a_m = Math.floor(this.leftTime / 60000), //所有剩下的分钟数
             a_h = Math.floor(this.leftTime / 3600000); //所有剩下的小时数
 
@@ -81,11 +80,11 @@ KISSY.add('gallery/simpleCountDown/1.0.1/index',function(S) {
         if (this.node[0]) {
             if (!this.node[0].__cache) {
                 this.node[0].__cache = {
-                    msNode: this.node.all('.scd-digit-ms'), //.simpleCountDown-digit-millisecond 找到所有的ms 节点
-                    sNode: this.node.all('.scd-digit-s'),
-                    mNode: this.node.all('.scd-digit-m'),
-                    hNode: this.node.all('.scd-digit-h'),
-                    dNode: this.node.all('.scd-digit-d')
+                    msNode: this.node.find('.scd-digit-ms'), //.simpleCountDown-digit-millisecond 找到所有的ms 节点
+                    sNode: this.node.find('.scd-digit-s'),
+                    mNode: this.node.find('.scd-digit-m'),
+                    hNode: this.node.find('.scd-digit-h'),
+                    dNode: this.node.find('.scd-digit-d')
                 };
             }
             msNode = this.node[0].__cache.msNode;
@@ -94,11 +93,11 @@ KISSY.add('gallery/simpleCountDown/1.0.1/index',function(S) {
             hNode = this.node[0].__cache.hNode;
             dNode = this.node[0].__cache.dNode;
         } else {
-            msNode = this.node.all('.scd-digit-ms');
-            sNode = this.node.all('.scd-digit-s');
-            mNode = this.node.all('.scd-digit-m');
-            hNode = this.node.all('.scd-digit-h');
-            dNode = this.node.all('.scd-digit-d');
+            msNode = this.node.find('.scd-digit-ms');
+            sNode = this.node.find('.scd-digit-s');
+            mNode = this.node.find('.scd-digit-m');
+            hNode = this.node.find('.scd-digit-h');
+            dNode = this.node.find('.scd-digit-d');
         }
 
         if (msNode) { //如果取到ms 节点就将 毫秒数渲染进去
@@ -113,7 +112,7 @@ KISSY.add('gallery/simpleCountDown/1.0.1/index',function(S) {
                     s = '0' + s;
                 }
                 sNode.html(s);
-            } else {  //没有minute
+            } else { //没有minute
                 if (a_s < 10) {
                     a_s = '0' + a_s;
                 }
@@ -146,7 +145,7 @@ KISSY.add('gallery/simpleCountDown/1.0.1/index',function(S) {
                 hNode.html(a_h);
             }
         }
-        if (dNode[0]) {  //render day
+        if (dNode[0]) { //render day
             dNode.html(d);
         }
     }
@@ -218,7 +217,7 @@ KISSY.add('gallery/simpleCountDown/1.0.1/index',function(S) {
 
         for (var i = this._timeStack.length; i--;) {
             theTimeNode = this._timeStack[i]; //theTimeNode 是SimpleTime 的实例
-            if (theTimeNode.stop) {  // 如果这个时间节点是暂停的
+            if (theTimeNode.stop) { // 如果这个时间节点是暂停的
                 theTimeNode.update(); //时间节点更新
                 continue;
             }
@@ -239,18 +238,17 @@ KISSY.add('gallery/simpleCountDown/1.0.1/index',function(S) {
         for (var k = 0; k < this._extraCal.length; k++) {
             bind(this._extraCal[k], this)();
         }
-
     }
     //添加并生成一个新的时间节点，节点和时间对象相关联
     SimpleCountDown.prototype.add = function(node, _leftTime, _totalTime) {
         if (!node[0]) {
             return;
         }
-        var tpl = node.html().replace(/\$\{ms\}/ig, '<s class="scd-digit-ms"></s>').
-        replace(/\$\{s\}/ig, '<s class="scd-digit-s"></s>').
-        replace(/\$\{m\}/ig, '<s class="scd-digit-m"></s>').
-        replace(/\$\{h\}/ig, '<s class="scd-digit-h"></s>').
-        replace(/\$\{d\}/ig, '<s class="scd-digit-d"></s>');
+        var tpl = node.html().replace(/\$\{ms\}/ig, '<span class="scd-digit-ms"></span>').
+        replace(/\$\{s\}/ig, '<span class="scd-digit-s"></span>').
+        replace(/\$\{m\}/ig, '<span class="scd-digit-m"></span>').
+        replace(/\$\{h\}/ig, '<span class="scd-digit-h"></span>').
+        replace(/\$\{d\}/ig, '<span class="scd-digit-d"></span>');
 
         var leftTime = _leftTime === undefined ? undefined : _leftTime;
         var attrLeftTime = node.attr('data-lefttime');
@@ -268,7 +266,7 @@ KISSY.add('gallery/simpleCountDown/1.0.1/index',function(S) {
         var simpleTime = new SimpleTime(o);
         node[0]._s_countdown = simpleTime;
         this._timeStack.push(simpleTime);
-        return simpleTime;
+        // return simpleTime;
     }
     //获取一个时间节点，通过其id
     SimpleCountDown.prototype.get = function(node) {
@@ -280,7 +278,7 @@ KISSY.add('gallery/simpleCountDown/1.0.1/index',function(S) {
             return undefined;
         }
         for (var i = this._timeStack.length; i--;) {
-            if (currentIns.id == this._timeStack[i].id) {
+            if (currentIns.id === this._timeStack[i].id) {
                 return {
                     item: currentIns,
                     index: i
@@ -307,7 +305,4 @@ KISSY.add('gallery/simpleCountDown/1.0.1/index',function(S) {
     }
 
     return SimpleCountDown;
-
-}, {
-    requires: []
-})
+})()
