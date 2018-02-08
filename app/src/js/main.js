@@ -1,9 +1,3 @@
-/*
-combined files :
-
-gallery/simpleCountDown/1.0.1/index
-
-*/
 /**
  * 倒计时组件
  * 只支持简单的倒计时，并没有提供效果组件
@@ -12,10 +6,6 @@ gallery/simpleCountDown/1.0.1/index
  * @author yujiang<zhihao.gzh@alibaba-inc.com>
  * @data 2014-01-13
  */
-
-// 动态判断上级时间是否存在，没有的话显示全如：
-// 1天11时 -> 没有天 -> 显示为35小时
-// by yujiang at 2014-04-23
 
 jQuery.SimpleCountDown = (function() {
     //绑定
@@ -31,9 +21,7 @@ jQuery.SimpleCountDown = (function() {
      * @this { SimpleTime }
      * @var id 每个对象=会有一个唯一一个id便于组织和操作
      * @var node 对应的节点
-     * @var tpl 生成时间的模板
      * @var leftTime 剩余时间
-     * @var totalTime 总时间
      * @var triggers 到达时间触发的回调
      * @var stop 是否暂停
      * @var extraCal 额外运行的函数，默认每100ms运行
@@ -42,13 +30,12 @@ jQuery.SimpleCountDown = (function() {
     function SimpleTime(config) {
         this.id = config.id || 0;
         this.node = config.node;
-        this.tpl = config.tpl;
         this.leftTime = config.leftTime;
-        this.totalTime = config.totalTime;
         this.triggers = [];
         this.stop = 0;
         this.extraCal = function() {};
     }
+
     //添加对应时间的触发回调
     SimpleTime.prototype.addTrigger = function(time, callback) {
         var t = {
@@ -61,8 +48,8 @@ jQuery.SimpleCountDown = (function() {
 
     //渲染视图
     SimpleTime.prototype.render = function() {
-        var ms = Math.floor((this.leftTime % 1000) / 100), //毫秒取到百位数
-            s = Math.floor(this.leftTime / 1000 % 60), //秒
+        // ms = Math.floor((this.leftTime % 1000) / 100), //毫秒取到百位数
+        var s = Math.floor(this.leftTime / 1000 % 60), //秒
             m = Math.floor(this.leftTime / 60000 % 60), //分
             h = Math.floor(this.leftTime / 3600000 % 24), //小时
             d = Math.floor(this.leftTime / 86400000); //天数
@@ -71,8 +58,8 @@ jQuery.SimpleCountDown = (function() {
             a_m = Math.floor(this.leftTime / 60000), //所有剩下的分钟数
             a_h = Math.floor(this.leftTime / 3600000); //所有剩下的小时数
 
-        var msNode, //millisecond 节点
-            sNode, //second 节点
+        // msNode, //millisecond 节点
+        var sNode, //second 节点
             mNode, //minute
             hNode, //hour
             dNode; //day
@@ -80,29 +67,29 @@ jQuery.SimpleCountDown = (function() {
         if (this.node[0]) {
             if (!this.node[0].__cache) {
                 this.node[0].__cache = {
-                    msNode: this.node.find('.scd-digit-ms'), //.simpleCountDown-digit-millisecond 找到所有的ms 节点
+                    // msNode: this.node.find('.scd-digit-ms'), //.simpleCountDown-digit-millisecond 找到所有的ms 节点
                     sNode: this.node.find('.scd-digit-s'),
                     mNode: this.node.find('.scd-digit-m'),
                     hNode: this.node.find('.scd-digit-h'),
                     dNode: this.node.find('.scd-digit-d')
                 };
             }
-            msNode = this.node[0].__cache.msNode;
+            // msNode = this.node[0].__cache.msNode;
             sNode = this.node[0].__cache.sNode;
             mNode = this.node[0].__cache.mNode;
             hNode = this.node[0].__cache.hNode;
             dNode = this.node[0].__cache.dNode;
         } else {
-            msNode = this.node.find('.scd-digit-ms');
+            // msNode = this.node.find('.scd-digit-ms');
             sNode = this.node.find('.scd-digit-s');
             mNode = this.node.find('.scd-digit-m');
             hNode = this.node.find('.scd-digit-h');
             dNode = this.node.find('.scd-digit-d');
         }
 
-        if (msNode) { //如果取到ms 节点就将 毫秒数渲染进去
-            msNode.html(ms);
-        }
+        // if (msNode) { //如果取到ms 节点就将 毫秒数渲染进去
+        //     msNode.html(ms);
+        // }
 
         //加入判断是否有分钟，如果没有显示全部时间的秒数
         //下面的分钟和小时同
@@ -146,14 +133,19 @@ jQuery.SimpleCountDown = (function() {
             }
         }
         if (dNode[0]) { //render day
+            if (d < 10) {
+                d = '0' + d;
+            }
             dNode.html(d);
         }
     }
+
     //不停的更新函数
     SimpleTime.prototype.update = function() {
         this.render();
         this.extraCal();
     }
+
     //重置时间，注意如果为stop，那么重置无效
     SimpleTime.prototype.reset = function(time) {
         if (!this.stop) {
@@ -163,36 +155,30 @@ jQuery.SimpleCountDown = (function() {
             }
         }
     }
-    /**
+
+    /*
      * 倒计时模型
      *
      * @倒计时的生产器 单体对象
      * @this { SimpleCountDown }
      * @param {_precision} 调度间隔
-     * @fun add (node, _leftTime, _totalTime) 添加一个新倒计时节点
+     * @fun add (node, _leftTime) 添加一个新倒计时节点
      * @var _timeStack 时间节点对象集合
      * @var _extraCal 额外执行的函数集合，每个间隔时间
      * @var _count 内部计数，分配id
      * @var _oldtime 用于调整时间，控制精度
      * @return {this} r 返回实例
      */
-
     function SimpleCountDown(_precision) {
-        //单体
-        //if (!SimpleCountDown._instance) {
-        //  SimpleCountDown._instance = this;
-        //} else {
-        //  return SimpleCountDown._instance;
-        //}
-
         this._timeStack = [];
         this._extraCal = [];
         this._count = 0;
-        this._precision = _precision || 100;
+        this._precision = _precision || 1000;
         this._timmer = 0;
         this._oldtime = (new Date()).getTime();
         this.init();
     }
+
     //递归调用，无限执行
     SimpleCountDown.prototype.init = function() {
         this.exec();
@@ -200,6 +186,7 @@ jQuery.SimpleCountDown = (function() {
             this.init();
         }, this), this._precision);
     }
+
     //清理
     SimpleCountDown.prototype._clear = function() {
         clearTimeout(this._timmer);
@@ -207,6 +194,7 @@ jQuery.SimpleCountDown = (function() {
     SimpleCountDown.prototype.clearStack = function() {
         this._timeStack = [];
     }
+
     //计算时间 更新每个时间节点
     SimpleCountDown.prototype.exec = function() {
         var theTimeNode = {},
@@ -239,69 +227,27 @@ jQuery.SimpleCountDown = (function() {
             bind(this._extraCal[k], this)();
         }
     }
+
     //添加并生成一个新的时间节点，节点和时间对象相关联
-    SimpleCountDown.prototype.add = function(node, _leftTime, _totalTime) {
+    SimpleCountDown.prototype.add = function(node, _leftTime) {
         if (!node[0]) {
             return;
         }
-        var tpl = node.html().replace(/\$\{ms\}/ig, '<span class="scd-digit-ms"></span>').
-        replace(/\$\{s\}/ig, '<span class="scd-digit-s"></span>').
-        replace(/\$\{m\}/ig, '<span class="scd-digit-m"></span>').
-        replace(/\$\{h\}/ig, '<span class="scd-digit-h"></span>').
-        replace(/\$\{d\}/ig, '<span class="scd-digit-d"></span>');
 
         var leftTime = _leftTime === undefined ? undefined : _leftTime;
         var attrLeftTime = node.attr('data-lefttime');
 
-        node.html(tpl);
 
         var o = {
             id: this._count++
         }
         o.node = node;
-        o.tpl = tpl;
         o.leftTime = leftTime || attrLeftTime || 0;
-        o.totalTime = _totalTime || _leftTime;
 
         var simpleTime = new SimpleTime(o);
         node[0]._s_countdown = simpleTime;
         this._timeStack.push(simpleTime);
-        // return simpleTime;
-    }
-    //获取一个时间节点，通过其id
-    SimpleCountDown.prototype.get = function(node) {
-        if (!node[0]) {
-            return undefined;
-        }
-        var currentIns = node[0]._s_countdown;
-        if (!currentIns) {
-            return undefined;
-        }
-        for (var i = this._timeStack.length; i--;) {
-            if (currentIns.id === this._timeStack[i].id) {
-                return {
-                    item: currentIns,
-                    index: i
-                };
-            }
-        }
-        return undefined;
-    }
-    //删除一个时间节点，通过id
-    SimpleCountDown.prototype.remove = function(node) {
-        var theOne = this.get(node);
-        if (theOne) {
-            this._timeStack.splice(theOne.index, 1);
-        }
-    }
-    //暂停一个时间节点，通过id
-    SimpleCountDown.prototype.stop = function(node) {
-        var theOne = this.get(node);
-        theOne.item.stop = 1;
-    }
-    //添加额外的执行，没帧
-    SimpleCountDown.prototype.addCal = function(func) {
-        this._extraCal.push(func);
+        return simpleTime;
     }
 
     return SimpleCountDown;

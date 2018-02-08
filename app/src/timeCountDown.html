@@ -6,16 +6,20 @@
   <link rel="stylesheet" href="./css/timeCountDown.css">
 </head>
 <body>
-  <div id="countDown">${d}-${h}-${m}-${s}-${ms}</div>
+  <div id="countDown">
+    <span class="scd-digit-d"></span>
+    <span class="scd-digit-h"></span>
+    <span class="scd-digit-m"></span>
+    <span class="scd-digit-s"></span>
+    <span class="scd-digit-ms"></span>
+  </div>
   <script src="./js/vendor/jquery-1.8.3.min.js"></script>
-  <script src="./js/timeCountDown.js"></script>
+  <script src="./js/main.js"></script>
   <script>
     var SimpleCountDown = $.SimpleCountDown
     var instance = new SimpleCountDown()
-    var node = $('#countDown')
-    console.log(node.html())
-    instance.add(node, )
-    console.log(instance)
+    var nodeDiv = $('#countDown')
+    instance.add(nodeDiv, 10000)
   </script>
 </body>
 </html>

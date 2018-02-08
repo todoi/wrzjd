@@ -1,7 +1,4 @@
-$font20: 20px;
-
-@import "common-scss/reset-pc";
-div{
-    font-size: $font20;
-}
+@import 'common-scss/_bg-mobile.scss';
+span{border:1px solid red;}
+div{border: 1px solid red;}
 

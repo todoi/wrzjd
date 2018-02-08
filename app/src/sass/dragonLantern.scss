@@ -1,0 +1,4 @@
+@import "common-scss/_reset-mobile.scss";
+$path: "../images/dragonLantern";
+
+.warp{ position: relative; width: 7.5rem; height: 12.08rem; margin:0 auto; font-size: .2rem; background:url("#{$path}/bg.jpg") no-repeat 0 0; background-size: 100% 100%; -webkit-background-size: 100% 100%;}

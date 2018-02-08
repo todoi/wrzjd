@@ -1,0 +1,12 @@
+.container{display: flex; flex-wrap: wrap; flex-direction: column; width: 1000px; height: 200px; margin: 0 auto; background: #ddd;}
+.flow{width: 100px; margin-bottom: 10px; }
+
+@for $i from 1 through 10 {
+    $height: 20px * $i;
+    $background: darken(#ff00ff, 3%*$i);
+
+    .flow-#{$i} {
+        height: $height;
+        background: $background;
+    }
+}

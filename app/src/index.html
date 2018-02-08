@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<meta content="email=no" name="format-detection" />
+<title>推广码绑定</title>
+<link rel="stylesheet" type="text/css" href="css/dragonLantern.css" />
+
+<script type="text/javascript">
+  //初始化REM
+  var setFontSize = function(){
+    var width = document.documentElement.clientWidth;
+    width = width > 750 ? 750 : width;
+    var fontSize = width / 750 * 100;
+    document.getElementsByTagName("html")[0].style.fontSize = fontSize + "px";
+  }
+  setFontSize();
+  window.onresize = setFontSize;
+</script>
+</head>
+
+<body>
+  <div class="warp">
+    <div class="topbar">
+      <div id="countDown">
+        距离开奖倒计时：
+        <span class="scd-digit-d">00</span>天
+        <span class="scd-digit-h">00</span>时
+        <span class="scd-digit-m">00</span>分
+        <span class="scd-digit-s">00</span>秒
+      </div>
+      <a class="btn_rule">?规则</a>
+    </div>
+    <div class="mian">
+      <a class="btn_lanternHead"></a>
+    </div>
+    <div class="footer">
+      <a class="btn_myTeam"></a>
+      <a class="btn_myAffiliate"></a>
+    </div>
+  </div>
+</body>
+</html>
