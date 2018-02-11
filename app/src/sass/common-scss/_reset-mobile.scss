@@ -1,14 +1,17 @@
 @charset "utf-8";
 $font-family: "Microsoft Yahei", Arial, Helvetica, sans-serif, "\5B8B\4F53" !default;
-$font12: 12px;
-$font14: 14px;
-$font16: 16px;
-$font18: 18px;
-$font20: 20px;
-$font24: 24px;
-$font60: 60px;
-$font48: 48px;
-$font36: 36px;
+$font12: .12rem;
+$font14: .14rem;
+$font16: .16rem;
+$font18: .18rem;
+$font20: .20rem;
+$font24: .24rem;
+$font26: .26rem;
+$font28: .28rem;
+$font30: .30rem;
+$font60: .60rem;
+$font48: .48rem;
+$font36: .36rem;
 
 body, div, a, span, img, ol, ul, li, input, p, a, h4, h3, select { padding: 0; margin: 0; }
 *{ margin:0; padding:0; -webkit-tap-highlight-color: transparent;}
