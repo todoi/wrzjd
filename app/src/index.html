@@ -1,18 +1,18 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-<meta name="apple-mobile-web-app-capable" content="yes" />
-<meta content="black" name="apple-mobile-web-app-status-bar-style" />
-<meta content="telephone=no" name="format-detection" />
-<meta content="email=no" name="format-detection" />
-<title>游龙点灯拜大年</title>
-<link rel="stylesheet" type="text/css" href="css/dragonLantern.css" />
 
-<script type="text/javascript">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+  <meta content="telephone=no" name="format-detection" />
+  <meta content="email=no" name="format-detection" />
+  <title>游龙点灯拜大年</title>
+  <link rel="stylesheet" type="text/css" href="css/dragonLantern.css" />
+  <script type="text/javascript">
   //初始化REM
-  var setFontSize = function(){
+  var setFontSize = function() {
     var width = document.documentElement.clientWidth;
     width = width > 750 ? 750 : width;
     var fontSize = width / 750 * 100;
@@ -20,7 +20,7 @@
   }
   setFontSize();
   window.onresize = setFontSize;
-</script>
+  </script>
 </head>
 
 <body>
@@ -37,7 +37,6 @@
         <a class="btn_rule">?规则</a>
       </div>
     </div>
-
     <div class="main_wrapper">
       <div class="main_inner01"></div>
       <div class="main_inner02"></div>
@@ -48,13 +47,85 @@
         <a class="btn_lanternHead"></a>
       </div>
     </div>
-
     <div class="footer_wrapper">
       <div class="footer_inner">
         <a class="btn_myTeam"></a>
         <a class="btn_myAffiliate"></a>
       </div>
     </div>
+    <div class="bg" style="display:block;"></div>
+    <!-- 分享弹窗 -->
+    <div class="diaBox box_share">
+      <div class="icon_upArrow"></div>
+      <div class="icon_dizhu"></div>
+      <p class="txt_share">点击右上角分享给您的朋友，<br />一起游龙点灯瓜分<span class="text-yellow">10万元！</span></p>
+    </div>
+    <!-- 瓜分红包 -->
+    <div class="diaBox box_divideHb" style="display:none;">
+      <ul>
+        <li class="hb_open" style="display: block;">
+          <a class="dia_close pop_close"></a>
+          <p class="text-golden">恭喜您!<br />快来瓜分大红包啦</p>
+          <a class="btn_open"></a>
+        </li>
+        <li class="hb_get" style="display: none;">
+          <a class="dia_close pop_close"></a>
+          <p class="text-golden">恭喜你获得豆子棋牌新年红包!</p>
+          <div class="get_money prize">
+            <span class="text-gray">红包(元)</span><span class="text-red">30.00</span>
+          </div>
+          <div class="get_card prize">
+            <span class="text-gray">房卡(张)</span><span class="text-red">157</span>
+          </div>
+          <div class="get_jifen prize">
+            <span class="text-gray">积分</span><span class="text-red">152550</span>
+          </div>
+          <p class="text-golden txt_download">下载“豆子棋牌”app领取奖励</p>
+          <a class="btn_get">点击领取</a>
+        </li>
+        <li class="hb_fail" style="display: none;">
+          <p class="txt_fail">呜呜呜……瓜分失败，<br />本次活动已经结束了</p>
+          <div class="crying_dizhu"></div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 分享红包 -->
+    <div class="diaBox box_shareHb" style="display:none;">
+      <ul>
+        <li class="hb_open" style="display:block;">
+          <a class="dia_close pop_close"></a>
+          <p class="text-golden">恭喜您!<br />获得一个拜年红包<br />实时到账</p>
+          <a class="btn_open"></a>
+        </li>
+        <li class="hb_double" style="display:none;">
+          <a class="dia_close pop_close"></a>
+          <p class="text-golden">恭喜你获得</p>
+          <p class="text-golden txt_money">0.20<span>元</span></p>
+          <a class="btn_double">红包翻倍</a>
+          <p class="text-golden txt_download">现在下载“豆子棋牌”app <br />马上让红包随机翻 5-99 倍</p>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 规则弹窗 -->
+    <div class="diaBox box_rule" style="display:block;">
+      <div class="dia_header"><i class="left_lantern"></i><i class="flower"></i><i class="rule_title"></i><a href=""></a></div>
+      <div class="dia_body">
+        <p>1、组队时间：2018 年 2 月 14 日~2018 年 3 月 1 日 23:59 <br />
+          2、瓜分红包时间：2018年3月2日17:00~18:00<br />
+          3、活动细则：<br />
+          (1) 参与用户无需任何条件都可参与，参与活动的粉丝创建新春红包队伍，并将活动分享给好友，集结队伍领取新春红包；<br />
+          (2) 且只要邀请.好友越多队伍就越大瓜分的红包就越大，最少 5 人以上才算有效灯队，每个灯队最高可以有 100 人参与；<br />
+          (3) 玩家可以点击“邀请好友”按钮，让你所在的灯队给您的微信好友在线拜年，拜年成功后，还可以额外领取个人现金拜年红包 1 个。<br />
+          (4) 瓜分红包当天，所领取的红包与福利将通过“豆子棋牌”app 提现至微信钱包；游戏积分、房卡可在游戏中直接使用；<br />
+          (5) 每个微信号限加入别人的组队 1 次；限自己发起 1 次组队
+          (6) 本次活动总拜年红包为 10 万元，先到先得，分完为止！
+        </p>
+      </div>
+    </div>
+
   </div>
 </body>
+
 </html>

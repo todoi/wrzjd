@@ -2,7 +2,11 @@
 $path: "../images/dragonLantern";
 $outline: 1px solid blue;
 
-body, html{overflow: auto;}
+body,
+html {
+  overflow: auto;
+}
+
 .warp {
   position: relative;
   width: 7.5rem;
@@ -13,7 +17,9 @@ body, html{overflow: auto;}
 
 .topbar_wrapper {
   height: .79rem;
-  background:url("#{$path}/bg_01.jpg") no-repeat 0 0; background-size: 100% 100%; -webkit-background-size: 100% 100%;
+  background:url("#{$path}/bg_01.jpg") no-repeat 0 0;
+  background-size: 100% 100%;
+  -webkit-background-size: 100% 100%;
 }
 
 .topbar_inner {
@@ -23,14 +29,18 @@ body, html{overflow: auto;}
   padding: {
     left: .3rem;
     right: .22rem;
-  };
-  background: rgba(210, 7, 7, 0.78);
+  }
+  ;
+  background: rgba(210,
+  7,
+  7,
+  0.78);
   .btn_rule {
     float: right;
     height: .4rem;
     margin-top: .18rem;
     line-height: .4rem;
-    padding:0 .13rem;
+    padding: 0 .13rem;
     letter-spacing: 0.07rem;
     border: .02rem solid #fff;
     border-radius: .25rem;
@@ -62,40 +72,52 @@ body, html{overflow: auto;}
     width: 100%;
     height: 1px;
     top: 50%;
-    left:0;
+    left: 0;
     background: rgba(249, 170, 0, 0.96);
   }
 }
 
 .main_inner01 {
   height: 2.04rem;
-  background:url("#{$path}/bg_02.jpg") no-repeat 0 0; background-size: 100% 100%; -webkit-background-size: 100% 100%;
+  background:url("#{$path}/bg_02.jpg") no-repeat 0 0;
+  background-size: 100% 100%;
+  -webkit-background-size: 100% 100%;
 }
 
 .main_inner02 {
   height: 1.53rem;
-  background:url("#{$path}/bg_03.jpg") no-repeat 0 0; background-size: 100% 100%; -webkit-background-size: 100% 100%;
+  background:url("#{$path}/bg_03.jpg") no-repeat 0 0;
+  background-size: 100% 100%;
+  -webkit-background-size: 100% 100%;
 }
 
 .main_inner03 {
   height: 1.29rem;
-  background:url("#{$path}/bg_04.jpg") no-repeat 0 0; background-size: 100% 100%; -webkit-background-size: 100% 100%;
+  background:url("#{$path}/bg_04.jpg") no-repeat 0 0;
+  background-size: 100% 100%;
+  -webkit-background-size: 100% 100%;
 }
 
 .main_inner04 {
   height: 1.73rem;
-  background:url("#{$path}/bg_05.jpg") no-repeat 0 0; background-size: 100% 100%; -webkit-background-size: 100% 100%;
+  background:url("#{$path}/bg_05.jpg") no-repeat 0 0;
+  background-size: 100% 100%;
+  -webkit-background-size: 100% 100%;
 }
 
 .main_inner05 {
   height: 1.95rem;
-  background:url("#{$path}/bg_06.jpg") no-repeat 0 0; background-size: 100% 100%; -webkit-background-size: 100% 100%;
+  background:url("#{$path}/bg_06.jpg") no-repeat 0 0;
+  background-size: 100% 100%;
+  -webkit-background-size: 100% 100%;
 }
 
 .main_inner06 {
   position: relative;
   height: 1.66rem;
-  background:url("#{$path}/bg_07.jpg") no-repeat 0 0; background-size: 100% 100%; -webkit-background-size: 100% 100%;
+  background:url("#{$path}/bg_07.jpg") no-repeat 0 0;
+  background-size: 100% 100%;
+  -webkit-background-size: 100% 100%;
   .btn_lanternHead {
     position: absolute;
     width: 4.34rem;
@@ -105,32 +127,347 @@ body, html{overflow: auto;}
   }
 }
 
-.footer_wrapper{
+.footer_wrapper {
   height: 1.09rem;
-  background:url("#{$path}/bg_08.jpg") no-repeat 0 0; background-size: 100% 100%; -webkit-background-size: 100% 100%;
+  background:url("#{$path}/bg_08.jpg") no-repeat 0 0;
+  background-size: 100% 100%;
+  -webkit-background-size: 100% 100%;
 }
 
-.footer_inner{
+.footer_inner {
   position: relative;
   height: 100%;
   background: rgba(0, 0, 0, 0.3);
 }
 
-.btn_myTeam{
+.btn_myTeam {
   position: absolute;
   top: .16rem;
   left: .4rem;
   width: 2.87rem;
   height: .85rem;
-  background:url("#{$path}/btn_myTeam.png") no-repeat 0 0; background-size: 100% 100%; -webkit-background-size: 100% 100%;
+  background:url("#{$path}/btn_myTeam.png") no-repeat 0 0;
+  background-size: 100% 100%;
+  -webkit-background-size: 100% 100%;
 }
 
-.btn_myAffiliate{
+.btn_myAffiliate {
   position: absolute;
   top: .16rem;
   right: .24rem;
   width: 2.87rem;
   height: .85rem;
-  background:url("#{$path}/btn_myAffiliate.png") no-repeat 0 0; background-size: 100% 100%; -webkit-background-size: 100% 100%;
+  background:url("#{$path}/btn_myAffiliate.png") no-repeat 0 0;
+  background-size: 100% 100%;
+  -webkit-background-size: 100% 100%;
 }
 
+.bg {
+  display: none;
+  position: absolute;
+  z-index: 99;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: #000;
+  opacity: 0.7;
+  filter: alpha(opacity=70);
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+}
+
+.diaBox {
+  display: none;
+  position: absolute;
+  z-index: 100;
+}
+
+
+/* 分享弹窗 */
+
+.box_share {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.icon_upArrow {
+  position: absolute;
+  width: 1.18rem;
+  height: 1.71rem;
+  top: .24rem;
+  right: .44rem;
+  background:url("#{$path}/icon_upArrow.png") no-repeat 0 0;
+  background-size: 100% 100%;
+  -webkit-background-size: 100% 100%;
+}
+
+.icon_dizhu {
+  position: absolute;
+  width: 3.25rem;
+  height: 3.44rem;
+  top: 1.38rem;
+  left: 2.38rem;
+  background:url("#{$path}/icon_dizhu.png") no-repeat 0 0;
+  background-size: 100% 100%;
+  -webkit-background-size: 100% 100%;
+}
+
+.txt_share {
+  position: absolute;
+  width: 100%;
+  top: 5.52rem;
+  left: 0;
+  line-height: .36rem;
+  font-size: $font30;
+  text-align: center;
+  .text-yellow {
+    font-size: $font20 * 2;
+  }
+}
+
+/* 瓜分红包弹窗 */
+.box_divideHb {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  li {
+    display: none;
+  }
+}
+
+.hb_open {
+  position: absolute;
+  width: 5.53rem;
+  height: 7.4rem;
+  top: 2.15rem;
+  left: 50%;
+  margin-left: -2.76rem;
+  background:url("#{$path}/hb_open.png") no-repeat 0 0; background-size: 100% 100%; -webkit-background-size: 100% 100%;
+  .btn_open {
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    top: 4.13rem;
+    left: 50%;
+    margin-left: -.97rem;
+  }
+  p {
+    position: absolute;
+    width: 100%;
+    top: 1.48rem;
+    left: 0;
+    text-align: center;
+    font-size: .34rem;
+  }
+}
+
+.dia_close {
+  position: absolute;
+  width: .4rem;
+  height: .4rem;
+  top: .16rem;
+  right: .16rem;
+}
+
+.hb_get {
+  position: absolute;
+  width: 7.5rem;
+  height: 10.31rem;
+  top: .1rem;
+  left: 0;
+  background:url("#{$path}/hb_get.png") no-repeat 0 0; background-size: 100% 100%; -webkit-background-size: 100% 100%;
+  .dia_close {
+    width: .36rem;
+    height: .36rem;
+    top: 1.96rem;
+    right: 1.2rem;
+  }
+  .text-golden {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 3.88rem;
+    font-size: .32rem;
+    text-align: center;
+  }
+  .prize {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    width: 4.76rem;
+    left: 50%;
+    margin-left: -2.38rem;
+    height: 1.07rem;
+    border-radius: .08rem;
+    background: #fcd086;
+  }
+  .get_money {
+    top: 4.61rem;
+  }
+  .get_card {
+    top: 5.9rem;
+  }
+  .get_jifen{
+    top: 7.19rem;
+  }
+  .text-gray {
+    width: .42rem;
+    margin:{
+      left: .22rem;
+      right: .27rem;
+    }
+    text-align: center;
+    font-size: $font26;
+    line-height: .28rem;
+  }
+  .text-red {
+    flex-grow: 1;
+    height: .8rem;
+    line-height: .8rem;
+    font-size: .8rem;
+    text-align: center;
+    border-left: 1px solid #B5996B;
+  }
+  .txt_download {
+    font-size: .3rem;
+    line-height: .3rem;
+    top: 8.54rem;
+  }
+  .btn_get {
+    position: absolute;
+    width: 3.36rem;
+    height: .82rem;
+    top: 9.13rem;
+    left: 50%;
+    margin-left: -1.68rem;
+    line-height: .78rem;
+    font-size: .46rem;
+    color: #3b3b3b;
+    border-radius: .42rem;;
+    text-align: center;
+    background: #edc88a;
+  }
+}
+
+.hb_fail {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  .txt_fail {
+    position: absolute;
+    width: 3.34rem;
+    height: 1.3rem;
+    padding-top: .43rem;
+    top: 2.87rem;
+    left: 1.04rem;
+    text-align: center;
+    font-size: $font26;
+    color: #3c1303;
+    background:url("#{$path}/txt_fail.png") no-repeat 0 0; background-size: 100% 100%; -webkit-background-size: 100% 100%;
+  }
+  .crying_dizhu {
+    position: absolute;
+    width: 2.38rem;
+    height: 3.8rem;
+    top: 4.32rem;
+    left: 3rem;
+    background:url("#{$path}/hb_fail.png") no-repeat 0 0; background-size: 100% 100%; -webkit-background-size: 100% 100%;
+  }
+}
+
+/* 分享弹窗 */
+.box_shareHb {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  .text-golden {
+    margin-left: 0.04rem;
+    top: 1.38rem;
+    line-height: .5rem;
+  }
+}
+.hb_double {
+  position: absolute;
+  width: 7.5rem;
+  height: 9.14rem;
+  top: .4rem;
+  background:url("#{$path}/hb_double.png") no-repeat 0 0; background-size: 100% 100%; -webkit-background-size: 100% 100%;
+  .dia_close {
+    width: .36rem;
+    height: .36rem;
+    top: 1.92rem;
+    right: 1.2rem;
+  }
+  .text-golden {
+    position: absolute;
+    width:100%;
+    top: 4.03rem;
+    font-size: .34rem;
+    line-height: .34rem;
+    text-align: center;
+  }
+  .txt_money {
+    top: 4.52rem;
+    margin-left: .06rem;
+    font-size: 1.14rem;
+    line-height: 1.14rem;
+    span {
+      font-size: .34rem;
+    }
+  }
+  .txt_download {
+    top: 7.55rem;
+    font-size: .3rem;
+    line-height: .4rem;
+  }
+  .btn_double {
+    position: absolute;
+    width: 3.36rem;
+    height: .82rem;
+    top: 6.17rem;
+    left: 50%;
+    margin-left: -1.68rem;
+    line-height: .78rem;
+    font-size: .48rem;
+    color: #3b3b3b;
+    border-radius: .42rem;;
+    text-align: center;
+    background: #edc88a;
+  }
+}
+
+.box_rule{
+  width: 6.21rem;
+  height: 7.35rem;
+  top: 2.12rem;
+  left: .67rem;
+  background:url("#{$path}/rule_bg.png") no-repeat 0 0; background-size: 100% 100%; -webkit-background-size: 100% 100%;
+  p{
+    height: 6.5rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+    font-size: .26rem;
+    line-height: .56rem;
+    color: #f4effe;
+    padding:0 0.38rem;
+  }
+}
+
+.dia_header{
+  outline: $outline;
+  position: relative;
+  width: 100%;
+  height: .4rem;
+  .left_lantern{
+    position: relative;
+    width: ;
+    height: ;
+  }
+}
