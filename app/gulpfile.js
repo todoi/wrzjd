@@ -40,12 +40,12 @@ gulp.task('clean', function() {
 gulp.task('build-css', function(e) {
     var cssSrc = "src/sass/**/*.scss",
         compileStyle = 'compressed',
-        cssDest = 'dist/css'
+        cssDest = './dist/css'
 
-    return sass(cssSrc, {
+    return gulp.src(cssSrc)
+        .pipe(sass({
             style: 'compressed'
-        })
-        .on('error', sass.logError)
+        }).on('error', sass.logError))
         .pipe(autoprefixer({
             // browsers: ['> 1%', 'IE 6'],
             browsers: ['last 2 versions', 'Android >= 4.0'],
@@ -69,9 +69,9 @@ gulp.task('build-html', [], function() {
         .pipe(htmlhint.failReporter())
         .pipe(gulp.dest(htmlDest))
         // .pipe(reveasy())
-        .pipe(htmlmin({
-            collapseWhitespace: true
-        }))
+        // .pipe(htmlmin({
+        //     collapseWhitespace: true
+        // }))
         .pipe(gulp.dest(htmlDest))
 })
 
@@ -155,8 +155,8 @@ gulp.task('mv-html', function() {
 gulp.task('mv-css', [], () => {
     var cssSrc = "src/sass/**/*.scss",
         compileStyle = 'compact',
-        sourcemapsDest = './maps'
-    cssDest = 'dist/css'
+        sourcemapsDest = './maps',
+        cssDest = 'dist/css'
     // nested | expanded | compact | compressed
     return gulp.src(cssSrc)
         .pipe(sourcemaps.init())
