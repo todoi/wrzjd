@@ -188,7 +188,7 @@ jQuery.SimpleCountDown = (function() {
     }
 
     //清理
-    SimpleCountDown.prototype._clear = function() {
+    SimpleCountDown.prototype.clear = function() {
         clearTimeout(this._timmer);
     }
     SimpleCountDown.prototype.clearStack = function() {
@@ -229,7 +229,7 @@ jQuery.SimpleCountDown = (function() {
     }
 
     //添加并生成一个新的时间节点，节点和时间对象相关联
-    SimpleCountDown.prototype.add = function(node, _leftTime) {
+    SimpleCountDown.prototype.add = function(node, _leftTime, callback) {
         if (!node[0]) {
             return;
         }
@@ -245,6 +245,7 @@ jQuery.SimpleCountDown = (function() {
         o.leftTime = leftTime || attrLeftTime || 0;
 
         var simpleTime = new SimpleTime(o);
+        simpleTime.addTrigger(0, callback)
         node[0]._s_countdown = simpleTime;
         this._timeStack.push(simpleTime);
         return simpleTime;

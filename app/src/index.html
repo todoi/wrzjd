@@ -31,7 +31,7 @@
           距离开奖倒计时：
           <span class="scd-digit-d yellow_bg">00</span>天
           <span class="scd-digit-h yellow_bg">00</span>时
-          <span class="scd-digit-m yellow_bg">69</span>分
+          <span class="scd-digit-m yellow_bg">00</span>分
           <span class="scd-digit-s yellow_bg">00</span>秒
         </div>
         <a class="btn_rule">?规则</a>
@@ -53,7 +53,7 @@
         <a class="btn_myAffiliate"></a>
       </div>
     </div>
-    <div class="bg" style="display:block;"></div>
+    <div class="bg" style="display: none;"></div>
     <!-- 分享弹窗 -->
     <div class="diaBox box_share">
       <div class="icon_upArrow"></div>
@@ -109,8 +109,8 @@
     </div>
 
     <!-- 规则弹窗 -->
-    <div class="diaBox box_rule" style="display:block;">
-      <div class="dia_header"><i class="left_lantern"></i><i class="flower"></i><i class="rule_title"></i><a href=""></a></div>
+    <div class="diaBox box_rule" style="display:none;">
+      <div class="dia_header"><i class="left_lantern"></i><i class="flower"></i><i class="rule_title title"></i><a class="dia_close pop_close"></a></div>
       <div class="dia_body">
         <p>1、组队时间：2018 年 2 月 14 日~2018 年 3 月 1 日 23:59 <br />
           2、瓜分红包时间：2018年3月2日17:00~18:00<br />
@@ -125,7 +125,185 @@
       </div>
     </div>
 
+    <!-- 没有加入灯队 -->
+    <div class="diaBox box_noTeam" style="display: none;">
+      <div class="dia_header"><i class="left_lantern"></i><i class="flower"></i><i class="noTeam_title title"></i><a class="dia_close pop_close"></a></div>
+      <div class="dia_body">
+        <p>现在加入好友灯队或自己创建灯队,<br />
+          可以瓜分更多的红包金额哦~
+        </p>
+        <a class="btn_dragonHead"></a>
+      </div>
+    </div>
+
+    <!-- 成功加入的灯队 -->
+    <div class="diaBox box_memberList" style="display: none;">
+      <div class="dia_header"><i class="left_lantern"></i><i class="flower"></i><a class="dia_close pop_close"></a></div>
+      <div class="dia_body">
+        <p class="txt_intro">成功为<span class="text-yellow">彭于晏</span>的龙灯队伍<br />增加福利金额</p>
+        <p class="text-yellow increase_money">10.55<span>元</span></p>
+        <p class="txt_member">队伍成员</p>
+        <ul class="member_list">
+          <li><img class="avatar" src="./images/dragonLantern/avatar.jpg" /><div class="name_date"><span class="name">高晓松</span><span class="date">01-28 07:22</span></div><div class="member_money">+20.63<span>元</span></div></li>
+          <li><img class="avatar" src="./images/dragonLantern/avatar.jpg" /><div class="name_date"><span class="name">高晓松</span><span class="date">01-28 07:22</span></div><div class="member_money">+20.63<span>元</span></div></li>
+          <li><img class="avatar" src="./images/dragonLantern/avatar.jpg" /><div class="name_date"><span class="name">高晓松</span><span class="date">01-28 07:22</span></div><div class="member_money">+20.63<span>元</span></div></li>
+          <li><img class="avatar" src="./images/dragonLantern/avatar.jpg" /><div class="name_date"><span class="name">高晓松</span><span class="date">01-28 07:22</span></div><div class="member_money">+20.63<span>元</span></div></li>
+          <li><img class="avatar" src="./images/dragonLantern/avatar.jpg" /><div class="name_date"><span class="name">高晓松</span><span class="date">01-28 07:22</span></div><div class="member_money">+20.63<span>元</span></div></li>
+          <li><img class="avatar" src="./images/dragonLantern/avatar.jpg" /><div class="name_date"><span class="name">高晓松</span><span class="date">01-28 07:22</span></div><div class="member_money">+20.63<span>元</span></div></li>
+          <li><img class="avatar" src="./images/dragonLantern/avatar.jpg" /><div class="name_date"><span class="name">高晓松</span><span class="date">01-28 07:22</span></div><div class="member_money">+20.63<span>元</span></div></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 成功加入的灯队 -->
+    <div class="diaBox box_lanternList" style="display: none;">
+      <div class="lantern_list1">
+        <a class="dia_close pop_close"></a>
+        <div class="lantern_head"></div>
+        <div class="fuli">
+          <span>队伍福利（元）</span>
+          <span class="text-yellow">10000</span>
+        </div>
+        <img class="my_avatar" src="./images/dragonLantern/my_avatar.jpg" />
+        <p class="my_nickname">彭于晏彭于晏彭于晏</p>
+      </div>
+      <div class="lantern_list2">
+        <ul>
+          <li class="lantern_0 lantern_on"><img class="lantern_avatar" src="./images/dragonLantern/lantern_avatar.jpg" /><span class="lantern_nickname">郭德纲郭德纲郭德纲</span></li>
+          <li class="lantern_1 lantern_on"><img class="lantern_avatar" src="./images/dragonLantern/lantern_avatar.jpg" /><span class="lantern_nickname">郭德纲郭德纲郭德纲</span></li>
+          <li class="lantern_2 lantern_on"><img class="lantern_avatar" src="./images/dragonLantern/lantern_avatar.jpg" /><span class="lantern_nickname">郭德纲郭德纲郭德纲</span></li>
+          <li class="lantern_3 lantern_on"><img class="lantern_avatar" src="./images/dragonLantern/lantern_avatar.jpg" /><span class="lantern_nickname">郭德纲郭德纲郭德纲</span></li>
+          <li class="lantern_4 lantern_on"><img class="lantern_avatar" src="./images/dragonLantern/lantern_avatar.jpg" /><span class="lantern_nickname">郭德纲郭德纲郭德纲</span></li>
+          <li class="lantern_5 lantern_on"><img class="lantern_avatar" src="./images/dragonLantern/lantern_avatar.jpg" /><span class="lantern_nickname">郭德纲郭德纲郭德纲</span></li>
+          <li class="lantern_6"></li>
+          <li class="lantern_7"></li>
+          <li class="lantern_8"></li>
+          <li class="lantern_9"></li>
+          <li class="lantern_10"></li>
+          <li class="lantern_11"></li>
+          <li class="lantern_12"></li>
+          <li class="lantern_13"></li>
+          <li class="lantern_14"></li>
+          <li class="lantern_15"></li>
+          <li class="lantern_16"></li>
+          <li class="lantern_17"></li>
+          <li class="lantern_18"></li>
+          <li class="lantern_19"></li>
+          <li class="lantern_20"></li>
+          <li class="lantern_21"></li>
+          <li class="lantern_22"></li>
+          <li class="lantern_23"></li>
+          <li class="lantern_24"></li>
+          <li class="lantern_25"></li>
+          <li class="lantern_26"></li>
+          <li class="lantern_27"></li>
+          <li class="lantern_28"></li>
+          <li class="lantern_29"></li>
+          <li class="lantern_30"></li>
+          <li class="lantern_31"></li>
+          <li class="lantern_32"></li>
+          <li class="lantern_33"></li>
+          <li class="lantern_34"></li>
+          <li class="lantern_35"></li>
+          <li class="lantern_36"></li>
+          <li class="lantern_37"></li>
+          <li class="lantern_38"></li>
+          <li class="lantern_39"></li>
+          <li class="lantern_40"></li>
+          <li class="lantern_41"></li>
+          <li class="lantern_42"></li>
+          <li class="lantern_43"></li>
+          <li class="lantern_44"></li>
+          <li class="lantern_45"></li>
+          <li class="lantern_46"></li>
+          <li class="lantern_47"></li>
+          <li class="lantern_48"></li>
+          <li class="lantern_49"></li>
+          <li class="lantern_50"></li>
+          <li class="lantern_51"></li>
+          <li class="lantern_52"></li>
+          <li class="lantern_53"></li>
+          <li class="lantern_54"></li>
+          <li class="lantern_55"></li>
+          <li class="lantern_56"></li>
+          <li class="lantern_57"></li>
+          <li class="lantern_58"></li>
+          <li class="lantern_59"></li>
+          <li class="lantern_60"></li>
+          <li class="lantern_61"></li>
+          <li class="lantern_62"></li>
+          <li class="lantern_63"></li>
+          <li class="lantern_64"></li>
+          <li class="lantern_65"></li>
+          <li class="lantern_66"></li>
+          <li class="lantern_67"></li>
+          <li class="lantern_68"></li>
+          <li class="lantern_69"></li>
+          <li class="lantern_70"></li>
+          <li class="lantern_71"></li>
+          <li class="lantern_72"></li>
+          <li class="lantern_73"></li>
+          <li class="lantern_74"></li>
+          <li class="lantern_75"></li>
+          <li class="lantern_76"></li>
+          <li class="lantern_77"></li>
+          <li class="lantern_78"></li>
+          <li class="lantern_79"></li>
+          <li class="lantern_80"></li>
+          <li class="lantern_81"></li>
+          <li class="lantern_82"></li>
+          <li class="lantern_83"></li>
+          <li class="lantern_84"></li>
+          <li class="lantern_85"></li>
+          <li class="lantern_86"></li>
+          <li class="lantern_87"></li>
+          <li class="lantern_88"></li>
+          <li class="lantern_89"></li>
+          <li class="lantern_90"></li>
+          <li class="lantern_91"></li>
+          <li class="lantern_92"></li>
+          <li class="lantern_93"></li>
+          <li class="lantern_94"></li>
+          <li class="lantern_95"></li>
+          <li class="lantern_96"></li>
+          <li class="lantern_97"></li>
+          <li class="lantern_98"></li>
+          <li class="lantern_99"></li>
+        </ul>
+      </div>
+      <div class="lantern_list3">
+        <a class="btn_invite"></a>
+        <div class="lantern_info clearfix">
+          <div class="lantern_team">
+            <span>龙灯队</span>
+            <span class="team_name large_txt">彭于晏</span>
+          </div>
+          <span class="vertical_line"></span>
+          <div class="lantern_number">
+            <span>参与人数(人)</span>
+            <span class="peoples large_txt">100</span>
+          </div>
+        </div>
+        <p class="lantern_txt">好友越多瓜分红包越大，最高1万元！<br />龙头最高得888元微信红包</p>
+        <div class="total clearfix">
+          <span class="total_team">总参与队伍数量：999</span>
+          <span class="total_peoples">总参与人数：9999</span>
+        </div>
+      </div>
+    </div>
   </div>
+  <script src="./js/vendor/jquery-1.8.3.min.js"></script>
+  <script src="./js/main.js"></script>
+  <script>
+    var SimpleCountDown = $.SimpleCountDown
+    var instance = new SimpleCountDown()
+    var nodeDiv = $('#countDown')
+    var leftTimeStamp = 10000 //服务器上剩下的时间 单位是毫秒
+    var callback = function () {
+      console.log(3);instance.clear()
+    } // 时间结束是调用的函数
+    instance.add(nodeDiv, leftTimeStamp, callback)
+  </script>
 </body>
 
 </html>
