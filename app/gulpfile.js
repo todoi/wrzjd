@@ -16,12 +16,16 @@ const minifycss = require('gulp-minify-css') //css压缩
 const csslint = require('gulp-csslint') //css检查
 
 const imagemin = require('gulp-imagemin') //图片压缩
+const smushit = require('gulp-smushit');
+const spritesmith = require('gulp.spritesmith')
 
 const eslint = require('gulp-eslint') //js检查
 const uglify = require('gulp-uglify') //js压缩
 const babel = require('gulp-babel')
 const color =require('cli-color')
 const browserSync = require('browser-sync').create()
+
+const configOption = require('./gulp-option').sprites
 
 gulp.task('build', function() {
     // 将你的默认的任务代码放在这
@@ -80,7 +84,7 @@ gulp.task('build-images', function() {
     var imgSrc = './src/images/**/*',
         imgDest = './dist/images';
 
-    gulp.src(imgSrc)
+    return gulp.src(imgSrc)
         .pipe(imagemin())
         .pipe(gulp.dest(imgDest));
 })
@@ -137,7 +141,7 @@ gulp.task('mv-images', function() {
     var imgSrc = 'src/images/**/*',
         imgDest = 'dist/images';
 
-    gulp.src(imgSrc)
+    return gulp.src(imgSrc)
         .pipe(gulp.dest(imgDest))
         .pipe(browserSync.stream())
 });
@@ -183,13 +187,9 @@ gulp.task('default', function() {
     runSequence('clean', ['mv-html', 'mv-css', 'mv-images', 'mv-js'])
 });
 
-gulp.task('serve', ['clean'], function() {
-    browserSync.init({
-        server: './dist',
-        port: 8080
-    });
+gulp.task('serve', function() {
 
-    runSequence(['mv-html', 'mv-css', 'mv-images', 'mv-js'])
+    runSequence('clean', ['mv-html', 'mv-css', 'mv-images', 'mv-js'], 'browserSync')
     var watcher1 = gulp.watch('src/js/*.js', ['mv-js']);
     var watcher2 = gulp.watch('src/sass/**/*.scss', ['mv-css']);
     var watcher3 = gulp.watch('src/*.html', ['mv-html']);
@@ -212,5 +212,33 @@ gulp.task('serve', ['clean'], function() {
         console.log('File4 path' + event.path + ' was ' + event.type + ', running tasks...');
     })
     gulp.watch("dist/*.html").on('change', browserSync.reload);
+});
+
+
+gulp.task('browserSync', function(){
+    browserSync.init({
+        server: './dist',
+        port: 8080
+    });
+})
+
+// 生成雪碧图
+gulp.task('sprites', function() {
+
+  var spriteData = gulp.src(configOption.src).pipe(spritesmith(configOption.options));
+
+  spriteData.img
+    .pipe(gulp.dest(configOption.dest.image));
+
+  spriteData.css
+    .pipe(gulp.dest(configOption.dest.css));
+});
+
+gulp.task('smushit', function () {
+  return gulp.src('./src/images/optimise/*')
+    .pipe(smushit({
+      verbose: true
+    }))
+    .pipe(gulp.dest('./dist/images/optimise/'));
 });
 
