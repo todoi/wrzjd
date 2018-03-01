@@ -1,15 +1,17 @@
 var srcAssets = './src'
+var destAssets = './dist'
+var fileName = 'dragonLantern'
 
 module.exports = {
   sprites: {
-    src: srcAssets + '/images/sprites/*.png',
+    src: srcAssets + '/optimization/images/sprites/*.png',
     dest: {
-      css: srcAssets + '/sass/sprites/',
-      image: srcAssets + '/images/sprites/'
+      css: destAssets + '/optimization/css/sprites/',
+      image: destAssets + '/optimization/images/sprites/'
     },
     options: {
       cssName: '_sprites.scss',
-      cssFormat: 'css',
+      cssFormat: 'sass',
       cssOpts: {
         cssClass: function (item) {
           // If this is a hover sprite, name it as a hover one (e.g. 'home-hover' -> 'home:hover')
@@ -22,7 +24,14 @@ module.exports = {
         }
       },
       imgName: 'icon-sprite.png',
-      imgPath: '/src/images/sprites/icon-sprite.png'
+      imgPath: destAssets + '/optimization/images/sprites/icon-sprite.png'
     }
+  },
+  images: {
+    src: srcAssets + '/images/' + fileName + '/**/*',
+    dest: destAssets + '/images'
+  },
+  javascript: {
+    src: srcAssets + '/js/' + fileName + '.js'
   }
 }
