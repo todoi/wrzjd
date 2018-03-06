@@ -7,3 +7,8 @@
 # 添加 zhgzhg.me 的外链 
 ## surmon https://surmon.me
 ## jkchao https://jkchao.cn
+## biji https://biji.io/
+## imydl https://www.imydl.tech
+## mrju https://mrju.cn/
+
+
