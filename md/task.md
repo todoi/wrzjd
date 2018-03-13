@@ -8,13 +8,6 @@
 ## https://www.zhihu.com/question/28557115
 ## https://developer.github.com/v3/ 
 
-# 添加 zhgzhg.me 的外链 
-## surmon https://surmon.me
-## jkchao https://jkchao.cn
-## biji https://biji.io/
-## imydl https://www.imydl.tech
-## mrju https://mrju.cn/
-
-
-
+# ECMAScript 6 入门
+## http://es6.ruanyifeng.com/#README
 
