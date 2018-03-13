@@ -4,11 +4,17 @@
 # 译：webpack 4 tutorial: All You Need to Know from 0 Conf to Production Mode
 ## https://dev.to/valentinogagliardi/webpack-4-tutorial-all-you-need-to-know-from-0-conf-to-production-mode-40bc
 
+# 怎样用通俗的语言解释REST，以及RESTful？
+## https://www.zhihu.com/question/28557115
+## https://developer.github.com/v3/ 
+
 # 添加 zhgzhg.me 的外链 
 ## surmon https://surmon.me
 ## jkchao https://jkchao.cn
 ## biji https://biji.io/
 ## imydl https://www.imydl.tech
 ## mrju https://mrju.cn/
+
+
 
 
