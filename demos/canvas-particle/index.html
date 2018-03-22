@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+  <meta content="telephone=no" name="format-detection" />
+  <meta content="email=no" name="format-detection" />
+</head>
+
+<body>
+  <div class="warp">
+        <canvas id="can" class="canvas" width="1072" height="640"></canvas>
+  </div>
+  <script src="./particleCanvas.js"></script>
+  <script>
+    var particleCanvas = new particleCanvas("can",[{"type":{"typeName":"image","url":"./flower.png"},"number":10,"op":{"min":1,"max":1},"size":{"min":12,"max":15},"zoom":{"min":1,"max":1},"speed":{"min":1,"max":3},"angle":{"value":150,"float":50},"rota":{"value":30,"speed":1.8,"floatValue":120,"floatSpeed":2},"reIn":"reverseDirection"}]);
+  </script>
+</body>
+
+</html>
