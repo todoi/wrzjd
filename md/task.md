@@ -16,3 +16,6 @@
 ## https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/script-src
 ## https://stackoverflow.com/questions/8502307/chrome-18-how-to-allow-inline-scripting-with-a-content-security-policy
 ## 目的弄清楚 CSP 是什么，是什么导致这个错误
+
+# The ES6 Module System (翻译)
+## https://ponyfoo.com/articles/es6-modules-in-depth
