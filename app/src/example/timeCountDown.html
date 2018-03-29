@@ -19,7 +19,7 @@
     var SimpleCountDown = $.SimpleCountDown
     var instance = new SimpleCountDown()
     var nodeDiv = $('#countDown')
-    instance.add(nodeDiv, 10000)
+    instance.add(nodeDiv, 10000, function(){console.log(3);})
   </script>
 </body>
 </html>

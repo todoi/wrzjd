@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+  <meta content="telephone=no" name="format-detection" />
+  <meta content="email=no" name="format-detection" />
+  <title>游龙点灯拜大年</title>
+  <script type="text/javascript">
+  //初始化REM
+  var setFontSize = function() {
+    var width = document.documentElement.clientWidth;
+    width = width > 750 ? 750 : width;
+    var fontSize = width / 750 * 100;
+    document.getElementsByTagName("html")[0].style.fontSize = fontSize + "px";
+  }
+  setFontSize();
+  window.onresize = setFontSize;
+  </script>
+  <style>
+  body,
+  html {
+    height: 100%;
+  }
+
+  .wrap {
+    width: 7.5rem;
+    height: 100%;
+    text-align: center;
+  }
+
+  .icon-error {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-top: .5rem;
+  }
+
+  .txt-error {
+    font-size: .3rem;
+  }
+
+  .btn-retry {
+    -moz-box-shadow: inset 0px 1px 0px 0px #fcf8f2;
+    -webkit-box-shadow: inset 0px 1px 0px 0px #fcf8f2;
+    box-shadow: inset 0px 1px 0px 0px #fcf8f2;
+    background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #fae4bd), color-stop(1, #eac380));
+    background: -moz-linear-gradient( center top, #fae4bd 5%, #eac380 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fae4bd', endColorstr='#eac380');
+    background-color: #fae4bd;
+    border-radius: .4rem;
+    -webkit-border-radius: .4rem;
+    text-indent: 0;
+    border: 1px solid #eeb44f;
+    display: inline-block;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: .2rem;
+    font-weight: bold;
+    font-style: normal;
+    height: .8rem;
+    line-height: .8rem;
+    width: 2rem;
+    text-decoration: none;
+    text-align: center;
+    text-shadow: 1px 1px 0px #cc9f52;
+  }
+
+  .btn-retry:hover {
+    background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #eac380), color-stop(1, #fae4bd));
+    background: -moz-linear-gradient( center top, #eac380 5%, #fae4bd 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eac380', endColorstr='#fae4bd');
+    background-color: #eac380;
+  }
+
+  .btn-retry:active {
+    position: relative;
+    top: 1px;
+  }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <img src="images/error/Error.png" alt="icon-error" class="icon-error" />
+    <p class="txt-error">页面请求发生错误</p>
+    <span class="btn-retry">点击重试</span>
+  </div>
+</body>
+
+</html>

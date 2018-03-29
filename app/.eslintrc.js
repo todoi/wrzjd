@@ -1,24 +1,28 @@
 module.exports = {
-  "env": {
+  "extends": "eslint:recommended",
+  "env":{
     "browser": true,
     "commonjs": true,
     "es6": true,
     "node": true
   },
-  "globals": {
+  "globals":
+  {
     "jQuery": true,
     "$": true
   },
-  "extends": "eslint:recommended",
-  "parserOptions": {
-    "ecmaFeatures": {
+  "parserOptions":
+  {
+    "ecmaFeatures":
+    {
       "experimentalObjectRestSpread": true,
       "jsx": true
     },
     "sourceType": "module"
   },
-  "plugins": [ ],
-  "rules": {
+  "plugins": [],
+  "rules":
+  {
     "no-console": "off", //不允许出现console语句
     "comma-dangle": ["error", "never"], //是否允许对象中出现结尾逗号
     "no-cond-assign": 2, //条件语句的条件中不允许出现赋值运算符
@@ -45,12 +49,14 @@ module.exports = {
     "no-sparse-arrays": 2, //数组中不允许出现空位置
     "no-unreachable": 2, //在return，throw，continue，break语句后不允许出现不可能到达的语句
     "use-isnan": 2, //要求检查NaN的时候使用isNaN()
-    "valid-jsdoc": ["error", {
+    "valid-jsdoc": ["error",
+    {
       "requireReturn": false,
       "requireParamDescription": false,
       "requireReturnDescription": true
     }], //强制JSDoc注释
-    "valid-typeof": ["error", {
+    "valid-typeof": ["error",
+    {
       "requireStringLiterals": true
     }], //在使用typeof表达式比较的时候强制使用有效的字符串
     "block-scoped-var": 2, //将变量声明放在合适的代码块里
@@ -58,7 +64,8 @@ module.exports = {
     "consistent-return": 1, //无论有没有返回值都强制要求return语句返回一个值
     "curly": ["error", "all"], //强制使用花括号的风格
     "default-case": 0, //在switch语句中需要有default语句
-    "dot-notation": ["error", {
+    "dot-notation": ["error",
+    {
       "allowKeywords": false,
       "allowPattern": ""
     }], //获取对象属性的时候使用点号
@@ -68,7 +75,8 @@ module.exports = {
     "guard-for-in": 0, //监视for in循环，防止出现不可预料的情况
     "no-div-regex": 2, //不能使用看起来像除法的正则表达式
     "no-else-return": 0, //如果if语句有return，else里的return不用放在else里
-    "no-labels": ["error", {
+    "no-labels": ["error",
+    {
       "allowLoop": false,
       "allowSwitch": false
     }], //不允许标签语句
@@ -99,14 +107,16 @@ module.exports = {
     "no-throw-literal": 2, //不允许抛出字面量错误 throw "error"
     "no-unused-expressions": 2, //不允许无用的表达式
     "no-void": 2, //不允许void操作符
-    "no-warning-comments": [1, {
+    "no-warning-comments": [1,
+    {
       "terms": ["todo", "fixme", "any other term"]
     }], //不允许警告备注
     "no-with": 2, //不允许使用with语句
     "radix": 1, //使用parseInt时强制使用基数来指定是十进制还是其他进制
     "vars-on-top": 0, //var必须放在作用域顶部
-    "wrap-iife": 0,//[2, "any"], 立即执行表达式的括号风格
-    "yoda": [2, "never", {
+    "wrap-iife": 0, //[2, "any"], 立即执行表达式的括号风格
+    "yoda": [2, "never",
+    {
       "exceptRange": true
     }], //不允许在if条件中使用yoda条件
     "strict": [2, "function"], //使用严格模式
@@ -117,15 +127,18 @@ module.exports = {
     "no-undef": 2, //不允许未声明的变量
     "no-undef-init": 2, //不允许初始化变量时给变量赋值undefined
     "no-undefined": 0, //不允许把undefined当做标识符使用
-    "no-unused-vars": [2, {
+    "no-unused-vars": [2,
+    {
       "vars": "all",
       "args": "after-used"
     }], //不允许有声明后未使用的变量或者参数
     "no-use-before-define": [2, "nofunc"], //不允许在未定义之前就使用变量"indent": 2, //强制一致的缩进风格
-    "brace-style": [2, "1tbs", {
+    "brace-style": [2, "1tbs",
+    {
       "allowSingleLine": false
     }], //大括号风格
-    "camelcase": [1, {
+    "camelcase": [1,
+    {
       "properties": "never"
     }], //强制驼峰命名规则
     "comma-style": [2, "last"], //逗号风格
@@ -133,12 +146,14 @@ module.exports = {
     "eol-last": 2, //文件以换行符结束
     "func-names": 0, //函数表达式必须有名字
     "func-style": 0, //函数风格，规定只能使用函数声明或者函数表达式
-    "key-spacing": [2, {
+    "key-spacing": [2,
+    {
       "beforeColon": false,
       "afterColon": true
     }], //对象字面量中冒号的前后空格
     "max-nested-callbacks": 0, //回调嵌套深度
-    "new-cap": [2, {
+    "new-cap": [2,
+    {
       "newIsCap": true,
       "capIsNew": false
     }], //构造函数名字首字母要大写
@@ -148,7 +163,8 @@ module.exports = {
     "no-inline-comments": 0, //不允许行内注释
     "no-lonely-if": 0, //不允许else语句内只有if语句
     "no-mixed-spaces-and-tabs": [2, "smart-tabs"], //不允许混用tab和空格
-    "no-multiple-empty-lines": [2, {
+    "no-multiple-empty-lines": [2,
+    {
       "max": 2
     }], //空行最多不能超过两行
     "no-nested-ternary": 2, //不允许使用嵌套的三目运算符
@@ -163,22 +179,25 @@ module.exports = {
     "padded-blocks": [2, "never"], //块内行首行尾是否空行
     "quote-props": 0, //对象字面量中属性名加引号
     "quotes": [1, "single", "avoid-escape"], //引号风格
-    "semi": [2, "always"], //强制语句分号结尾
-    "semi-spacing": [2, {
-      "before": false,
-      "after": true
-    }], //分后前后空格
+    // "semi": [2, "always"], //强制语句分号结尾
+    // "semi-spacing": [2, {
+    //   "before": false,
+    //   "after": true
+    // }], //分后前后空格
     "sort-vars": 0, //变量声明时排序
     "space-before-blocks": [2, "always"], //块前的空格
-    "space-before-function-paren": [2, {
+    "space-before-function-paren": [2,
+    {
       "anonymous": "always",
       "named": "never"
     }], //函数定义时括号前的空格
-    "space-infix-ops": [2, {
+    "space-infix-ops": [2,
+    {
       "int32Hint": true
     }], //操作符周围的空格
     "keyword-spacing": 2, //关键字前后的空格
-    "space-unary-ops": [2, {
+    "space-unary-ops": [2,
+    {
       "words": true,
       "nonwords": false
     }], //一元运算符前后不要加空格
@@ -192,9 +211,8 @@ module.exports = {
     "no-bitwise": 0, //不允许使用位运算符
     "no-plusplus": 0, //不允许使用++ --运算符
     "indent": ["warn", 4],
-    "linebreak-style": ["warn", "unix"],
+    "linebreak-style":  ["warn", "unix"],
     "quotes": ["error", "single"],
-    "semi": ["error", "never"],
     "block-scoped-var": 0, //把 var 语句看作是在块级作用域范围之内
     "curly": 1, //为所有控制语句指定花括号约定，警告
     "eol-last": 0, //强制文件最后一行为空行，关闭
@@ -211,16 +229,18 @@ module.exports = {
     "no-unused-vars": 2, //变量定义后未使用
     "no-use-before-define": 1, //不允许在变量定义之前使用它们
     "quotes": [0, "single", "avoid-escape"], //使用单引号
-    "semi": "off",
+    "semi": 0,
     "semi-spacing": "off",
     "spaced-comment": "off",
     "indent": "off",
     "comma-spacing": "off",
-    "no-unused-expressions": ["error", {
+    "no-unused-expressions": ["error",
+    {
       "allowShortCircuit": true,
       "allowTernary": true
     }],
-    "space-before-function-paren": ["error", {
+    "space-before-function-paren": ["error",
+    {
       "anonymous": "ignore",
       "named": "ignore"
     }],
@@ -229,6 +249,6 @@ module.exports = {
     "block-spacing": "off",
     "keyword-spacing": "off",
     "key-spacing": "off",
-    "func-call-spacing": "off",
+    "func-call-spacing": "off"
   }
 }
