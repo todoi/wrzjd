@@ -19,3 +19,11 @@
 
 # The ES6 Module System (翻译)
 ## https://ponyfoo.com/articles/es6-modules-in-depth
+
+# 了解使用 blob 文件对象
+## https://developer.mozilla.org/zh-CN/docs/Web/API/Blob
+## https://www.wunderlist.com/webapp#/lists/inbox
+
+# url 中的 # 字号
+## http://www.ruanyifeng.com/blog/2011/03/url_hash.html
+## https://www.wunderlist.com/webapp#/lists/342976336
