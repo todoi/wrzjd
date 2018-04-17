@@ -27,3 +27,6 @@ https://www.wunderlist.com/webapp#/lists/inbox
 ## url 中的 # 字号
 http://www.ruanyifeng.com/blog/2011/03/url_hash.html
 https://www.wunderlist.com/webapp#/lists/342976336
+
+## 单精度浮点数和双进度浮点数的区别
+https://www.zhihu.com/question/46432979/answer/221485161
