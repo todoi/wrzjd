@@ -5,18 +5,68 @@
   <title>Document</title>
 </head>
 <body>
-  <button id="play">点击开始播放</button>
-  <audio src="./media/bwc.mp3" autoplay=true loop=true id="audio"></audio>
+  <button class="btn-music">点击关闭音乐</button>
+  <button class="next-music">下一首</button>
+  <button class="prev-music">上一首</button>
+
+  <audio id="music" class="active" src="./media/bwc.mp3" autoplay=true loop=true></audio>
+  <audio id="countdown-music" src="./media/3seconds.mp3" pause=true ></audio>
+  <audio id="start-quiz-music1" src="./media/dida.mp3" pause=true></audio>
+  <audio id="start-quiz-music2" src="./media/loop.mp3" pause=true loop=true></audio>
+
+  <script src="../../jquery/jquery-1.8.3.min.js"></script>
   <script>
-    var btn = document.getElementById('play')
-    var audio = document.getElementById('audio')
-    btn.addEventListener('click', function(){
-      if(audio.paused){
-        audio.play()
-      }else{
-        audio.pause()
-      }
-    })
+
+// 控制音乐
+$('.btn-music').on('click', function turnOffMusic() {
+  $(this).unbind().addClass('btn-music-off').text('点击播放音乐').on('click', function() {
+    $(this).unbind().removeClass('btn-music-off').text('点击关闭音乐').on('click', turnOffMusic)
+    document.querySelector('audio.active').play()
+  })
+  pauseMusic()
+})
+
+function pauseMusic(){
+  document.getElementById('music').pause()
+  document.getElementById('countdown-music').pause()
+  document.getElementById('start-quiz-music1').pause()
+  document.getElementById('start-quiz-music2').pause()
+}
+
+// 切换音乐
+function toggleMusic(turnOnId){
+  var audios = document.querySelectorAll('audio')
+  for(var i=0; i<audios.length; i++){
+    audios[i].pause()
+  }
+  if(!$('.btn-music').hasClass('btn-music-off')) document.getElementById(turnOnId).play()
+  $('audio').removeClass('active')
+  $('#' + turnOnId).addClass('active')
+}
+
+$('.next-music').on('click', function(){
+  var $audios = $('audio')
+  for(var i=0; i<$audios.length; i++){
+    if($($audios[i]).hasClass('active')){
+      index = i
+    }
+  }
+  index = index < 3 ? index + 1 : 0
+  toggleMusic($audios.removeClass('active').eq(index).addClass('active').attr('id'))
+})
+
+$('.prev-music').on('click', function(){
+  var $audios = $('audio')
+  for(var i=0; i<$audios.length; i++){
+    if($($audios[i]).hasClass('active')){
+      index = i
+    }
+  }
+  index = index > 1 ? index - 1 : 3
+  toggleMusic($audios.removeClass('active').eq(index).addClass('active').attr('id'))
+})
+
+
   </script>
 </body>
 </html>
