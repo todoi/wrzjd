@@ -18,6 +18,7 @@ function CountDownRing(opts) {
   this.time = opts.time //ms
   this.interval = opts.interval //ms
   this.callback = opts.callback
+  this.triggers = []
 
   this.MAX = opts.time / 1000 //s
   if (canvas.getContext){
@@ -29,13 +30,25 @@ function CountDownRing(opts) {
   canvas.setAttribute('height', (this.radius + this.borderWidth) * 2)
   this.timer = null
   // this.fontSize = opts.fontSize //px
+
+  this._execTriger = function(){
+    var arr = this.triggers
+    for(var i = 0; i < arr.length; i++){
+      var trigger = arr[i]
+      if((trigger.triggerTime > this.time) && !trigger.triggerFlag){
+        trigger.triggerFlag = true
+        trigger.triggerFunction()
+      }
+    }
+  }
 }
 
 CountDownRing.prototype.go = function (){
   this.time -= this.interval
+  this._execTriger()
   if(this.time < 0){
     this.callback()
-    return
+    return this
   }
   this.paint()
   this.timer = window.setTimeout( function (){
@@ -85,6 +98,7 @@ CountDownRing.prototype.paint = function() {
 }
 
 CountDownRing.prototype.restart = function(){
+  window.clearTimeout(this.timer)
   this.time = this.MAX * 1000
   return this
 }
@@ -92,5 +106,16 @@ CountDownRing.prototype.restart = function(){
 CountDownRing.prototype.stop = function(){
   window.clearTimeout(this.timer)
 }
+
+CountDownRing.prototype.addTrigger = function(time, callback){
+  var obj = {
+    triggerTime: time,
+    triggerFlag: false,
+    triggerFunction: callback
+  }
+  this.triggers.push(obj)
+  console.dir(this.triggers)
+}
+
 
 

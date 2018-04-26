@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <button id="play">点击开始播放</button>
+  <audio src="./media/bwc.mp3" autoplay=true loop=true id="audio"></audio>
+  <script>
+    var btn = document.getElementById('play')
+    var audio = document.getElementById('audio')
+    btn.addEventListener('click', function(){
+      if(audio.paused){
+        audio.play()
+      }else{
+        audio.pause()
+      }
+    })
+  </script>
+</body>
+</html>
