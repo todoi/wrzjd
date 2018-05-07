@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container" style="width: 500px; height: 500px; position: relative; background: #ddd; margin: 50px auto; overflow: auto; ">
+    <div id="drag" style="width: 100px; height: 100px; position: absolute; top: 0; left: 0; background: #aaa;">
+      <p>Drag me arround</p>
+    </div>
+  </div>
+  <script>
+    let element = document.getElementById('drag')
+    let previousPos = {}
+    let nextPos = {}
+
+
+    function addListeners(element){
+      element.addEventListener('mousedown', mousedown, false)
+      window.addEventListener('mouseup', mouseup, false)
+    }
+
+    addListeners(element)
+
+    function mousedown(event){
+      let el = document.getElementById('drag')
+      writePos(previousPos, el, event)
+      window.addEventListener('mousemove', mousemove, false)
+    }
+
+    function mouseup(event){
+      window.removeEventListener('mousemove', mousemove, false)
+      console.log(1)
+    }
+
+    function mousemove(event){
+      let el = document.getElementById('drag')
+      writePos(nextPos, el, event)
+      el.style.left = previousPos.divX + nextPos.mouseX - previousPos.mouseX + 'px'
+      el.style.top = previousPos.divY + nextPos.mouseY - previousPos.mouseY + 'px'
+      console.log(0)
+      // el.style.left = event.clientX - el.getBoundingClientRect().left + 'px'
+      // el.style.top = event.clientY - el.getBoundingClientRect().top + 'px'
+    }
+
+    function writePos(obj, el, event){
+      obj.divX = el.offsetLeft
+      obj.divY = el.offsetTop
+      obj.mouseX = window.scrollX + event.clientX
+      obj.mouseY = window.scrollY + event.clientY
+    }
+  </script>
+</body>
+</html>
