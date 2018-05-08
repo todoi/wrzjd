@@ -30,3 +30,6 @@ https://www.wunderlist.com/webapp#/lists/342976336
 
 ## 单精度浮点数和双进度浮点数的区别
 https://www.zhihu.com/question/46432979/answer/221485161
+
+## task and microtask
+https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/
