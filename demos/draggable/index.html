@@ -24,6 +24,8 @@
     addListeners(element)
 
     function mousedown(event){
+      console.dir({this: this})
+      console.dir({event: event})
       let el = document.getElementById('drag')
       writePos(previousPos, el, event)
       window.addEventListener('mousemove', mousemove, false)
@@ -31,7 +33,6 @@
 
     function mouseup(event){
       window.removeEventListener('mousemove', mousemove, false)
-      console.log(1)
     }
 
     function mousemove(event){
@@ -39,9 +40,6 @@
       writePos(nextPos, el, event)
       el.style.left = previousPos.divX + nextPos.mouseX - previousPos.mouseX + 'px'
       el.style.top = previousPos.divY + nextPos.mouseY - previousPos.mouseY + 'px'
-      console.log(0)
-      // el.style.left = event.clientX - el.getBoundingClientRect().left + 'px'
-      // el.style.top = event.clientY - el.getBoundingClientRect().top + 'px'
     }
 
     function writePos(obj, el, event){
