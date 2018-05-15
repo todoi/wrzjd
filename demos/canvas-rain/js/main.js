@@ -47,9 +47,11 @@
         //开始画图
         context.beginPath()
         if (direction === "left") {
-          drawCurve(this, -1, 7, 10, 11, 5)
+          // drawCurve(this, -1, 7, 10, 11, 5)
+          drawCurve(this, -1, 10, 20, 11, 5)
         } else if (direction === "right") {
-          drawCurve(this, 1, 7, 10, 11, 5)
+          // drawCurve(this, 1, 7, 10, 11, 5)
+          drawCurve(this, 1, 10, 20, 11, 5)
         } else {
           isSkew = 0
           drawCurve(this, 1, 0, 15, 3, 20)

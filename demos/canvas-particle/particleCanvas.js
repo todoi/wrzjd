@@ -141,6 +141,7 @@
         }
         ,
         /*计算重新进入画布的位置*/
+        // tempReIn = this.reIn(canvas, tempPoint.reIn, tempPoint.angle, tempPoint.x, tempPoint.y, tempPoint.size, tempPoint.speed,param,tempPoint);
         reIn: function (canvas, way, angle, initX, initY, size, speed,param,tempPoint) {
             var rX, rY, tempX, tempY, radian, opAngle;
             switch (way) {
@@ -183,7 +184,8 @@
                             }
                         }
                     }
-                    rX = tempX;
+                    // rX = tempX;
+                    rX = canvas.width - tempX;
                     rY = tempY;
                     if(param.reverseDirection === 'replaceInitPosition'){
                         tempPoint.x = tempX>>0;
@@ -203,7 +205,7 @@
         /*随机生成初始点*/
         createPosition: function (area) {
             var x, y;
-            x = Math.random() * (area.rightBottom[0] - area.leftTop[0]) + area.leftTop[0] >> 0;
+            x = Math.random() * (area.rightBottom[0] - area.leftTop[0]) + area.leftTop[0] >> 0
             y = Math.random() * (area.rightBottom[1] - area.leftTop[1]) + area.leftTop[1] >> 0;
             return {x: x, y: y};
         },
@@ -387,16 +389,29 @@
                 for (var i = tempArray.length - 1; i >= 0; --i) {
                     tempPoint = tempArray[i];
                     //更新位置信息
-                    if (tempPoint.x < -tempPoint.size - tempPoint.speed - 10 ||
-                        tempPoint.y < -tempPoint.size - tempPoint.speed - 10 ||
-                        tempPoint.x > this.canvasWidth + tempPoint.size + tempPoint.speed + 10 ||
-                        tempPoint.y > this.canvasHeight + tempPoint.size + tempPoint.speed + 10) {
-                        //如果超出屏幕了,回到重进画布的位置
-                        tempPoint.x = tempPoint.reInX;
-                        tempPoint.y = tempPoint.reInY;
+                    // if (tempPoint.x < -tempPoint.size - tempPoint.speed - 10 ||
+                    //     tempPoint.y < -tempPoint.size - tempPoint.speed - 10 ||
+                    //     tempPoint.x > this.canvasWidth + tempPoint.size + tempPoint.speed + 10 ||
+                    //     tempPoint.y > this.canvasHeight + tempPoint.size + tempPoint.speed + 10) {
+                    //     //如果超出屏幕了,回到重进画布的位置
+                    //     tempPoint.x = tempPoint.reInX;
+                    //     tempPoint.y = tempPoint.reInY;
+                    // } else {
+                    //     //没有超出屏幕,继续移动
+                    //     tempPoint.x += Math.cos(tempPoint.angle / 180 * Math.PI) * tempPoint.speed;
+                    //     tempPoint.y += Math.sin(tempPoint.angle / 180 * Math.PI) * tempPoint.speed;
+                    // }
+                    if(tempPoint.x < -tempPoint.size - tempPoint.speed - 10 ||
+                       tempPoint.y < -tempPoint.size - tempPoint.speed - 10 ||
+                       tempPoint.x > this.canvasWidth + tempPoint.size + tempPoint.speed + 10 ||
+                       tempPoint.y > this.canvasHeight + tempPoint.size + tempPoint.speed + 10){
+                       //如果超出屏幕了,回到重进画布的位置
+                       tempPoint.x = tempPoint.reInX;
+                       // console.log(tempPoint.reInX)
+                       tempPoint.y = tempPoint.reInY;
                     } else {
                         //没有超出屏幕,继续移动
-                        tempPoint.x += Math.cos(tempPoint.angle / 180 * Math.PI) * tempPoint.speed;
+                        tempPoint.x -= Math.cos(tempPoint.angle / 180 * Math.PI) * tempPoint.speed;
                         tempPoint.y += Math.sin(tempPoint.angle / 180 * Math.PI) * tempPoint.speed;
                     }
                     //更新旋转信息
