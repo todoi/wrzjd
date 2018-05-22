@@ -37,3 +37,6 @@ https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/
 ## base64 编码
 如果有字符超出了8位ASCII编码的字符范围时,unicode 会遇到问题
 https://developer.mozilla.org/zh-CN/docs/Web/API/WindowBase64/Base64_encoding_and_decoding
+
+## obsevable
+http://www.cnblogs.com/BestMePeng/p/JavaScript_Obervable.html
